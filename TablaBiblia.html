@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  AquÌ comienza el Javascript */-->
+<!--  Aqu√≠ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canciÛn
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÛn
+        //Saltar a la siguiente canci√≥n
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canci√≥n
                        playnext();
         }
    }
- //Play and pause function. Esta es la funciÛn en la que empieza a sonar la m˙sica de un canto concreto.
+ //Play and pause function. Esta es la funci√≥n en la que empieza a sonar la m√∫sica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los par·metros del canto que tengo que reproducir
+                    //recojo los par√°metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si tenÌa un ID en marcha
+                          if ( !oAudio.paused) {          // Si ten√≠a un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde est· localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde est√° localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir atr·s
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÛn me vol a la ˙ltima
+            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir atr√°s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canci√≥n me vol a la √∫ltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canciÛn empiezo por la ˙ltima
+           else {   // Si no hay canci√≥n empiezo por la √∫ltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Est· sonando un mp3
-                             // Miro si est· parado o sonando
+                    if (currentURLmp3 !== "") {    // Est√° sonando un mp3
+                             // Miro si est√° parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la ˙ltima canciÛn me voy a la primera
+            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la √∫ltima canci√≥n me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canciÛn empiezo por la primera
+           else {   // Si no hay canci√≥n empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -237,7 +237,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar autom·ticamente por una canciÛn aleatoria
+            // Si tengo que empezar autom√°ticamente por una canci√≥n aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -277,7 +277,7 @@ canvas Not supported
 <th width=100px>Cita</th>
 <th width=237px>Nombre</th>
 <th width=84px>Letra/notas</th>
-<th width=170px>Citas BÌblicas</th>
+<th width=170px>Citas B√≠blicas</th>
 <th width=102px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
@@ -287,7 +287,7 @@ canvas Not supported
 <TD width=237px>Quererse</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=1&capini=1&verini=27&verfin=' target='_blank'>Gn 1,27</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=10&verini= 6&verfin=9' target='_blank'>Mc 10, 6-9</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini= 48&verfin=' target='_blank'>Mt 5, 48</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='2' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/17%20Sin%20amarras.mp3','2','Gn 12, 1','Sin amarras')"></TD>
@@ -295,7 +295,7 @@ canvas Not supported
 <TD width=237px>Sin amarras</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=1&capini=12&verini= 1&verfin=' target='_blank'>Gn 12, 1</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=9&verini= 62&verfin=' target='_blank'>Lc 9, 62</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='3' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/13%20Beber%20los%20vientos.mp3','3','Gn 12, 1-2','Beber los vientos')"></TD>
@@ -303,7 +303,7 @@ canvas Not supported
 <TD width=237px>Beber los vientos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini= 13&verfin=16' target='_blank'>Mt 5, 13-16</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=1&capini=12&verini= 1&verfin=2' target='_blank'>Gn 12, 1-2</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=8&verini= 22&verfin=23' target='_blank'>Rom 8, 22-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='4' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/02Dios%20provee.mp3','4','Gn 22, 7-8','Dios provee')"></TD>
@@ -311,47 +311,47 @@ canvas Not supported
 <TD width=237px>Dios provee</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=1&capini=22&verini= 7&verfin=8' target='_blank'>Gn 22, 7-8</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=24&capini=36&verini= 26&verfin=28' target='_blank'>Ez 36, 26-28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/045-Desc%C3%A1lzate-AinKarem.mp3','5','…x 3, 1-5','Desc·lzate')"></TD>
-<TD width=100px>…x 3, 1-5</TD>
-<TD width=237px>Desc·lzate</TD>
+<TD width=35px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/045-Desc%C3%A1lzate-AinKarem.mp3','5','√âx 3, 1-5','Desc√°lzate')"></TD>
+<TD width=100px>√âx 3, 1-5</TD>
+<TD width=237px>Desc√°lzate</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063361' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=5' target='_blank'>…x 3, 1-5</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=5' target='_blank'>√âx 3, 1-5</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
-<TD width=100px>…x 3,1-6</TD>
-<TD width=237px>Desc·lzate</TD>
+<TD width=100px>√âx 3,1-6</TD>
+<TD width=237px>Desc√°lzate</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/descalzate.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini=1&verfin=6' target='_blank'>…x 3,1-6</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini=1&verfin=6' target='_blank'>√âx 3,1-6</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='6' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/03%20Monte%20Horeb.mp3','6','…x 3, 1-15','Monte Horeb')"></TD>
-<TD width=100px>…x 3, 1-15</TD>
+<TD width=35px><img id='6' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/03%20Monte%20Horeb.mp3','6','√âx 3, 1-15','Monte Horeb')"></TD>
+<TD width=100px>√âx 3, 1-15</TD>
 <TD width=237px>Monte Horeb</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=5&capini=3&verini= 41&verfin=' target='_blank'>Dt 3, 41</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=15' target='_blank'>…x 3, 1-15</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=10&capini=19&verini=&verfin=' target='_blank'>1Re 19</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=5&capini=3&verini= 41&verfin=' target='_blank'>Dt 3, 41</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=15' target='_blank'>√âx 3, 1-15</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=10&capini=19&verini=&verfin=' target='_blank'>1Re 19</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
-<TD width=100px>…x 3</TD>
+<TD width=100px>√âx 3</TD>
 <TD width=237px>Yo soy</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/yo-soy1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini=&verfin=' target='_blank'>…x 3</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini=&verfin=' target='_blank'>√âx 3</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='7' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/14%20Epilogo.mp3','7','…x 36, 24-28','EpÌlogo')"></TD>
-<TD width=100px>…x 36, 24-28</TD>
-<TD width=237px>EpÌlogo</TD>
+<TD width=35px><img id='7' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/14%20Epilogo.mp3','7','√âx 36, 24-28','Ep√≠logo')"></TD>
+<TD width=100px>√âx 36, 24-28</TD>
+<TD width=237px>Ep√≠logo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=11&verini= 1&verfin=9' target='_blank'>Is 11, 1-9</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=36&verini= 24&verfin=28' target='_blank'>…x 36, 24-28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=11&verini= 1&verfin=9' target='_blank'>Is 11, 1-9</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=36&verini= 24&verfin=28' target='_blank'>√âx 36, 24-28</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='8' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/179-Shema%20Israel-Kairoi.mp3','8','Dt 6,4','Shema Israel')"></TD>
@@ -367,7 +367,7 @@ canvas Not supported
 <TD width=237px>Hacia Ti</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=143&verini=8&verfin=' target='_blank'>Sal 143,8</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=5&capini=6&verini=4&verfin=9' target='_blank'>Dt 6,4-9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='10' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/08%20Gentes%20con%20derecho.mp3','10','Dt 15, 7-8','Gentes con derecho')"></TD>
@@ -375,15 +375,15 @@ canvas Not supported
 <TD width=237px>Gentes con derecho</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=13&verini= 8&verfin=10' target='_blank'>Rom 13, 8-10</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=5&capini=15&verini= 7&verfin=8' target='_blank'>Dt 15, 7-8</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='11' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/09%20Oh%2C%20Se%C3%B1or.mp3','11','Dt 15, 7-8','Oh, SeÒor')"></TD>
+<TD width=35px><img id='11' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/09%20Oh%2C%20Se%C3%B1or.mp3','11','Dt 15, 7-8','Oh, Se√±or')"></TD>
 <TD width=100px>Dt 15, 7-8</TD>
-<TD width=237px>Oh, SeÒor</TD>
+<TD width=237px>Oh, Se√±or</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=6&verini= 16&verfin=' target='_blank'>Jr 6, 16</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=5&capini=15&verini= 7&verfin=8' target='_blank'>Dt 15, 7-8</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='12' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/18%20No%20temas.mp3','12','Jos 1, 9','No temas')"></TD>
@@ -391,7 +391,7 @@ canvas Not supported
 <TD width=237px>No temas</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=6&capini=1&verini= 9&verfin=' target='_blank'>Jos 1, 9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -402,12 +402,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/08Aqu%C3%AD%20estoy.mp3','13','1Sm 3, 10','AquÌ estoy')"></TD>
+<TD width=35px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/08Aqu%C3%AD%20estoy.mp3','13','1Sm 3, 10','Aqu√≠ estoy')"></TD>
 <TD width=100px>1Sm 3, 10</TD>
-<TD width=237px>AquÌ estoy</TD>
+<TD width=237px>Aqu√≠ estoy</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=8&capini=3&verini= 10&verfin=' target='_blank'>1Sm 3, 10</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -420,39 +420,39 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Rut 1,1-17</TD>
-<TD width=237px>Rut y NoemÌ</TD>
+<TD width=237px>Rut y Noem√≠</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/rut%20y%20noemi.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=18&capini=1&verini=1&verfin=17' target='_blank'>Rut 1,1-17</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='14' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3','14','Rut 1,16','No quiero alejarme de TÌ')"></TD>
+<TD width=35px><img id='14' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3','14','Rut 1,16','No quiero alejarme de T√≠')"></TD>
 <TD width=100px>Rut 1,16</TD>
-<TD width=237px>No quiero alejarme de TÌ</TD>
+<TD width=237px>No quiero alejarme de T√≠</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063436' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=18&capini=1&verini=16&verfin=' target='_blank'>Rut 1,16</a></TD>
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='15' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/005-Agua%20l%C3%A1vame-Brotes.mp3','15','Is 1,16','Agua l·vame')"></TD>
+<TD width=35px><img id='15' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/005-Agua%20l%C3%A1vame-Brotes.mp3','15','Is 1,16','Agua l√°vame')"></TD>
 <TD width=100px>Is 1,16</TD>
-<TD width=237px>Agua l·vame</TD>
+<TD width=237px>Agua l√°vame</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063321' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=1&verini=16&verfin=' target='_blank'>Is 1,16</a></TD>
 <TD width=102px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='16' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/165-Santo_santo-Kairoi.mp3','16','Is 6,3','Santo carism·tico')"></TD>
+<TD width=35px><img id='16' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/165-Santo_santo-Kairoi.mp3','16','Is 6,3','Santo carism√°tico')"></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo carism·tico</TD>
+<TD width=237px>Santo carism√°tico</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063481' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='17' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/166-Santo%20el%20Se%C3%B1or%2C%20Gloria.mp3','17','Is 6,3','Santo el SeÒor, Gloria')"></TD>
+<TD width=35px><img id='17' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/166-Santo%20el%20Se%C3%B1or%2C%20Gloria.mp3','17','Is 6,3','Santo el Se√±or, Gloria')"></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo el SeÒor, Gloria</TD>
+<TD width=237px>Santo el Se√±or, Gloria</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063482' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
@@ -460,7 +460,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo eres SeÒor</TD>
+<TD width=237px>Santo eres Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063483' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
@@ -468,7 +468,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo es el SeÒor</TD>
+<TD width=237px>Santo es el Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063484' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
@@ -476,15 +476,15 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo es el SeÒor mi Dios</TD>
+<TD width=237px>Santo es el Se√±or mi Dios</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063485' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='18' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/170-Santo%20salvadore%C3%B1o.mp3','18','Is 6,3','Santo salvadoreÒo')"></TD>
+<TD width=35px><img id='18' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/170-Santo%20salvadore%C3%B1o.mp3','18','Is 6,3','Santo salvadore√±o')"></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>Santo salvadoreÒo</TD>
+<TD width=237px>Santo salvadore√±o</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063486' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
@@ -514,9 +514,9 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='22' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/176-Se%C3%B1or%20Santo.mp3','22','Is 6,3','SeÒor Santo')"></TD>
+<TD width=35px><img id='22' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/176-Se%C3%B1or%20Santo.mp3','22','Is 6,3','Se√±or Santo')"></TD>
 <TD width=100px>Is 6,3</TD>
-<TD width=237px>SeÒor Santo</TD>
+<TD width=237px>Se√±or Santo</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063492' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=102px></TD>
@@ -554,9 +554,9 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='27' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/13%20Heme%20aqui.mp3','27','Is 6,8','Heme aquÌ')"></TD>
+<TD width=35px><img id='27' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/13%20Heme%20aqui.mp3','27','Is 6,8','Heme aqu√≠')"></TD>
 <TD width=100px>Is 6,8</TD>
-<TD width=237px>Heme aquÌ</TD>
+<TD width=237px>Heme aqu√≠</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/heme-aqui1.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=8&verfin=' target='_blank'>Is 6,8</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=45&verini=2&verfin=' target='_blank'>Is 45,2</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini=1&verfin=3' target='_blank'>Is 61,1-3</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -567,7 +567,7 @@ canvas Not supported
 <TD width=237px>Toma mi libertad</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini= 8&verfin=' target='_blank'>IS 6, 8</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='29' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/A%20todos%20los%20pueblos/10%20El%20siervo.mp3','29','Is 42,1-7','El siervo')"></TD>
@@ -578,17 +578,17 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='30' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/26_FIATE.mp3','30','Is 43,1-3','FÌate')"></TD>
+<TD width=35px><img id='30' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/26_FIATE.mp3','30','Is 43,1-3','F√≠ate')"></TD>
 <TD width=100px>Is 43,1-3</TD>
-<TD width=237px>FÌate</TD>
+<TD width=237px>F√≠ate</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=43&verini=1&verfin=3' target='_blank'>Is 43,1-3</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/16%20YO%20SER%C3%89.mp3','31','Is 43, 1-5','Yo serÈ')"></TD>
+<TD width=35px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/16%20YO%20SER%C3%89.mp3','31','Is 43, 1-5','Yo ser√©')"></TD>
 <TD width=100px>Is 43, 1-5</TD>
-<TD width=237px>Yo serÈ</TD>
+<TD width=237px>Yo ser√©</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=43&verini= 1&verfin=5' target='_blank'>Is 43, 1-5</a></TD>
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -596,7 +596,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Is 45</TD>
-<TD width=237px>SÛlo T˙</TD>
+<TD width=237px>S√≥lo T√∫</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/S%C3%93LO-T%C3%9A.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=45&verini=&verfin=' target='_blank'>Is 45</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=16&verini=&verfin=' target='_blank'>Sal 16</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -607,7 +607,7 @@ canvas Not supported
 <TD width=237px>Tu ternura</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=49&verini= 14&verfin=16' target='_blank'>Is 49, 14-16</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -618,12 +618,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='33' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/16%20Dame%20Se%C3%B1or.mp3','33','Is 50,40','Dame, SeÒor')"></TD>
+<TD width=35px><img id='33' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/16%20Dame%20Se%C3%B1or.mp3','33','Is 50,40','Dame, Se√±or')"></TD>
 <TD width=100px>Is 50,40</TD>
-<TD width=237px>Dame, SeÒor</TD>
+<TD width=237px>Dame, Se√±or</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=50&verini=40&verfin=' target='_blank'>Is 50,40</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='34' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/06_VENGO_A_ORAR.mp3','34','Is 55,1-3','Vengo a orar')"></TD>
@@ -631,15 +631,15 @@ canvas Not supported
 <TD width=237px>Vengo a orar</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=55&verini=1&verfin=3' target='_blank'>Is 55,1-3</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=22&verini=17&verfin=' target='_blank'>Ap 22,17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='35' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/01%20Prologo.mp3','35','Is 55,1-2','PrÛlogo')"></TD>
+<TD width=35px><img id='35' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/01%20Prologo.mp3','35','Is 55,1-2','Pr√≥logo')"></TD>
 <TD width=100px>Is 55,1-2</TD>
-<TD width=237px>PrÛlogo</TD>
+<TD width=237px>Pr√≥logo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=2&verini=13&verfin=' target='_blank'>Jr 2,13</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=55&verini=1&verfin=2' target='_blank'>Is 55,1-2</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='36' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/030-Como%20la%20lluvia-Ixcis.mp3','36','Is 55,10-11','Como la lluvia da vida')"></TD>
@@ -647,7 +647,7 @@ canvas Not supported
 <TD width=237px>Como la lluvia da vida</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063346' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=55&verini=10&verfin=11' target='_blank'>Is 55,10-11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='37' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/113-Mi%20Palabra-Nico.mp3','37','Is 55,10-11','Mi palabra')"></TD>
@@ -663,15 +663,15 @@ canvas Not supported
 <TD width=237px>Como la lluvia</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=55&verini= 10&verfin=11' target='_blank'>Is 55, 10-11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='39' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/05Mis%20se%C3%B1ores%20y%20mis%20amos.mp3','39','Is 58, 6-7','Mis seÒores y mis amos')"></TD>
+<TD width=35px><img id='39' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/05Mis%20se%C3%B1ores%20y%20mis%20amos.mp3','39','Is 58, 6-7','Mis se√±ores y mis amos')"></TD>
 <TD width=100px>Is 58, 6-7</TD>
-<TD width=237px>Mis seÒores y mis amos</TD>
+<TD width=237px>Mis se√±ores y mis amos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=58&verini= 6&verfin=7' target='_blank'>Is 58, 6-7</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=25&verini= 40&verfin=' target='_blank'>Mt 25, 40</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='40' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/17%20El%20ayuno%20que%20yo%20quiero.mp3','40','Is 58, 6-7','El ayuno que yo quiero')"></TD>
@@ -679,12 +679,12 @@ canvas Not supported
 <TD width=237px>El ayuno que yo quiero</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=11' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=58&verini= 6&verfin=7' target='_blank'>Is 58, 6-7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Is 60,19-22</TD>
-<TD width=237px>Que se alegren tus entraÒas</TD>
+<TD width=237px>Que se alegren tus entra√±as</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp2.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=60&verini=19&verfin=22' target='_blank'>Is 60,19-22</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -695,31 +695,31 @@ canvas Not supported
 <TD width=237px>Morir</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=60&verini=19&verfin=20' target='_blank'>Is 60,19-20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/017-Bendigamos%20al%20Se%C3%B1or.mp3','42','Is 61, 1-2','Bendigamos al SeÒor')"></TD>
+<TD width=35px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/017-Bendigamos%20al%20Se%C3%B1or.mp3','42','Is 61, 1-2','Bendigamos al Se√±or')"></TD>
 <TD width=100px>Is 61, 1-2</TD>
-<TD width=237px>Bendigamos al SeÒor</TD>
+<TD width=237px>Bendigamos al Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063333' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=4&verini= 16&verfin=21' target='_blank'>Lc 4, 16-21</a></TD>
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='43' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/12%20LOS%20PEQUE%C3%91OS%20DE%20LA%20TIERRA.mp3','43','Is 61, 1-2','Los pequeÒos de la tierra')"></TD>
+<TD width=35px><img id='43' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/12%20LOS%20PEQUE%C3%91OS%20DE%20LA%20TIERRA.mp3','43','Is 61, 1-2','Los peque√±os de la tierra')"></TD>
 <TD width=100px>Is 61, 1-2</TD>
-<TD width=237px>Los pequeÒos de la tierra</TD>
+<TD width=237px>Los peque√±os de la tierra</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a></TD>
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/21.%20Jerem%C3%ADas%201%2C%204-10.mp3','44','Jr 1,4-10','JeremÌas 1, 4-10')"></TD>
+<TD width=35px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/21.%20Jerem%C3%ADas%201%2C%204-10.mp3','44','Jr 1,4-10','Jerem√≠as 1, 4-10')"></TD>
 <TD width=100px>Jr 1,4-10</TD>
-<TD width=237px>JeremÌas 1, 4-10</TD>
+<TD width=237px>Jerem√≠as 1, 4-10</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=1&verini=4&verfin=10' target='_blank'>Jr 1,4-10</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='45' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/15_DANOS_PASTORES.mp3','45','Jr 3,15','Danos pastores')"></TD>
@@ -727,7 +727,7 @@ canvas Not supported
 <TD width=237px>Danos pastores</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=3&verini=15&verfin=' target='_blank'>Jr 3,15</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='46' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/06%20Dejarme%20hacer.mp3','46','Jr 18, 1-6','Dejarme hacer')"></TD>
@@ -735,7 +735,7 @@ canvas Not supported
 <TD width=237px>Dejarme hacer</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=18&verini= 1&verfin=6' target='_blank'>Jr 18, 1-6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='47' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/11Me%20sedujiste.mp3','47','Jr 20, 7','Me sedujiste')"></TD>
@@ -743,7 +743,7 @@ canvas Not supported
 <TD width=237px>Me sedujiste</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=12' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=23&capini=20&verini= 7&verfin=' target='_blank'>Jr 20, 7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -759,7 +759,7 @@ canvas Not supported
 <TD width=237px>Desierto</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=25&capini=2&verini= 16&verfin=' target='_blank'>Os 2, 16</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -772,7 +772,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Os 11,1-8</TD>
-<TD width=237px>PequeÒo Israel</TD>
+<TD width=237px>Peque√±o Israel</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/Fuego%20en%20las%20entra%C3%B1as.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=25&capini=11&verini=1&verfin=8' target='_blank'>Os 11,1-8</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -786,12 +786,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='49' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/27_TU_ERES_MI_FUERZA.mp3','49','Hab 3,17-19','T˙ eres mi fuerza')"></TD>
+<TD width=35px><img id='49' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/27_TU_ERES_MI_FUERZA.mp3','49','Hab 3,17-19','T√∫ eres mi fuerza')"></TD>
 <TD width=100px>Hab 3,17-19</TD>
-<TD width=237px>T˙ eres mi fuerza</TD>
+<TD width=237px>T√∫ eres mi fuerza</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=32&capini=3&verini=17&verfin=19' target='_blank'>Hab 3,17-19</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -815,15 +815,15 @@ canvas Not supported
 <TD width=237px>Creadores</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=8&verini= 5&verfin=6' target='_blank'>Sal 8, 5-6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='52' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/07_DESPIERTAME.mp3','52','Sal 16,15','DespiÈrtame')"></TD>
+<TD width=35px><img id='52' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/07_DESPIERTAME.mp3','52','Sal 16,15','Despi√©rtame')"></TD>
 <TD width=100px>Sal 16,15</TD>
-<TD width=237px>DespiÈrtame</TD>
+<TD width=237px>Despi√©rtame</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=16&verini=15&verfin=' target='_blank'>Sal 16,15</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='53' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/05%20Agujas%20del%20reloj.mp3','53','Sal 16,15','Agujas del reloj')"></TD>
@@ -831,28 +831,28 @@ canvas Not supported
 <TD width=237px>Agujas del reloj</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=16&verini=15&verfin=' target='_blank'>Sal 16,15</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Sal 16</TD>
-<TD width=237px>T˙ eres mi bien</TD>
+<TD width=237px>T√∫ eres mi bien</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/T%C3%9A-ERES-MI-BIEN.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=16&verini=&verfin=' target='_blank'>Sal 16</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='54' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/192-Te%20amo%20Se%C3%B1or.mp3','54','Sal 18,1-3','Te amo SeÒor')"></TD>
+<TD width=35px><img id='54' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/192-Te%20amo%20Se%C3%B1or.mp3','54','Sal 18,1-3','Te amo Se√±or')"></TD>
 <TD width=100px>Sal 18,1-3</TD>
-<TD width=237px>Te amo SeÒor</TD>
+<TD width=237px>Te amo Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063508' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=18&verini=1&verfin=3' target='_blank'>Sal 18,1-3</a></TD>
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='55' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/02%20A%20toda%20la%20tierra%20alcanza%20su%20preg%C3%B3n.mp3','55','Sal 19','A toda la tierra alcanza su pregÛn')"></TD>
+<TD width=35px><img id='55' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/02%20A%20toda%20la%20tierra%20alcanza%20su%20preg%C3%B3n.mp3','55','Sal 19','A toda la tierra alcanza su preg√≥n')"></TD>
 <TD width=100px>Sal 19</TD>
-<TD width=237px>A toda la tierra alcanza su pregÛn</TD>
+<TD width=237px>A toda la tierra alcanza su preg√≥n</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/a-toda-la-tierra-alcanza-su-pregon.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=19&verini=&verfin=' target='_blank'>Sal 19</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -863,7 +863,7 @@ canvas Not supported
 <TD width=237px>Mi roca</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=22&verini=4&verfin=' target='_blank'>Sal 22,4</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=61&verini=6&verfin=8' target='_blank'>Sal 61,6-8</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='57' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/04%20Tu%20bondad.mp3','57','Sal 23, 6','Tu bondad')"></TD>
@@ -871,20 +871,20 @@ canvas Not supported
 <TD width=237px>Tu bondad</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=23&verini= 6&verfin=' target='_blank'>Sal 23, 6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='58' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/060-El%20Se%C3%B1or%20es%20mi%20pastor-H.West.mp3','58','Sal 23','El SeÒor es mi pastor')"></TD>
+<TD width=35px><img id='58' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/060-El%20Se%C3%B1or%20es%20mi%20pastor-H.West.mp3','58','Sal 23','El Se√±or es mi pastor')"></TD>
 <TD width=100px>Sal 23</TD>
-<TD width=237px>El SeÒor es mi pastor</TD>
+<TD width=237px>El Se√±or es mi pastor</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063376' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=23&verini=&verfin=' target='_blank'>Sal 23</a></TD>
 <TD width=102px>H.West</TD>
 </TR>
 <TR>
-<TD width=35px><img id='59' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/061-El%20Se%C3%B1or%20es%20mi%20Pastor-Nico.mp3','59','Sal 23','El SeÒor es mi pastor')"></TD>
+<TD width=35px><img id='59' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/061-El%20Se%C3%B1or%20es%20mi%20Pastor-Nico.mp3','59','Sal 23','El Se√±or es mi pastor')"></TD>
 <TD width=100px>Sal 23</TD>
-<TD width=237px>El SeÒor es mi pastor</TD>
+<TD width=237px>El Se√±or es mi pastor</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063377' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=23&verini=&verfin=' target='_blank'>Sal 23</a></TD>
 <TD width=102px><a href='http://nicomontero.com' target='_blank'>Nico Montero</a></TD>
@@ -906,20 +906,20 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/09Adorar%C3%A9.mp3','60','Sal 33, 6','AdorarÈ')"></TD>
+<TD width=35px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/09Adorar%C3%A9.mp3','60','Sal 33, 6','Adorar√©')"></TD>
 <TD width=100px>Sal 33, 6</TD>
-<TD width=237px>AdorarÈ</TD>
+<TD width=237px>Adorar√©</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=33&verini= 6&verfin=' target='_blank'>Sal 33, 6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='61' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/07%20Gracias%2C%20Se%C3%B1or.mp3','61','Sal 39, 8-9','Gracias, SeÒor')"></TD>
+<TD width=35px><img id='61' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/07%20Gracias%2C%20Se%C3%B1or.mp3','61','Sal 39, 8-9','Gracias, Se√±or')"></TD>
 <TD width=100px>Sal 39, 8-9</TD>
-<TD width=237px>Gracias, SeÒor</TD>
+<TD width=237px>Gracias, Se√±or</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=18&verini= 19&verfin=20' target='_blank'>Mt 18, 19-20</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=39&verini= 8&verfin=9' target='_blank'>Sal 39, 8-9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='62' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/03_ENTRA_EN_MI_NOCHE.mp3','62','Sal 42, 3-5','Entra en mi noche')"></TD>
@@ -927,7 +927,7 @@ canvas Not supported
 <TD width=237px>Entra en mi noche</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=42&verini= 3&verfin=5' target='_blank'>Sal 42, 3-5</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='63' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Al%C3%A9grate/06%20Palabras%20de%20vida.mp3','63','Sal 42','Palabras de vida')"></TD>
@@ -967,7 +967,7 @@ canvas Not supported
 <TD width=237px>Misericordia (Salmo50)</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=50&verini=&verfin=' target='_blank'>Sal 50</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -986,9 +986,9 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='67' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/10%20%C2%A1Llueve%20T%C3%BA%21.mp3','67','Sal 51','°Llueve T˙!')"></TD>
+<TD width=35px><img id='67' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/10%20%C2%A1Llueve%20T%C3%BA%21.mp3','67','Sal 51','¬°Llueve T√∫!')"></TD>
 <TD width=100px>Sal 51</TD>
-<TD width=237px>°Llueve T˙!</TD>
+<TD width=237px>¬°Llueve T√∫!</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/llueve-tu.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=51&verini=&verfin=' target='_blank'>Sal 51</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=84&verini=&verfin=' target='_blank'>Sal 84</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1058,25 +1058,25 @@ canvas Not supported
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='75' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/023-Caminar%C3%A9-Ixcis.mp3','75','Sal 114,9','CaminarÈ')"></TD>
+<TD width=35px><img id='75' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/023-Caminar%C3%A9-Ixcis.mp3','75','Sal 114,9','Caminar√©')"></TD>
 <TD width=100px>Sal 114,9</TD>
-<TD width=237px>CaminarÈ</TD>
+<TD width=237px>Caminar√©</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063339' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=114&verini=9&verfin=' target='_blank'>Sal 114,9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='76' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/15%20Caminare.mp3','76','Sal 114, 9','CaminarÈ')"></TD>
+<TD width=35px><img id='76' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/15%20Caminare.mp3','76','Sal 114, 9','Caminar√©')"></TD>
 <TD width=100px>Sal 114, 9</TD>
-<TD width=237px>CaminarÈ</TD>
+<TD width=237px>Caminar√©</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=114&verini= 9&verfin=' target='_blank'>Sal 114, 9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Sal 116</TD>
-<TD width=237px>øCÛmo podrÈ pagarte?</TD>
+<TD width=237px>¬øC√≥mo podr√© pagarte?</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/como%20podre%20pagarte.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=116&verini=&verfin=' target='_blank'>Sal 116</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1087,12 +1087,12 @@ canvas Not supported
 <TD width=237px>Mi Dios y mi todo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=117&verini= 28&verfin=29' target='_blank'>Sal 117, 28-29</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/097-Lampara%20es%20tu%20Palabra-AinKarem.mp3','78','Sal 119,105-109','L·mpara es tu palabra')"></TD>
+<TD width=35px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/097-Lampara%20es%20tu%20Palabra-AinKarem.mp3','78','Sal 119,105-109','L√°mpara es tu palabra')"></TD>
 <TD width=100px>Sal 119,105-109</TD>
-<TD width=237px>L·mpara es tu palabra</TD>
+<TD width=237px>L√°mpara es tu palabra</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063413' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=119&verini=105&verfin=109' target='_blank'>Sal 119,105-109</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1100,7 +1100,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Sal 119,105-109</TD>
-<TD width=237px>L·mpara es tu palabra</TD>
+<TD width=237px>L√°mpara es tu palabra</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/lampara-es-tu-palabra.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=119&verini=105&verfin=109' target='_blank'>Sal 119,105-109</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1114,12 +1114,12 @@ canvas Not supported
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='79' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/07%20La%20razon.mp3','79','Sal 139,6','La razÛn')"></TD>
+<TD width=35px><img id='79' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/07%20La%20razon.mp3','79','Sal 139,6','La raz√≥n')"></TD>
 <TD width=100px>Sal 139,6</TD>
-<TD width=237px>La razÛn</TD>
+<TD width=237px>La raz√≥n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=139&verini=6&verfin=' target='_blank'>Sal 139,6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='80' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/037-Creatura%20habitada-AinKarem.mp3','80','Sal 139','Creatura habitada')"></TD>
@@ -1130,12 +1130,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='81' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/039-Cristo%20Jes%C3%BAs-Taize.mp3','81','Sal 139','Cristo Jes˙s')"></TD>
+<TD width=35px><img id='81' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/039-Cristo%20Jes%C3%BAs-Taize.mp3','81','Sal 139','Cristo Jes√∫s')"></TD>
 <TD width=100px>Sal 139</TD>
-<TD width=237px>Cristo Jes˙s</TD>
+<TD width=237px>Cristo Jes√∫s</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063355' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=139&verini=&verfin=' target='_blank'>Sal 139</a></TD>
-<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
+<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1159,7 +1159,7 @@ canvas Not supported
 <TD width=237px>Y mientras</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=142&verini= 4&verfin=6' target='_blank'>Sal 142, 4-6</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='84' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/041-Dame_vida-Brotes.mp3','84','Sal 143, 7-12','Dame vida')"></TD>
@@ -1175,44 +1175,44 @@ canvas Not supported
 <TD width=237px>Tu saber me sobrepasa</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=44&capini=38&verini=&verfin=' target='_blank'>Job 38</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='86' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/032-Como%20Mar%C3%ADa-Ixcis.mp3','86','Ecc 5,1','Como MarÌa (Basta con mirar y callar)')"></TD>
+<TD width=35px><img id='86' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/032-Como%20Mar%C3%ADa-Ixcis.mp3','86','Ecc 5,1','Como Mar√≠a (Basta con mirar y callar)')"></TD>
 <TD width=100px>Ecc 5,1</TD>
-<TD width=237px>Como MarÌa (Basta con mirar y callar)</TD>
+<TD width=237px>Como Mar√≠a (Basta con mirar y callar)</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063348' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=45&capini=5&verini=1&verfin=' target='_blank'>Ecc 5,1</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini=51&verfin=' target='_blank'>Lc 2,51</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='87' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/22_COMO_MARIA.mp3','87','Ecc 5,1','Como MarÌa')"></TD>
+<TD width=35px><img id='87' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/22_COMO_MARIA.mp3','87','Ecc 5,1','Como Mar√≠a')"></TD>
 <TD width=100px>Ecc 5,1</TD>
-<TD width=237px>Como MarÌa</TD>
+<TD width=237px>Como Mar√≠a</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=45&capini=5&verini=1&verfin=' target='_blank'>Ecc 5,1</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini=51&verfin=' target='_blank'>Lc 2,51</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='88' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/10%20Una%20vez%20mas.mp3','88','Eclo 2,6-10','Una vez m·s')"></TD>
+<TD width=35px><img id='88' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/10%20Una%20vez%20mas.mp3','88','Eclo 2,6-10','Una vez m√°s')"></TD>
 <TD width=100px>Eclo 2,6-10</TD>
-<TD width=237px>Una vez m·s</TD>
+<TD width=237px>Una vez m√°s</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=46&capini=2&verini=6&verfin=10' target='_blank'>Eclo 2,6-10</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='89' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/13_MAS_QUE_EL_ORO.mp3','89','Sab 7,7-14','M·s que el oro')"></TD>
+<TD width=35px><img id='89' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/13_MAS_QUE_EL_ORO.mp3','89','Sab 7,7-14','M√°s que el oro')"></TD>
 <TD width=100px>Sab 7,7-14</TD>
-<TD width=237px>M·s que el oro</TD>
+<TD width=237px>M√°s que el oro</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=47&capini=7&verini=7&verfin=14' target='_blank'>Sab 7,7-14</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Sab 9,1-3</TD>
-<TD width=237px>SeÒor de la sabidurÌa</TD>
+<TD width=237px>Se√±or de la sabidur√≠a</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/SE%C3%91OR-DE-LA-SABIDUR%C3%8DA.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=47&capini=9&verini=1&verfin=3' target='_blank'>Sab 9,1-3</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1234,60 +1234,60 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='91' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/10.%20Bienaventurados....mp3','91','Mt 5,1-12','BienaventuradosÖ')"></TD>
+<TD width=35px><img id='91' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/10.%20Bienaventurados....mp3','91','Mt 5,1-12','Bienaventurados‚Ä¶')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>BienaventuradosÖ</TD>
+<TD width=237px>Bienaventurados‚Ä¶</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='92' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/11.%20...los%20pobres.mp3','92','Mt 5,1-12','Ölos pobres')"></TD>
+<TD width=35px><img id='92' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/11.%20...los%20pobres.mp3','92','Mt 5,1-12','‚Ä¶los pobres')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos pobres</TD>
+<TD width=237px>‚Ä¶los pobres</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='93' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/12.%20...los%20mansos%20y%20humildes.mp3','93','Mt 5,1-12','Ölos mansos y humildes')"></TD>
+<TD width=35px><img id='93' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/12.%20...los%20mansos%20y%20humildes.mp3','93','Mt 5,1-12','‚Ä¶los mansos y humildes')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos mansos y humildes</TD>
+<TD width=237px>‚Ä¶los mansos y humildes</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='94' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/13.%20...los%20que%20lloran.mp3','94','Mt 5,1-12','Ölos que lloran')"></TD>
+<TD width=35px><img id='94' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/13.%20...los%20que%20lloran.mp3','94','Mt 5,1-12','‚Ä¶los que lloran')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos que lloran</TD>
+<TD width=237px>‚Ä¶los que lloran</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='95' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/14.%20...los%20que%20tienen%20hambre%20y%20sed%20de%20justicia.mp3','95','Mt 5,1-12','Ölos que tienen hambre y sed de justicia')"></TD>
+<TD width=35px><img id='95' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/14.%20...los%20que%20tienen%20hambre%20y%20sed%20de%20justicia.mp3','95','Mt 5,1-12','‚Ä¶los que tienen hambre y sed de justicia')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos que tienen hambre y sed de justicia</TD>
+<TD width=237px>‚Ä¶los que tienen hambre y sed de justicia</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='96' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/15.%20...los%20limpios%20de%20coraz%C3%B3n.mp3','96','Mt 5,1-12','Ölos limpios de corazÛn')"></TD>
+<TD width=35px><img id='96' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/15.%20...los%20limpios%20de%20coraz%C3%B3n.mp3','96','Mt 5,1-12','‚Ä¶los limpios de coraz√≥n')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos limpios de corazÛn</TD>
+<TD width=237px>‚Ä¶los limpios de coraz√≥n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='97' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/16.%20...los%20misericordiosos.mp3','97','Mt 5,1-12','Ölos misericordiosos')"></TD>
+<TD width=35px><img id='97' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/16.%20...los%20misericordiosos.mp3','97','Mt 5,1-12','‚Ä¶los misericordiosos')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos misericordiosos</TD>
+<TD width=237px>‚Ä¶los misericordiosos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='98' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/17.%20...los%20constructores%20de%20paz.mp3','98','Mt 5,1-12','...los constructores de paz')"></TD>
@@ -1295,15 +1295,15 @@ canvas Not supported
 <TD width=237px>...los constructores de paz</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='99' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/18.%20...los%20perseguidos.mp3','99','Mt 5,1-12','Ölos perseguidos')"></TD>
+<TD width=35px><img id='99' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/18.%20...los%20perseguidos.mp3','99','Mt 5,1-12','‚Ä¶los perseguidos')"></TD>
 <TD width=100px>Mt 5,1-12</TD>
-<TD width=237px>Ölos perseguidos</TD>
+<TD width=237px>‚Ä¶los perseguidos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=1&verfin=12' target='_blank'>Mt 5,1-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 20&verfin=23' target='_blank'>Lc 6, 20-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='100' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/114-Mi%20vida%20la%20sal-Brotes.mp3','100','Mt 5,13-16','Mi vida la sal')"></TD>
@@ -1327,7 +1327,7 @@ canvas Not supported
 <TD width=237px>Como sal y luz</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=5&verini=13&verfin=16' target='_blank'>Mt 5,13-16</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='103' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/07%20A%20ti.mp3','103','Mt 5,45','A Ti')"></TD>
@@ -1343,7 +1343,7 @@ canvas Not supported
 <TD width=237px>Desde el silencio</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=6&verini= 6&verfin=7' target='_blank'>Mt 6, 6-7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1359,7 +1359,7 @@ canvas Not supported
 <TD width=237px>Padrenuestro</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=6&verini= 9&verfin=13' target='_blank'>Mt 6, 9-13</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='106' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/28%20Llega%20el%20reino%20de%20dios.mp3','106','Mt 6, 25-34','Llega el Reindo de Dios')"></TD>
@@ -1367,23 +1367,23 @@ canvas Not supported
 <TD width=237px>Llega el Reindo de Dios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=6&verini= 25&verfin=34' target='_blank'>Mt 6, 25-34</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='107' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/068-Enviame-Brotes.mp3','107','Mt 10,1-7','EnvÌame')"></TD>
+<TD width=35px><img id='107' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/068-Enviame-Brotes.mp3','107','Mt 10,1-7','Env√≠ame')"></TD>
 <TD width=100px>Mt 10,1-7</TD>
-<TD width=237px>EnvÌame</TD>
+<TD width=237px>Env√≠ame</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063384' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=10&verini=1&verfin=7' target='_blank'>Mt 10,1-7</a></TD>
 <TD width=102px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='108' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/17_VEN_A_MI.mp3','108','Mt 11,28-30','Ven a mÌ')"></TD>
+<TD width=35px><img id='108' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/17_VEN_A_MI.mp3','108','Mt 11,28-30','Ven a m√≠')"></TD>
 <TD width=100px>Mt 11,28-30</TD>
-<TD width=237px>Ven a mÌ</TD>
+<TD width=237px>Ven a m√≠</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=11&verini=28&verfin=30' target='_blank'>Mt 11,28-30</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='109' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/17%20TODO%20LO%20ACOGES.mp3','109','Mt 11,28','Todo los acoges')"></TD>
@@ -1407,7 +1407,7 @@ canvas Not supported
 <TD width=237px>El tesoro</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=13&verini= 44&verfin=' target='_blank'>Mt 13, 44</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1418,17 +1418,17 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='111' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/014-%C3%81nimo%20soy%20yo-AinKarem.mp3','111','Mt 14,24-34','°¡nimo! Soy yo')"></TD>
+<TD width=35px><img id='111' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/014-%C3%81nimo%20soy%20yo-AinKarem.mp3','111','Mt 14,24-34','¬°√Ånimo! Soy yo')"></TD>
 <TD width=100px>Mt 14,24-34</TD>
-<TD width=237px>°¡nimo! Soy yo</TD>
+<TD width=237px>¬°√Ånimo! Soy yo</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063330' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=14&verini=24&verfin=34' target='_blank'>Mt 14,24-34</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='112' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/10%20%C2%A1%C3%81nimo%21%2C%20soy%20yo.mp3','112','Mt 14,24-34','°¡nimo!, soy yo')"></TD>
+<TD width=35px><img id='112' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/10%20%C2%A1%C3%81nimo%21%2C%20soy%20yo.mp3','112','Mt 14,24-34','¬°√Ånimo!, soy yo')"></TD>
 <TD width=100px>Mt 14,24-34</TD>
-<TD width=237px>°¡nimo!, soy yo</TD>
+<TD width=237px>¬°√Ånimo!, soy yo</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/no-temais.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=14&verini=24&verfin=34' target='_blank'>Mt 14,24-34</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1442,12 +1442,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='113' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/27%20nadie%20me%20podra%20robar.mp3','113','Mt 16, 26','Nadie me podr· robar')"></TD>
+<TD width=35px><img id='113' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/27%20nadie%20me%20podra%20robar.mp3','113','Mt 16, 26','Nadie me podr√° robar')"></TD>
 <TD width=100px>Mt 16, 26</TD>
-<TD width=237px>Nadie me podr· robar</TD>
+<TD width=237px>Nadie me podr√° robar</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=16&verini= 22&verfin=' target='_blank'>Jn 16, 22</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=16&verini= 26&verfin=' target='_blank'>Mt 16, 26</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='114' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/12En%20medio%20de%20vosotros.mp3','114','Mt 18, 20','En medio de vosotros')"></TD>
@@ -1455,15 +1455,15 @@ canvas Not supported
 <TD width=237px>En medio de vosotros</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=18&verini= 20&verfin=' target='_blank'>Mt 18, 20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='115' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/01Ven%20y%20s%C3%ADgueme.mp3','115','Mt 19, 21','Ven y sÌgueme')"></TD>
+<TD width=35px><img id='115' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/01Ven%20y%20s%C3%ADgueme.mp3','115','Mt 19, 21','Ven y s√≠gueme')"></TD>
 <TD width=100px>Mt 19, 21</TD>
-<TD width=237px>Ven y sÌgueme</TD>
+<TD width=237px>Ven y s√≠gueme</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=3&verini= 13&verfin=14' target='_blank'>Mc 3, 13-14</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=19&verini= 21&verfin=' target='_blank'>Mt 19, 21</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='116' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/04El%20que%20se%20ensalza.mp3','116','Mt 20, 20-28','El que se ensalza')"></TD>
@@ -1471,12 +1471,12 @@ canvas Not supported
 <TD width=237px>El que se ensalza</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=14&verini= 11&verfin=' target='_blank'>Lc 14, 11</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=20&verini= 20&verfin=28' target='_blank'>Mt 20, 20-28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Mt 20</TD>
-<TD width=237px>InvÌtanos</TD>
+<TD width=237px>Inv√≠tanos</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/invitanos.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=20&verini=&verfin=' target='_blank'>Mt 20</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1487,7 +1487,7 @@ canvas Not supported
 <TD width=237px>Somos pueblo de Dios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=23&verini= 1&verfin=36' target='_blank'>Mt 23, 1-36</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='118' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/20.%20Infinito%20abismo.mp3','118','Mt 23,3','Infinito abismo')"></TD>
@@ -1495,7 +1495,7 @@ canvas Not supported
 <TD width=237px>Infinito abismo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=23&verini=3&verfin=' target='_blank'>Mt 23,3</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='119' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/22El%20mayor.mp3','119','Mt 23, 11','El mayor')"></TD>
@@ -1503,12 +1503,12 @@ canvas Not supported
 <TD width=237px>El mayor</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=23&verini= 11&verfin=' target='_blank'>Mt 23, 11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Mt 25, 1 ss</TD>
-<TD width=237px>PonÈos en pie</TD>
+<TD width=237px>Pon√©os en pie</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/poneos%20en%20pie.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 25&verfin=28' target='_blank'>Lc 21, 25-28</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=25&verini= 1 &verfin=' target='_blank'>Mt 25, 1 ss</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=3&verini= 20&verfin=' target='_blank'>Ap 3, 20</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1519,7 +1519,7 @@ canvas Not supported
 <TD width=237px>Ellos son tu rostro</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=25&verini=31&verfin=46' target='_blank'>Mt 25,31-46</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='121' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/10En%20los%20pobres%20yo%20te%20vi.mp3','121','Mt 25, 31-46','En los pobres yo te vi')"></TD>
@@ -1527,7 +1527,7 @@ canvas Not supported
 <TD width=237px>En los pobres yo te vi</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=12' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=25&verini= 31&verfin=46' target='_blank'>Mt 25, 31-46</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='122' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/04%20Mi%20Dios%20en%20una%20cruz.mp3','122','Mt 26, 31-36','Mi Dios en una cruz')"></TD>
@@ -1535,7 +1535,7 @@ canvas Not supported
 <TD width=237px>Mi Dios en una cruz</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=23&verini= 46&verfin=48' target='_blank'>Lc 23, 46-48</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=26&verini= 31&verfin=36' target='_blank'>Mt 26, 31-36</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='123' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/151-Velad%20y%20orad-Taize.mp3','123','Mt 26,36-41','Velad y orad')"></TD>
@@ -1543,7 +1543,7 @@ canvas Not supported
 <TD width=237px>Velad y orad</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063467' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=26&verini=36&verfin=41' target='_blank'>Mt 26,36-41</a></TD>
-<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
+<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='124' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/022-Caminando.mp3','124','Mc 1,16-20','Caminando')"></TD>
@@ -1559,7 +1559,7 @@ canvas Not supported
 <TD width=237px>Deja tus redes</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=1&verini=16&verfin=20' target='_blank'>Mc 1,16-20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1596,7 +1596,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Mc 5,28</TD>
-<TD width=237px>Como t˙</TD>
+<TD width=237px>Como t√∫</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/Fuego%20en%20las%20entra%C3%B1as.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=5&verini=28&verfin=' target='_blank'>Mc 5,28</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1610,12 +1610,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='127' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/14%20Mucho%20mas.mp3','127','Mc 8,29','Mucho m·s')"></TD>
+<TD width=35px><img id='127' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/14%20Mucho%20mas.mp3','127','Mc 8,29','Mucho m√°s')"></TD>
 <TD width=100px>Mc 8,29</TD>
-<TD width=237px>Mucho m·s</TD>
+<TD width=237px>Mucho m√°s</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=8&verini=29&verfin=' target='_blank'>Mc 8,29</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='128' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/09.%20Coge%20tu%20cruz.mp3','128','Mc 8,34-38','Coge tu cruz')"></TD>
@@ -1623,7 +1623,7 @@ canvas Not supported
 <TD width=237px>Coge tu cruz</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=8&verini=34&verfin=38' target='_blank'>Mc 8,34-38</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='129' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/A%20todos%20los%20pueblos/06%20He%20venido%20a%20servir.mp3','129','Mc 10,42-45','He venido a servir')"></TD>
@@ -1636,7 +1636,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Mc 10, 46-52</TD>
-<TD width=237px>Atr·eme</TD>
+<TD width=237px>Atr√°eme</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atraeme.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=10&verini= 46&verfin=52' target='_blank'>Mc 10, 46-52</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1647,12 +1647,12 @@ canvas Not supported
 <TD width=237px>Quiero verte</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=10&verini=51&verfin=' target='_blank'>Mc 10,51</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='131' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/23%20RIQUEZA%20DEL%20CORAZ%C3%93N.mp3','131','Mc 12, 41-44','Riqueza del corazÛn')"></TD>
+<TD width=35px><img id='131' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/23%20RIQUEZA%20DEL%20CORAZ%C3%93N.mp3','131','Mc 12, 41-44','Riqueza del coraz√≥n')"></TD>
 <TD width=100px>Mc 12, 41-44</TD>
-<TD width=237px>Riqueza del corazÛn</TD>
+<TD width=237px>Riqueza del coraz√≥n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=12&verini= 41&verfin=44' target='_blank'>Mc 12, 41-44</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 1&verfin=4' target='_blank'>Lc 21, 1-4</a></TD>
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -1698,9 +1698,9 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='137' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/17%20AVE%20MAR%C3%8DA.mp3','137','Lc 1, 26-38','Ave MarÌa')"></TD>
+<TD width=35px><img id='137' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/17%20AVE%20MAR%C3%8DA.mp3','137','Lc 1, 26-38','Ave Mar√≠a')"></TD>
 <TD width=100px>Lc 1, 26-38</TD>
-<TD width=237px>Ave MarÌa</TD>
+<TD width=237px>Ave Mar√≠a</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -1714,20 +1714,20 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='139' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/23%20Alegrate.mp3','139','Lc 1, 28-35','AlÈgrate')"></TD>
+<TD width=35px><img id='139' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/23%20Alegrate.mp3','139','Lc 1, 28-35','Al√©grate')"></TD>
 <TD width=100px>Lc 1, 28-35</TD>
-<TD width=237px>AlÈgrate</TD>
+<TD width=237px>Al√©grate</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 28&verfin=35' target='_blank'>Lc 1, 28-35</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='140' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/14Mar%C3%ADa%2C%20ens%C3%A9%C3%B1ame%20a%20vivir%20el%20Evangelio.mp3','140','Lc 1, 35-38','MarÌa, ensÈÒame a vivir')"></TD>
+<TD width=35px><img id='140' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/14Mar%C3%ADa%2C%20ens%C3%A9%C3%B1ame%20a%20vivir%20el%20Evangelio.mp3','140','Lc 1, 35-38','Mar√≠a, ens√©√±ame a vivir')"></TD>
 <TD width=100px>Lc 1, 35-38</TD>
-<TD width=237px>MarÌa, ensÈÒame a vivir</TD>
+<TD width=237px>Mar√≠a, ens√©√±ame a vivir</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=2' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 46&verfin=55' target='_blank'>Lc 1, 46-55</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 35&verfin=38' target='_blank'>Lc 1, 35-38</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='141' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/01%20Dios%20fiel.mp3','141','Lc 1,37','Dios fiel')"></TD>
@@ -1743,23 +1743,23 @@ canvas Not supported
 <TD width=237px>Nada es imposible</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=37&verfin=' target='_blank'>Lc 1,37</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='143' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/07%20H%C3%A1gase.mp3','143','Lc 1,38','H·gase')"></TD>
+<TD width=35px><img id='143' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Segun%20tu%20palabra/07%20H%C3%A1gase.mp3','143','Lc 1,38','H√°gase')"></TD>
 <TD width=100px>Lc 1,38</TD>
-<TD width=237px>H·gase</TD>
+<TD width=237px>H√°gase</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/hagase.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=38&verfin=' target='_blank'>Lc 1,38</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='144' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/23H%C3%A1gase.mp3','144','Lc 1, 38','H·gase')"></TD>
+<TD width=35px><img id='144' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/23H%C3%A1gase.mp3','144','Lc 1, 38','H√°gase')"></TD>
 <TD width=100px>Lc 1, 38</TD>
-<TD width=237px>H·gase</TD>
+<TD width=237px>H√°gase</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=2' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 38&verfin=' target='_blank'>Lc 1, 38</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='145' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/105-Magnificat-Taize.mp3','145','Lc 1,46-55','Magnificat')"></TD>
@@ -1767,20 +1767,20 @@ canvas Not supported
 <TD width=237px>Magnificat</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063421' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
-<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
+<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Lc 1,46-55</TD>
-<TD width=237px>Mi alma glorifica al SeÒor</TD>
+<TD width=237px>Mi alma glorifica al Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063428' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='146' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/223-Yo_cantare-Kairoi.mp3','146','Lc 1,46-55','Yo cantarÈ')"></TD>
+<TD width=35px><img id='146' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/223-Yo_cantare-Kairoi.mp3','146','Lc 1,46-55','Yo cantar√©')"></TD>
 <TD width=100px>Lc 1,46-55</TD>
-<TD width=237px>Yo cantarÈ</TD>
+<TD width=237px>Yo cantar√©</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063539' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
 <TD width=102px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -1799,7 +1799,7 @@ canvas Not supported
 <TD width=237px>Proclama mi alma</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=14' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1810,12 +1810,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='148' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/02_ABRAZATE.mp3','148','Lc 1, 78-79','Abr·zate')"></TD>
+<TD width=35px><img id='148' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/02_ABRAZATE.mp3','148','Lc 1, 78-79','Abr√°zate')"></TD>
 <TD width=100px>Lc 1, 78-79</TD>
-<TD width=237px>Abr·zate</TD>
+<TD width=237px>Abr√°zate</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 78&verfin=79' target='_blank'>Lc 1, 78-79</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='149' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/228-Adeste_fideles.mp3','149','Lc 2, 8-16','Adeste Fideles')"></TD>
@@ -1826,33 +1826,33 @@ canvas Not supported
 <TD width=102px></TD>
 </TR>
 <TR>
-<TD width=35px><img id='150' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/12%20Cosas%20peque%C3%B1as.mp3','150','Lc 2, 12','Cosas pequeÒas')"></TD>
+<TD width=35px><img id='150' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/12%20Cosas%20peque%C3%B1as.mp3','150','Lc 2, 12','Cosas peque√±as')"></TD>
 <TD width=100px>Lc 2, 12</TD>
-<TD width=237px>Cosas pequeÒas</TD>
+<TD width=237px>Cosas peque√±as</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini= 12&verfin=' target='_blank'>Lc 2, 12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=16&verini= 10&verfin=12' target='_blank'>Lc 16, 10-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=2&verini=20&verfin=' target='_blank'>G·l 2,20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini= 12&verfin=' target='_blank'>Lc 2, 12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=16&verini= 10&verfin=12' target='_blank'>Lc 16, 10-12</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=2&verini=20&verfin=' target='_blank'>G√°l 2,20</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='151' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/05%20Sue%C3%B1os%20de%20Dios.mp3','151','Lc 2, 33-35','SueÒos de Dios')"></TD>
+<TD width=35px><img id='151' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/05%20Sue%C3%B1os%20de%20Dios.mp3','151','Lc 2, 33-35','Sue√±os de Dios')"></TD>
 <TD width=100px>Lc 2, 33-35</TD>
-<TD width=237px>SueÒos de Dios</TD>
+<TD width=237px>Sue√±os de Dios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini= 52&verfin=' target='_blank'>Lc 2, 52</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini= 33&verfin=35' target='_blank'>Lc 2, 33-35</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='152' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/13%20Maria%20ense%C3%B1ame.mp3','152','Lc 2,51','MarÌa, ensÈÒame')"></TD>
+<TD width=35px><img id='152' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/13%20Maria%20ense%C3%B1ame.mp3','152','Lc 2,51','Mar√≠a, ens√©√±ame')"></TD>
 <TD width=100px>Lc 2,51</TD>
-<TD width=237px>MarÌa, ensÈÒame</TD>
+<TD width=237px>Mar√≠a, ens√©√±ame</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini=51&verfin=' target='_blank'>Lc 2,51</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='153' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/145-Preparad_el_camino.mp3','153','Lc 3,1-6','Preparad el camino al SeÒor')"></TD>
+<TD width=35px><img id='153' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/145-Preparad_el_camino.mp3','153','Lc 3,1-6','Preparad el camino al Se√±or')"></TD>
 <TD width=100px>Lc 3,1-6</TD>
-<TD width=237px>Preparad el camino al SeÒor</TD>
+<TD width=237px>Preparad el camino al Se√±or</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063461' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=3&verini=1&verfin=6' target='_blank'>Lc 3,1-6</a></TD>
 <TD width=102px></TD>
@@ -1871,7 +1871,7 @@ canvas Not supported
 <TD width=237px>Al otro lado del mar</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=5&verini=4&verfin=' target='_blank'>Lc 5,4</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='155' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/18%20Amad%20a%20vuestros%20enemigos.mp3','155','lc 6, 27-28','Amad a vuestros enemigos')"></TD>
@@ -1879,7 +1879,7 @@ canvas Not supported
 <TD width=237px>Amad a vuestros enemigos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=12' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=6&verini= 27&verfin=28' target='_blank'>lc 6, 27-28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='156' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/12%20La%20mujer%20del%20perfume.mp3','156','Lc 7,36-50','La mujer del perfume')"></TD>
@@ -1898,9 +1898,9 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='157' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/16%20Os%20Env%C3%ADo.mp3','157','Lc 10,2-10','Os envÌo')"></TD>
+<TD width=35px><img id='157' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/16%20Os%20Env%C3%ADo.mp3','157','Lc 10,2-10','Os env√≠o')"></TD>
 <TD width=100px>Lc 10,2-10</TD>
-<TD width=237px>Os envÌo</TD>
+<TD width=237px>Os env√≠o</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/Fuego%20en%20las%20entra%C3%B1as.pdf#page=13' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=10&verini=2&verfin=10' target='_blank'>Lc 10,2-10</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1919,7 +1919,7 @@ canvas Not supported
 <TD width=237px>Abre una grieta</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=12&verini=49&verfin=' target='_blank'>Lc 12,49</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -1943,7 +1943,7 @@ canvas Not supported
 <TD width=237px>Vuelvo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini= 11&verfin=32' target='_blank'>Lc 15, 11-32</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='160' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/17Me%20fui.mp3','160','Lc 15, 11-32','Me fui')"></TD>
@@ -1951,7 +1951,7 @@ canvas Not supported
 <TD width=237px>Me fui</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini= 11&verfin=32' target='_blank'>Lc 15, 11-32</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='161' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/14%20EL%20REGRESO.mp3','161','Lc 15, 11-31','El regreso')"></TD>
@@ -1962,20 +1962,20 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='162' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/110-Me_levantare-Brotes.mp3','162','Lc 15,18','Me levantarÈ')"></TD>
+<TD width=35px><img id='162' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/110-Me_levantare-Brotes.mp3','162','Lc 15,18','Me levantar√©')"></TD>
 <TD width=100px>Lc 15,18</TD>
-<TD width=237px>Me levantarÈ</TD>
+<TD width=237px>Me levantar√©</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063426' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini=18&verfin=' target='_blank'>Lc 15,18</a></TD>
 <TD width=102px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='163' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/26%20Desde%20mi%20balcon.mp3','163','Lc 16, 19-31','Desde mi balcÛn')"></TD>
+<TD width=35px><img id='163' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/26%20Desde%20mi%20balcon.mp3','163','Lc 16, 19-31','Desde mi balc√≥n')"></TD>
 <TD width=100px>Lc 16, 19-31</TD>
-<TD width=237px>Desde mi balcÛn</TD>
+<TD width=237px>Desde mi balc√≥n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=16&verini= 19&verfin=31' target='_blank'>Lc 16, 19-31</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='164' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/07.%20La%20historia%20se%20repite.mp3','164','Lc 16,19-31','La historia se repite')"></TD>
@@ -1983,23 +1983,23 @@ canvas Not supported
 <TD width=237px>La historia se repite</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=16&verini=19&verfin=31' target='_blank'>Lc 16,19-31</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='165' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/14%20L%C3%A1zaro%20grita.mp3','165','Lc 16, 19-25','L·zaro grita')"></TD>
+<TD width=35px><img id='165' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/14%20L%C3%A1zaro%20grita.mp3','165','Lc 16, 19-25','L√°zaro grita')"></TD>
 <TD width=100px>Lc 16, 19-25</TD>
-<TD width=237px>L·zaro grita</TD>
+<TD width=237px>L√°zaro grita</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=16&verini= 19&verfin=25' target='_blank'>Lc 16, 19-25</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='166' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/06Ens%C3%A9%C3%B1ame%20el%20camino.mp3','166','Lc 18, 35-43','EnsÈÒame el camino')"></TD>
+<TD width=35px><img id='166' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/06Ens%C3%A9%C3%B1ame%20el%20camino.mp3','166','Lc 18, 35-43','Ens√©√±ame el camino')"></TD>
 <TD width=100px>Lc 18, 35-43</TD>
-<TD width=237px>EnsÈÒame el camino</TD>
+<TD width=237px>Ens√©√±ame el camino</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=18&verini= 35&verfin=43' target='_blank'>Lc 18, 35-43</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=21&verini= 17&verfin=' target='_blank'>Jn 21, 17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='167' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/09%20Hijo%20de%20David%20%28con%20Susana%20Melero%29.mp3','167','Lc 18, 38-41','Hijo de David (con Susana Melero)')"></TD>
@@ -2007,15 +2007,15 @@ canvas Not supported
 <TD width=237px>Hijo de David (con Susana Melero)</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=18&verini= 38&verfin=41' target='_blank'>Lc 18, 38-41</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='168' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/05%20Levantaos%2C%20est%C3%A1%20cerca.mp3','168','Lc 21, 28','Levantaos, est· cerca')"></TD>
+<TD width=35px><img id='168' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/05%20Levantaos%2C%20est%C3%A1%20cerca.mp3','168','Lc 21, 28','Levantaos, est√° cerca')"></TD>
 <TD width=100px>Lc 21, 28</TD>
-<TD width=237px>Levantaos, est· cerca</TD>
+<TD width=237px>Levantaos, est√° cerca</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 28&verfin=' target='_blank'>Lc 21, 28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='169' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/A%20todos%20los%20pueblos/01%20Yo%20soy%20el%20que%20vive.mp3','169','Lc 24, 5','Yo soy el que vive')"></TD>
@@ -2026,25 +2026,25 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='170' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/10Me%20llam%C3%A1is.mp3','170','Jn 1, 11','Me llam·is')"></TD>
+<TD width=35px><img id='170' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/10Me%20llam%C3%A1is.mp3','170','Jn 1, 11','Me llam√°is')"></TD>
 <TD width=100px>Jn 1, 11</TD>
-<TD width=237px>Me llam·is</TD>
+<TD width=237px>Me llam√°is</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=1&verini= 11&verfin=' target='_blank'>Jn 1, 11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='171' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/21%C2%BFQu%C3%A9%20busc%C3%A1is.mp3','171','Jn 1, 38-39','øQuÈ busc·is?')"></TD>
+<TD width=35px><img id='171' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/21%C2%BFQu%C3%A9%20busc%C3%A1is.mp3','171','Jn 1, 38-39','¬øQu√© busc√°is?')"></TD>
 <TD width=100px>Jn 1, 38-39</TD>
-<TD width=237px>øQuÈ busc·is?</TD>
+<TD width=237px>¬øQu√© busc√°is?</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=1&verini= 38&verfin=39' target='_blank'>Jn 1, 38-39</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='172' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/09%20Can%C3%A1.mp3','172','Jn 2,1-11','Can·')"></TD>
+<TD width=35px><img id='172' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/09%20Can%C3%A1.mp3','172','Jn 2,1-11','Can√°')"></TD>
 <TD width=100px>Jn 2,1-11</TD>
-<TD width=237px>Can·</TD>
+<TD width=237px>Can√°</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Cancioneros%20AinKarem/4-9-Cana.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=2&verini=1&verfin=11' target='_blank'>Jn 2,1-11</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -2055,7 +2055,7 @@ canvas Not supported
 <TD width=237px>Madre de la humanidad</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=2&verini= 1&verfin=5' target='_blank'>Jn 2, 1-5</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='174' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/02%20Dame%20de%20beber.mp3','174','Jn 4,1-42','Dame de beber')"></TD>
@@ -2063,7 +2063,7 @@ canvas Not supported
 <TD width=237px>Dame de beber</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=4&verini=1&verfin=42' target='_blank'>Jn 4,1-42</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=7&verini= 37&verfin=39' target='_blank'>Jn 7, 37-39</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -2074,12 +2074,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='175' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/03.%20En%20esp%C3%ADritu%20y%20en%20verdad.mp3','175','Jn 4,23','En espÌritu y en verdad')"></TD>
+<TD width=35px><img id='175' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/03.%20En%20esp%C3%ADritu%20y%20en%20verdad.mp3','175','Jn 4,23','En esp√≠ritu y en verdad')"></TD>
 <TD width=100px>Jn 4,23</TD>
-<TD width=237px>En espÌritu y en verdad</TD>
+<TD width=237px>En esp√≠ritu y en verdad</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=4&verini=23&verfin=' target='_blank'>Jn 4,23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='176' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/16_5_PANES.mp3','176','Jn 6,1-13','Cinco panes')"></TD>
@@ -2087,7 +2087,7 @@ canvas Not supported
 <TD width=237px>Cinco panes</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=6&verini=1&verfin=13' target='_blank'>Jn 6,1-13</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='177' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/11%20Encima%20del%20altar.mp3','177','Jn 6, 48-58','Encima del altar')"></TD>
@@ -2095,36 +2095,36 @@ canvas Not supported
 <TD width=237px>Encima del altar</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=6&verini= 48&verfin=58' target='_blank'>Jn 6, 48-58</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=11&verini= 17&verfin=28' target='_blank'>1Cor 11, 17-28</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='178' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/06%20A%20donde%20acudire.mp3','178','Jn 6, 66-69','øA dÛnde acudirÈ?')"></TD>
+<TD width=35px><img id='178' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/06%20A%20donde%20acudire.mp3','178','Jn 6, 66-69','¬øA d√≥nde acudir√©?')"></TD>
 <TD width=100px>Jn 6, 66-69</TD>
-<TD width=237px>øA dÛnde acudirÈ?</TD>
+<TD width=237px>¬øA d√≥nde acudir√©?</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Beber%20los%20vientos/Beber%20_los%20_vientos_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=6&verini= 66&verfin=69' target='_blank'>Jn 6, 66-69</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Jn 7,37-38</TD>
-<TD width=237px>Vengan a mÌ</TD>
+<TD width=237px>Vengan a m√≠</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/Fuego%20en%20las%20entra%C3%B1as.pdf#page=12' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=7&verini=37&verfin=38' target='_blank'>Jn 7,37-38</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='179' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/08%20El%20c%C3%ADrculo%20del%20juicio%20%28con%20Pablo%20Morales%29.mp3','179','jn 8, 1-11','El cÌrculo del juicio (con Pablo Morales)')"></TD>
+<TD width=35px><img id='179' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/08%20El%20c%C3%ADrculo%20del%20juicio%20%28con%20Pablo%20Morales%29.mp3','179','jn 8, 1-11','El c√≠rculo del juicio (con Pablo Morales)')"></TD>
 <TD width=100px>jn 8, 1-11</TD>
-<TD width=237px>El cÌrculo del juicio (con Pablo Morales)</TD>
+<TD width=237px>El c√≠rculo del juicio (con Pablo Morales)</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=8&verini= 1&verfin=11' target='_blank'>jn 8, 1-11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='180' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/13%20LA%20MUJER%20AD%C3%9ALTERA.mp3','180','Jn 8, 1-11','La mujer ad˙ltera')"></TD>
+<TD width=35px><img id='180' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/13%20LA%20MUJER%20AD%C3%9ALTERA.mp3','180','Jn 8, 1-11','La mujer ad√∫ltera')"></TD>
 <TD width=100px>Jn 8, 1-11</TD>
-<TD width=237px>La mujer ad˙ltera</TD>
+<TD width=237px>La mujer ad√∫ltera</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=11' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=8&verini= 1&verfin=11' target='_blank'>Jn 8, 1-11</a></TD>
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -2135,7 +2135,7 @@ canvas Not supported
 <TD width=237px>Pastor bone</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=1' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=10&verini= 14&verfin=15' target='_blank'>Jn 10, 14-15</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='182' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/018-Benedictus%20qui%20venit-Taize.mp3','182','Jn 12,13','Benedictus qui venit')"></TD>
@@ -2143,7 +2143,7 @@ canvas Not supported
 <TD width=237px>Benedictus qui venit</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063334' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=12&verini=13&verfin=' target='_blank'>Jn 12,13</a></TD>
-<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
+<TD width=102px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='183' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/067-Entre_tus_manos.mp3','183','Jn 12,24','Entre tus manos')"></TD>
@@ -2159,7 +2159,7 @@ canvas Not supported
 <TD width=237px>Amando hasta el extremo</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063327' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=13&verini= 1&verfin=' target='_blank'>Jn 13, 1</a></TD>
-<TD width=102px><a href='http://maitelopez.com' target='_blank'>Maite LÛpez</a></TD>
+<TD width=102px><a href='http://maitelopez.com' target='_blank'>Maite L√≥pez</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='185' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/05Sigue%20habiendo.mp3','185','Jn 13, 1-20','Sigue habiendo')"></TD>
@@ -2167,7 +2167,7 @@ canvas Not supported
 <TD width=237px>Sigue habiendo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=13&verini= 1&verfin=20' target='_blank'>Jn 13, 1-20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -2178,12 +2178,12 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='186' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/12Podar%C3%A9.mp3','186','Jn 15, 1-17','PodarÈ')"></TD>
+<TD width=35px><img id='186' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/12Podar%C3%A9.mp3','186','Jn 15, 1-17','Podar√©')"></TD>
 <TD width=100px>Jn 15, 1-17</TD>
-<TD width=237px>PodarÈ</TD>
+<TD width=237px>Podar√©</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=11' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=15&verini= 1&verfin=17' target='_blank'>Jn 15, 1-17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -2194,25 +2194,25 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='187' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/029-Como%20el%20padre%20me%20am%C3%B3.mp3','187','Jn 15','Como el Padre me amÛ')"></TD>
+<TD width=35px><img id='187' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/029-Como%20el%20padre%20me%20am%C3%B3.mp3','187','Jn 15','Como el Padre me am√≥')"></TD>
 <TD width=100px>Jn 15</TD>
-<TD width=237px>Como el Padre me amÛ</TD>
+<TD width=237px>Como el Padre me am√≥</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063345' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=15&verini=&verfin=' target='_blank'>Jn 15</a></TD>
 <TD width=102px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='188' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/07Un%20solo%20coraz%C3%B3n.mp3','188','Jn 17, 21','Un solo corazÛn')"></TD>
+<TD width=35px><img id='188' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/07Un%20solo%20coraz%C3%B3n.mp3','188','Jn 17, 21','Un solo coraz√≥n')"></TD>
 <TD width=100px>Jn 17, 21</TD>
-<TD width=237px>Un solo corazÛn</TD>
+<TD width=237px>Un solo coraz√≥n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=17&verini= 21&verfin=' target='_blank'>Jn 17, 21</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='189' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/12%20Mar%C3%ADa%20Magdalena.mp3','189','Jn 20,1-18','MarÌa Magdalena')"></TD>
+<TD width=35px><img id='189' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/12%20Mar%C3%ADa%20Magdalena.mp3','189','Jn 20,1-18','Mar√≠a Magdalena')"></TD>
 <TD width=100px>Jn 20,1-18</TD>
-<TD width=237px>MarÌa Magdalena</TD>
+<TD width=237px>Mar√≠a Magdalena</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/maria%20magadalena.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=20&verini=1&verfin=18' target='_blank'>Jn 20,1-18</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -2226,9 +2226,9 @@ canvas Not supported
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='190' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/A%20todos%20los%20pueblos/12%20Se%C3%B1or%20m%C3%ADo%20y%20Dios%20m%C3%ADo.mp3','190','Jn 20,27-29','SeÒor mÌo y Dios mÌo')"></TD>
+<TD width=35px><img id='190' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/AinKarem/A%20todos%20los%20pueblos/12%20Se%C3%B1or%20m%C3%ADo%20y%20Dios%20m%C3%ADo.mp3','190','Jn 20,27-29','Se√±or m√≠o y Dios m√≠o')"></TD>
 <TD width=100px>Jn 20,27-29</TD>
-<TD width=237px>SeÒor mÌo y Dios mÌo</TD>
+<TD width=237px>Se√±or m√≠o y Dios m√≠o</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp12.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=20&verini=27&verfin=29' target='_blank'>Jn 20,27-29</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -2236,39 +2236,39 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Jn 21,15-17</TD>
-<TD width=237px>T˙ lo sabes</TD>
+<TD width=237px>T√∫ lo sabes</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/tu-lo-sabes.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=21&verini=15&verfin=17' target='_blank'>Jn 21,15-17</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='191' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/03%20T%C3%BA%20sabes%20qui%C3%A9n%20soy.mp3','191','Jn 21, 15-17','T˙ sabes quiÈn soy')"></TD>
+<TD width=35px><img id='191' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/03%20T%C3%BA%20sabes%20qui%C3%A9n%20soy.mp3','191','Jn 21, 15-17','T√∫ sabes qui√©n soy')"></TD>
 <TD width=100px>Jn 21, 15-17</TD>
-<TD width=237px>T˙ sabes quiÈn soy</TD>
+<TD width=237px>T√∫ sabes qui√©n soy</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/La%20lluvia%20de%20tu%20misericordia/La_lluvia_de_Tu_misericordia_Acordes.pdf#page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=21&verini= 15&verfin=17' target='_blank'>Jn 21, 15-17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='192' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/05.%20Sue%C3%B1o%20una%20Iglesia.mp3','192','Hch 2,42-47','SueÒo una Iglesia')"></TD>
+<TD width=35px><img id='192' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/05.%20Sue%C3%B1o%20una%20Iglesia.mp3','192','Hch 2,42-47','Sue√±o una Iglesia')"></TD>
 <TD width=100px>Hch 2,42-47</TD>
-<TD width=237px>SueÒo una Iglesia</TD>
+<TD width=237px>Sue√±o una Iglesia</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=52&capini=2&verini=42&verfin=47' target='_blank'>Hch 2,42-47</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='193' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/21%20En%20comun.mp3','193','Hch 4, 32-35','En com˙n')"></TD>
+<TD width=35px><img id='193' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/21%20En%20comun.mp3','193','Hch 4, 32-35','En com√∫n')"></TD>
 <TD width=100px>Hch 4, 32-35</TD>
-<TD width=237px>En com˙n</TD>
+<TD width=237px>En com√∫n</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=52&capini=4&verini= 32&verfin=35' target='_blank'>Hch 4, 32-35</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='194' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/116-Nada_nos_separara-Brotes.mp3','194','Rom 8,35-39','Nada nos separar·')"></TD>
+<TD width=35px><img id='194' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/116-Nada_nos_separara-Brotes.mp3','194','Rom 8,35-39','Nada nos separar√°')"></TD>
 <TD width=100px>Rom 8,35-39</TD>
-<TD width=237px>Nada nos separar·</TD>
+<TD width=237px>Nada nos separar√°</TD>
 <TD width=84px><a href='http://dl.dropboxusercontent.com/u/32482947/CantosLoyola/Cancionero_Gloyola_2012Notas.htm#_Toc391063432' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=8&verini=35&verfin=39' target='_blank'>Rom 8,35-39</a></TD>
 <TD width=102px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -2279,7 +2279,7 @@ canvas Not supported
 <TD width=237px>Nada</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=8&verini=38&verfin=39' target='_blank'>Rom 8,38-39</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='196' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/03Me%20desbordas.mp3','196','Rom 11, 33-36','Me desbordas')"></TD>
@@ -2287,12 +2287,12 @@ canvas Not supported
 <TD width=237px>Me desbordas</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=11&verini= 33&verfin=36' target='_blank'>Rom 11, 33-36</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Rom 14,8</TD>
-<TD width=237px>Somos del SeÒor</TD>
+<TD width=237px>Somos del Se√±or</TD>
 <TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp14.pdf' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=14&verini=8&verfin=' target='_blank'>Rom 14,8</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -2303,7 +2303,7 @@ canvas Not supported
 <TD width=237px>Todos uno</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=1&verini=10&verfin=13' target='_blank'>1Cor 1,10-13</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='198' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/11Como%20uno%20de%20tantos.mp3','198','1Cor 1, 26-31','Como uno de tantos')"></TD>
@@ -2311,15 +2311,15 @@ canvas Not supported
 <TD width=237px>Como uno de tantos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=1&verini= 26&verfin=31' target='_blank'>1Cor 1, 26-31</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=55&capini=4&verini=7&verfin=' target='_blank'>2Cor 4,7</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=2&verini= 5&verfin=11' target='_blank'>Flp 2, 5-11</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='199' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/16Se%C3%B1or%2C%20expr%C3%B3piame.mp3','199','1Cor 3, 22-23','SeÒor, exprÛpiame')"></TD>
+<TD width=35px><img id='199' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/16Se%C3%B1or%2C%20expr%C3%B3piame.mp3','199','1Cor 3, 22-23','Se√±or, expr√≥piame')"></TD>
 <TD width=100px>1Cor 3, 22-23</TD>
-<TD width=237px>SeÒor, exprÛpiame</TD>
+<TD width=237px>Se√±or, expr√≥piame</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=1' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=3&verini= 22&verfin=23' target='_blank'>1Cor 3, 22-23</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='200' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/18Cambios.mp3','200','1Cor 4, 7','Cambios')"></TD>
@@ -2327,7 +2327,7 @@ canvas Not supported
 <TD width=237px>Cambios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=4&verini= 7&verfin=' target='_blank'>1Cor 4, 7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -2362,12 +2362,12 @@ canvas Not supported
 <TD width=102px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='203' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/25_DONDE_ESTE_YO.mp3','203','2Cor 3,18','Donde estÈ yo')"></TD>
+<TD width=35px><img id='203' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/25_DONDE_ESTE_YO.mp3','203','2Cor 3,18','Donde est√© yo')"></TD>
 <TD width=100px>2Cor 3,18</TD>
-<TD width=237px>Donde estÈ yo</TD>
+<TD width=237px>Donde est√© yo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=55&capini=3&verini=18&verfin=' target='_blank'>2Cor 3,18</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
@@ -2386,28 +2386,28 @@ canvas Not supported
 <TD width=102px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='205' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/14Mu%C3%A9veme%20mi%20DIos.mp3','205','G·l 4, 8-9','MuÈveme mi Dios')"></TD>
-<TD width=100px>G·l 4, 8-9</TD>
-<TD width=237px>MuÈveme mi Dios</TD>
+<TD width=35px><img id='205' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/14Mu%C3%A9veme%20mi%20DIos.mp3','205','G√°l 4, 8-9','Mu√©veme mi Dios')"></TD>
+<TD width=100px>G√°l 4, 8-9</TD>
+<TD width=237px>Mu√©veme mi Dios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=4&verini= 8&verfin=9' target='_blank'>G·l 4, 8-9</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=4&verini= 8&verfin=9' target='_blank'>G√°l 4, 8-9</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='206' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/07S%C3%B3lo%20el%20Esp%C3%ADritu.mp3','206','G·l 5, 16-25','SÛlo tu EspÌritu')"></TD>
-<TD width=100px>G·l 5, 16-25</TD>
-<TD width=237px>SÛlo tu EspÌritu</TD>
+<TD width=35px><img id='206' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/07S%C3%B3lo%20el%20Esp%C3%ADritu.mp3','206','G√°l 5, 16-25','S√≥lo tu Esp√≠ritu')"></TD>
+<TD width=100px>G√°l 5, 16-25</TD>
+<TD width=237px>S√≥lo tu Esp√≠ritu</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Como_uno_de_tantos/Como_uno_de_tantos_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=5&verini= 16&verfin=25' target='_blank'>G·l 5, 16-25</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=5&verini= 16&verfin=25' target='_blank'>G√°l 5, 16-25</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='207' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/04.%20S%C3%B3lo%20tu%20Esp%C3%ADritu.mp3','207','G·l 5,16-25','SÛlo tu EspÌritu')"></TD>
-<TD width=100px>G·l 5,16-25</TD>
-<TD width=237px>SÛlo tu EspÌritu</TD>
+<TD width=35px><img id='207' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/04.%20S%C3%B3lo%20tu%20Esp%C3%ADritu.mp3','207','G√°l 5,16-25','S√≥lo tu Esp√≠ritu')"></TD>
+<TD width=100px>G√°l 5,16-25</TD>
+<TD width=237px>S√≥lo tu Esp√≠ritu</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=7' target='_blank'>Letra/notas</a></TD>
-<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=5&verini=16&verfin=25' target='_blank'>G·l 5,16-25</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=56&capini=5&verini=16&verfin=25' target='_blank'>G√°l 5,16-25</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='208' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/04%20Renovaos.mp3','208','Ef 4,20-24','Renovaos')"></TD>
@@ -2415,15 +2415,15 @@ canvas Not supported
 <TD width=237px>Renovaos</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=57&capini=4&verini=20&verfin=24' target='_blank'>Ef 4,20-24</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='209' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/21_SOLO_EL_AMOR.mp3','209','Ef 4,31-32','SÛlo el amor')"></TD>
+<TD width=35px><img id='209' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/21_SOLO_EL_AMOR.mp3','209','Ef 4,31-32','S√≥lo el amor')"></TD>
 <TD width=100px>Ef 4,31-32</TD>
-<TD width=237px>SÛlo el amor</TD>
+<TD width=237px>S√≥lo el amor</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=57&capini=4&verini=31&verfin=32' target='_blank'>Ef 4,31-32</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='210' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/20Gracias.mp3','210','Ef 5, 20','Gracias')"></TD>
@@ -2431,7 +2431,7 @@ canvas Not supported
 <TD width=237px>Gracias</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=57&capini=5&verini= 20&verfin=' target='_blank'>Ef 5, 20</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='211' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/20_MI_VIDA_ES_CRISTO.mp3','211','Flp 1,21','Mi vida es Cristo')"></TD>
@@ -2439,7 +2439,7 @@ canvas Not supported
 <TD width=237px>Mi vida es Cristo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=1&verini=21&verfin=' target='_blank'>Flp 1,21</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='212' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/23%20HIMNO%20FILIPENSES.mp3','212','Flp 2, 6-9','Himno Filipenses')"></TD>
@@ -2452,7 +2452,7 @@ canvas Not supported
 <TR>
 <TD width=35px><a href='' target='_blank'> </a></TD>
 <TD width=100px>Flp 2,10</TD>
-<TD width=237px>Jes˙s</TD>
+<TD width=237px>Jes√∫s</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/Fuego%20en%20las%20entra%C3%B1as.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=2&verini=10&verfin=' target='_blank'>Flp 2,10</a></TD>
 <TD width=102px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -2463,15 +2463,15 @@ canvas Not supported
 <TD width=237px>Nada vale la pena</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=3&verini= 8&verfin=' target='_blank'>Flp 3, 8</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='214' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/08%20Acercate.mp3','214','Flp 4,13','AcÈrcate')"></TD>
+<TD width=35px><img id='214' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/08%20Acercate.mp3','214','Flp 4,13','Ac√©rcate')"></TD>
 <TD width=100px>Flp 4,13</TD>
-<TD width=237px>AcÈrcate</TD>
+<TD width=237px>Ac√©rcate</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=4&verini=13&verfin=' target='_blank'>Flp 4,13</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='215' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/16A%20pesar%20de%20todo.mp3','215','1Tim 1, 15-16','A pesar de todo')"></TD>
@@ -2479,15 +2479,15 @@ canvas Not supported
 <TD width=237px>A pesar de todo</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=62&capini=1&verini= 15&verfin=16' target='_blank'>1Tim 1, 15-16</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='216' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/02Conf%C3%ADo.mp3','216','2Tim 1,12','ConfÌo')"></TD>
+<TD width=35px><img id='216' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/02Conf%C3%ADo.mp3','216','2Tim 1,12','Conf√≠o')"></TD>
 <TD width=100px>2Tim 1,12</TD>
-<TD width=237px>ConfÌo</TD>
+<TD width=237px>Conf√≠o</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=63&capini=1&verini=12&verfin=' target='_blank'>2Tim 1,12</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD width=35px><img id='217' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/12%20El%20labrador.mp3','217','Sant 5,7','El labrador')"></TD>
@@ -2495,39 +2495,39 @@ canvas Not supported
 <TD width=237px>El labrador</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=9' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=67&capini=5&verini=7&verfin=' target='_blank'>Sant 5,7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='218' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/09%20Por%20que.mp3','218','Ap 3,15-16','øPor quÈ?')"></TD>
+<TD width=35px><img id='218' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/09%20Por%20que.mp3','218','Ap 3,15-16','¬øPor qu√©?')"></TD>
 <TD width=100px>Ap 3,15-16</TD>
-<TD width=237px>øPor quÈ?</TD>
+<TD width=237px>¬øPor qu√©?</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Al%20otro%20lado%20del%20mar/Al_otro_lado%20_acordes.pdf#page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=3&verini=15&verfin=16' target='_blank'>Ap 3,15-16</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='219' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/08.%20Llega%20el%20d%C3%ADa.mp3','219','Ap 21,1-7','Llega el dÌa')"></TD>
+<TD width=35px><img id='219' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/08.%20Llega%20el%20d%C3%ADa.mp3','219','Ap 21,1-7','Llega el d√≠a')"></TD>
 <TD width=100px>Ap 21,1-7</TD>
-<TD width=237px>Llega el dÌa</TD>
+<TD width=237px>Llega el d√≠a</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/En%20Espiritu%20y%20en%20verdad/En_espiritu_y_en_verdad_cancionero.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=21&verini=1&verfin=7' target='_blank'>Ap 21,1-7</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='220' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/09_VEN_SERENAME.mp3','220','Ap 22,17','Ven, serÈname')"></TD>
+<TD width=35px><img id='220' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/09_VEN_SERENAME.mp3','220','Ap 22,17','Ven, ser√©name')"></TD>
 <TD width=100px>Ap 22,17</TD>
-<TD width=237px>Ven, serÈname</TD>
+<TD width=237px>Ven, ser√©name</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Abrazando_la_noche/Abrazando%20la%20noche_acordes.pdf#page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=22&verini=17&verfin=' target='_blank'>Ap 22,17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
-<TD width=35px><img id='221' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/13Ven%2C%20Esp%C3%ADritu%20de%20Dios.mp3','221','Ap 22, 17','Ven, EspÌritu de Dios')"></TD>
+<TD width=35px><img id='221' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/13Ven%2C%20Esp%C3%ADritu%20de%20Dios.mp3','221','Ap 22, 17','Ven, Esp√≠ritu de Dios')"></TD>
 <TD width=100px>Ap 22, 17</TD>
-<TD width=237px>Ven, EspÌritu de Dios</TD>
+<TD width=237px>Ven, Esp√≠ritu de Dios</TD>
 <TD width=84px><a href='https://dl.dropboxusercontent.com/u/2931762/IXCIS/Conf%C3%ADo/Confio_acordes.pdf#page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=170px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=74&capini=22&verini= 17&verfin=' target='_blank'>Ap 22, 17</a></TD>
-<TD width=102px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
+<TD width=102px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
 </TR>
 <TR>
 <TD> <img src="blank20.png"> </TD>
