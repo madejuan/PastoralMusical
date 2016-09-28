@@ -1,7 +1,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>************************************************ */-->
 <style type="text/css" MEDIA=screen>
 div.scroll  {
-   width:100%;
+    width:100%;
    overflow-y:scroll;
    height:310px;
 }
@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  Aquí comienza el Javascript */-->
+<!--  AquÃ­ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canción
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canción
+        //Saltar a la siguiente canciÃ³n
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÃ³n
                        playnext();
         }
    }
- //Play and pause function. Esta es la función en la que empieza a sonar la música de un canto concreto.
+ //Play and pause function. Esta es la funciÃ³n en la que empieza a sonar la mÃºsica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los parámetros del canto que tengo que reproducir
+                    //recojo los parÃ¡metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si tenía un ID en marcha
+                          if ( !oAudio.paused) {          // Si tenÃ­a un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde está localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde estÃ¡ localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canción y puedo ir atrás
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canción me vol a la última
+            if (currentID !== "") {    //Estoy en una canciÃ³n y puedo ir atrÃ¡s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÃ³n me vol a la Ãºltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canción empiezo por la última
+           else {   // Si no hay canciÃ³n empiezo por la Ãºltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Está sonando un mp3
-                             // Miro si está parado o sonando
+                    if (currentURLmp3 !== "") {    // EstÃ¡ sonando un mp3
+                             // Miro si estÃ¡ parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canción y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la última canción me voy a la primera
+            if (currentID !== "") {    //Estoy en una canciÃ³n y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la Ãºltima canciÃ³n me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canción empiezo por la primera
+           else {   // Si no hay canciÃ³n empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -237,7 +237,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar automáticamente por una canción aleatoria
+            // Si tengo que empezar automÃ¡ticamente por una canciÃ³n aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -277,14 +277,14 @@ canvas Not supported
 <th width=79px>Disco</th>
 <th width=218px>Nombre</th>
 <th width=91px>Letra/notas</th>
-<th width=150px>Citas Bíblicas</th>
+<th width=150px>Citas BÃ­blicas</th>
 <th width=53px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
 <TR>
-<TD width=33px><img id='1' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/01%20TOMAD%20SE%C3%91OR.mp3','1','Tnsc2003','Tomad Señor')"></TD>
+<TD width=33px><img id='1' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/01%20TOMAD%20SE%C3%91OR.mp3','1','Tnsc2003','Tomad SeÃ±or')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Tomad Señor</TD>
+<TD width=218px>Tomad SeÃ±or</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=2' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -298,9 +298,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='3' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/03%20CONOCERTE%2C%20MI%20SE%C3%91OR.mp3','3','Tnsc2003','Conocerte, mi Señor')"></TD>
+<TD width=33px><img id='3' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/03%20CONOCERTE%2C%20MI%20SE%C3%91OR.mp3','3','Tnsc2003','Conocerte, mi SeÃ±or')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Conocerte, mi Señor</TD>
+<TD width=218px>Conocerte, mi SeÃ±or</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=4' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -314,9 +314,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/05%20A%20D%C3%93NDE%20ME%20QUER%C3%89IS%20LLEVAR.mp3','5','Tnsc2003','A dónde me queréis llevar')"></TD>
+<TD width=33px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/05%20A%20D%C3%93NDE%20ME%20QUER%C3%89IS%20LLEVAR.mp3','5','Tnsc2003','A dÃ³nde me querÃ©is llevar')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>A dónde me queréis llevar</TD>
+<TD width=218px>A dÃ³nde me querÃ©is llevar</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -330,9 +330,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='7' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/07%20SE%C3%91OR%20TEN%20PIEDAD.mp3','7','Tnsc2003','Señor ten piedad')"></TD>
+<TD width=33px><img id='7' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/07%20SE%C3%91OR%20TEN%20PIEDAD.mp3','7','Tnsc2003','SeÃ±or ten piedad')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Señor ten piedad</TD>
+<TD width=218px>SeÃ±or ten piedad</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -354,9 +354,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='10' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/10%20AM%C3%89N.mp3','10','Tnsc2003','Amén')"></TD>
+<TD width=33px><img id='10' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/10%20AM%C3%89N.mp3','10','Tnsc2003','AmÃ©n')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Amén</TD>
+<TD width=218px>AmÃ©n</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=8' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -370,17 +370,17 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='12' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/12%20LOS%20PEQUE%C3%91OS%20DE%20LA%20TIERRA.mp3','12','Tnsc2003','Los pequeños de la tierra')"></TD>
+<TD width=33px><img id='12' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/12%20LOS%20PEQUE%C3%91OS%20DE%20LA%20TIERRA.mp3','12','Tnsc2003','Los pequeÃ±os de la tierra')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Los pequeños de la tierra</TD>
+<TD width=218px>Los pequeÃ±os de la tierra</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/13%20LA%20MUJER%20AD%C3%9ALTERA.mp3','13','Tnsc2003','La mujer adúltera')"></TD>
+<TD width=33px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/13%20LA%20MUJER%20AD%C3%9ALTERA.mp3','13','Tnsc2003','La mujer adÃºltera')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>La mujer adúltera</TD>
+<TD width=218px>La mujer adÃºltera</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=11' target='_blank'>Letra/notas</a></TD>
 <TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=8&verini= 1&verfin=11' target='_blank'>Jn 8, 1-11</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -402,9 +402,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='16' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/16%20YO%20SER%C3%89.mp3','16','Tnsc2003','Yo seré')"></TD>
+<TD width=33px><img id='16' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/16%20YO%20SER%C3%89.mp3','16','Tnsc2003','Yo serÃ©')"></TD>
 <TD width=79px>Tnsc2003</TD>
-<TD width=218px>Yo seré</TD>
+<TD width=218px>Yo serÃ©</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
 <TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=43&verini= 1&verfin=5' target='_blank'>Is 43, 1-5</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -482,9 +482,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='26' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/04%20VIVIR%C3%89%20ALAB%C3%81NDOTE.mp3','26','Tnsc2004','Viviré alabándote')"></TD>
+<TD width=33px><img id='26' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/04%20VIVIR%C3%89%20ALAB%C3%81NDOTE.mp3','26','Tnsc2004','VivirÃ© alabÃ¡ndote')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Viviré alabándote</TD>
+<TD width=218px>VivirÃ© alabÃ¡ndote</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=3' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -498,17 +498,17 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='28' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/06%20DESOLACI%C3%93N.mp3','28','Tnsc2004','Desolación')"></TD>
+<TD width=33px><img id='28' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/06%20DESOLACI%C3%93N.mp3','28','Tnsc2004','DesolaciÃ³n')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Desolación</TD>
+<TD width=218px>DesolaciÃ³n</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='29' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/07%20ETERNO%20SE%C3%91OR.mp3','29','Tnsc2004','Eterno Señor')"></TD>
+<TD width=33px><img id='29' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/07%20ETERNO%20SE%C3%91OR.mp3','29','Tnsc2004','Eterno SeÃ±or')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Eterno Señor</TD>
+<TD width=218px>Eterno SeÃ±or</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -522,9 +522,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/09%20SIGUI%C3%89NDOTE.mp3','31','Tnsc2004','Siguiéndote')"></TD>
+<TD width=33px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/09%20SIGUI%C3%89NDOTE.mp3','31','Tnsc2004','SiguiÃ©ndote')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Siguiéndote</TD>
+<TD width=218px>SiguiÃ©ndote</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -546,9 +546,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='34' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/12%20SE%C3%91OR%20TEN%20PIEDAD.mp3','34','Tnsc2004','Señor ten piedad')"></TD>
+<TD width=33px><img id='34' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/12%20SE%C3%91OR%20TEN%20PIEDAD.mp3','34','Tnsc2004','SeÃ±or ten piedad')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Señor ten piedad</TD>
+<TD width=218px>SeÃ±or ten piedad</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=7' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -586,9 +586,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='39' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/17%20AVE%20MAR%C3%8DA.mp3','39','Tnsc2004','Ave María')"></TD>
+<TD width=33px><img id='39' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/17%20AVE%20MAR%C3%8DA.mp3','39','Tnsc2004','Ave MarÃ­a')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Ave María</TD>
+<TD width=218px>Ave MarÃ­a</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
 <TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -610,33 +610,33 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/20%20T%C3%9A%20MI%20JUSTICIA.mp3','42','Tnsc2004','Tú mi justicia')"></TD>
+<TD width=33px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/20%20T%C3%9A%20MI%20JUSTICIA.mp3','42','Tnsc2004','TÃº mi justicia')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Tú mi justicia</TD>
+<TD width=218px>TÃº mi justicia</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=12' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='43' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/21%20S%C3%8DGUEME.mp3','43','Tnsc2004','Sígueme')"></TD>
+<TD width=33px><img id='43' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/21%20S%C3%8DGUEME.mp3','43','Tnsc2004','SÃ­gueme')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Sígueme</TD>
+<TD width=218px>SÃ­gueme</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=13' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/22%20ME%20PERMITIR%C3%89%20SO%C3%91ARTE.mp3','44','Tnsc2004','Me permitiré soñarte')"></TD>
+<TD width=33px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/22%20ME%20PERMITIR%C3%89%20SO%C3%91ARTE.mp3','44','Tnsc2004','Me permitirÃ© soÃ±arte')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Me permitiré soñarte</TD>
+<TD width=218px>Me permitirÃ© soÃ±arte</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='45' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/23%20RIQUEZA%20DEL%20CORAZ%C3%93N.mp3','45','Tnsc2004','Riqueza del corazón')"></TD>
+<TD width=33px><img id='45' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/23%20RIQUEZA%20DEL%20CORAZ%C3%93N.mp3','45','Tnsc2004','Riqueza del corazÃ³n')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Riqueza del corazón</TD>
+<TD width=218px>Riqueza del corazÃ³n</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
 <TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=12&verini= 41&verfin=44' target='_blank'>Mc 12, 41-44</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 1&verfin=4' target='_blank'>Lc 21, 1-4</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -674,9 +674,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='50' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/28%20LL%C3%89VAME%20SIEMPRE.mp3','50','Tnsc2004','Llévame siempre')"></TD>
+<TD width=33px><img id='50' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/28%20LL%C3%89VAME%20SIEMPRE.mp3','50','Tnsc2004','LlÃ©vame siempre')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Llévame siempre</TD>
+<TD width=218px>LlÃ©vame siempre</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=19' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -698,9 +698,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='53' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/31%20MARIACHI%20DEL%20PERD%C3%93N.mp3','53','Tnsc2004','Mariachi del perdón')"></TD>
+<TD width=33px><img id='53' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/31%20MARIACHI%20DEL%20PERD%C3%93N.mp3','53','Tnsc2004','Mariachi del perdÃ³n')"></TD>
 <TD width=79px>Tnsc2004</TD>
-<TD width=218px>Mariachi del perdón</TD>
+<TD width=218px>Mariachi del perdÃ³n</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=21' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -754,9 +754,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/07%20SE%C3%91ORA%20DEL%20ALBA.mp3','60','Tnsc2006','Señora del alba')"></TD>
+<TD width=33px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/07%20SE%C3%91ORA%20DEL%20ALBA.mp3','60','Tnsc2006','SeÃ±ora del alba')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Señora del alba</TD>
+<TD width=218px>SeÃ±ora del alba</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=5' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -770,9 +770,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='62' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/09%20SE%C3%91OR%2C%20TEN%20PIEDAD.mp3','62','Tnsc2006','Señor, ten piedad')"></TD>
+<TD width=33px><img id='62' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/09%20SE%C3%91OR%2C%20TEN%20PIEDAD.mp3','62','Tnsc2006','SeÃ±or, ten piedad')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Señor, ten piedad</TD>
+<TD width=218px>SeÃ±or, ten piedad</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=6' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -842,17 +842,17 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='71' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/18%20DECLARACI%C3%93N%20DE%20INTENCIONES.mp3','71','Tnsc2006','Declaración de intenciones')"></TD>
+<TD width=33px><img id='71' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/18%20DECLARACI%C3%93N%20DE%20INTENCIONES.mp3','71','Tnsc2006','DeclaraciÃ³n de intenciones')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Declaración de intenciones</TD>
+<TD width=218px>DeclaraciÃ³n de intenciones</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='72' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/19%20ORACI%C3%93N%20DEL%20PERD%C3%93N.mp3','72','Tnsc2006','Oración del perdón')"></TD>
+<TD width=33px><img id='72' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/19%20ORACI%C3%93N%20DEL%20PERD%C3%93N.mp3','72','Tnsc2006','OraciÃ³n del perdÃ³n')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Oración del perdón</TD>
+<TD width=218px>OraciÃ³n del perdÃ³n</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -898,9 +898,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/25%20MIRAD%20EL%20%C3%81RBOL%20DE%20LA%20CRUZ.mp3','78','Tnsc2006','Mirad el árbol de la cruz')"></TD>
+<TD width=33px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/25%20MIRAD%20EL%20%C3%81RBOL%20DE%20LA%20CRUZ.mp3','78','Tnsc2006','Mirad el Ã¡rbol de la cruz')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Mirad el árbol de la cruz</TD>
+<TD width=218px>Mirad el Ã¡rbol de la cruz</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=17' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -930,9 +930,9 @@ canvas Not supported
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=33px><img id='82' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/29%20CU%C3%81NTO%20AMA%20DIOS.mp3','82','Tnsc2006','Cuánto ama Dios')"></TD>
+<TD width=33px><img id='82' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/29%20CU%C3%81NTO%20AMA%20DIOS.mp3','82','Tnsc2006','CuÃ¡nto ama Dios')"></TD>
 <TD width=79px>Tnsc2006</TD>
-<TD width=218px>Cuánto ama Dios</TD>
+<TD width=218px>CuÃ¡nto ama Dios</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=20' target='_blank'>Letra/notas</a></TD>
 <TD width=150px></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
