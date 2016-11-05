@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  Aqu√≠ comienza el Javascript */-->
+<!--  AquÌ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canci√≥n
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canci√≥n
+        //Saltar a la siguiente canciÛn
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÛn
                        playnext();
         }
    }
- //Play and pause function. Esta es la funci√≥n en la que empieza a sonar la m√∫sica de un canto concreto.
+ //Play and pause function. Esta es la funciÛn en la que empieza a sonar la m˙sica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los par√°metros del canto que tengo que reproducir
+                    //recojo los par·metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si ten√≠a un ID en marcha
+                          if ( !oAudio.paused) {          // Si tenÌa un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde est√° localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde est· localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir atr√°s
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canci√≥n me vol a la √∫ltima
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir atr·s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÛn me vol a la ˙ltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la √∫ltima
+           else {   // Si no hay canciÛn empiezo por la ˙ltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Est√° sonando un mp3
-                             // Miro si est√° parado o sonando
+                    if (currentURLmp3 !== "") {    // Est· sonando un mp3
+                             // Miro si est· parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la √∫ltima canci√≥n me voy a la primera
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la ˙ltima canciÛn me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la primera
+           else {   // Si no hay canciÛn empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -241,7 +241,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar autom√°ticamente por una canci√≥n aleatoria
+            // Si tengo que empezar autom·ticamente por una canciÛn aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -281,17 +281,17 @@ canvas Not supported
 <colgroup width="">
 <tr>
 <th width=42,6666666666667px>Play</th>
-<th width=49,3333333333333px>N√∫m.</th>
+<th width=49,3333333333333px>N˙m.</th>
 <th width=248px>Nombre</th>
 <th width=84px>Letra/notas</th>
-<th width=144,666666666667px>Citas B√≠blicas</th>
+<th width=144,666666666667px>Citas BÌblicas</th>
 <th width=128,666666666667px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
 <TR>
-<TD width=42,6666666666667px><img id='1' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/001-A%20d%C3%B3nde%20me%20quer%C3%A9is%20llevar-Tsnc.mp3','1','001','A donde me quer√©is llevar')"></TD>
+<TD width=42,6666666666667px><img id='1' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/001-A%20d%C3%B3nde%20me%20quer%C3%A9is%20llevar-Tsnc.mp3','1','001','A donde me querÈis llevar')"></TD>
 <TD width=49,3333333333333px>001</TD>
-<TD width=248px>A donde me quer√©is llevar</TD>
+<TD width=248px>A donde me querÈis llevar</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063317' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -318,12 +318,12 @@ canvas Not supported
 <TD width=248px>Adoramus te</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063320' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/005-Agua%20l%C3%A1vame-Brotes.mp3','5','005','Agua l√°vame')"></TD>
+<TD width=42,6666666666667px><img id='5' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/005-Agua%20l%C3%A1vame-Brotes.mp3','5','005','Agua l·vame')"></TD>
 <TD width=49,3333333333333px>005</TD>
-<TD width=248px>Agua l√°vame</TD>
+<TD width=248px>Agua l·vame</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063321' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=1&verini=16&verfin=' target='_blank'>Is 1,16</a></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -345,9 +345,9 @@ canvas Not supported
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='8' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/008-Aleluya%2C%20el%20Se%C3%B1or%20resucit%C3%B3-Brotes.mp3','8','008','Aleluya el Se√±or resucit√≥')"></TD>
+<TD width=42,6666666666667px><img id='8' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/008-Aleluya%2C%20el%20Se%C3%B1or%20resucit%C3%B3-Brotes.mp3','8','008','Aleluya el SeÒor resucitÛ')"></TD>
 <TD width=49,3333333333333px>008</TD>
-<TD width=248px>Aleluya el Se√±or resucit√≥</TD>
+<TD width=248px>Aleluya el SeÒor resucitÛ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063324' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -374,28 +374,28 @@ canvas Not supported
 <TD width=248px>Amando hasta el extremo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063327' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=13&verini= 1&verfin=' target='_blank'>Jn 13, 1</a></TD>
-<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite L√≥pez</a></TD>
+<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite LÛpez</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='11' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/012-Amarte%20a%20T%C3%AD%20Se%C3%B1or-C.Fones.mp3','11','012','Amarte a Ti, Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='11' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/012-Amarte%20a%20T%C3%AD%20Se%C3%B1or-C.Fones.mp3','11','012','Amarte a Ti, SeÒor')"></TD>
 <TD width=49,3333333333333px>012</TD>
-<TD width=248px>Amarte a Ti, Se√±or</TD>
+<TD width=248px>Amarte a Ti, SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063328' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>Crist√≥bal Fones</a></TD>
+<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>CristÛbal Fones</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='12' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/013-Amor%20y%20mas%20amor-AinKarem.mp3','12','013','Amor y m√°s amor')"></TD>
+<TD width=42,6666666666667px><img id='12' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/013-Amor%20y%20mas%20amor-AinKarem.mp3','12','013','Amor y m·s amor')"></TD>
 <TD width=49,3333333333333px>013</TD>
-<TD width=248px>Amor y m√°s amor</TD>
+<TD width=248px>Amor y m·s amor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063329' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/014-%C3%81nimo%20soy%20yo-AinKarem.mp3','13','014','¬°√Ånimo! Soy yo')"></TD>
+<TD width=42,6666666666667px><img id='13' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/014-%C3%81nimo%20soy%20yo-AinKarem.mp3','13','014','°¡nimo! Soy yo')"></TD>
 <TD width=49,3333333333333px>014</TD>
-<TD width=248px>¬°√Ånimo! Soy yo</TD>
+<TD width=248px>°¡nimo! Soy yo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063330' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=14&verini=24&verfin=34' target='_blank'>Mt 14,24-34</a></TD>
 <TD width=128,666666666667px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -409,17 +409,17 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='14' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/016-Bendecid%20al%20Se%C3%B1or-Taiz%C3%A8.mp3','14','016','Bendecid al Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='14' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/016-Bendecid%20al%20Se%C3%B1or-Taiz%C3%A8.mp3','14','016','Bendecid al SeÒor')"></TD>
 <TD width=49,3333333333333px>016</TD>
-<TD width=248px>Bendecid al Se√±or</TD>
+<TD width=248px>Bendecid al SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063332' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='15' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/017-Bendigamos%20al%20Se%C3%B1or.mp3','15','017','Bendigamos al Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='15' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/017-Bendigamos%20al%20Se%C3%B1or.mp3','15','017','Bendigamos al SeÒor')"></TD>
 <TD width=49,3333333333333px>017</TD>
-<TD width=248px>Bendigamos al Se√±or</TD>
+<TD width=248px>Bendigamos al SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063333' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=4&verini= 16&verfin=21' target='_blank'>Lc 4, 16-21</a></TD>
 <TD width=128,666666666667px></TD>
@@ -430,7 +430,7 @@ canvas Not supported
 <TD width=248px>Benedictus qui venit</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063334' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=12&verini=13&verfin=' target='_blank'>Jn 12,13</a></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -465,12 +465,12 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='20' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/023-Caminar%C3%A9-Ixcis.mp3','20','023','Caminar√©')"></TD>
+<TD width=42,6666666666667px><img id='20' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/023-Caminar%C3%A9-Ixcis.mp3','20','023','CaminarÈ')"></TD>
 <TD width=49,3333333333333px>023</TD>
-<TD width=248px>Caminar√©</TD>
+<TD width=248px>CaminarÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063339' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=116&verini=9&verfin=' target='_blank'>Sal 116,9</a></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='21' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/024-Caminaremos.mp3','21','024','Caminaremos')"></TD>
@@ -486,7 +486,7 @@ canvas Not supported
 <TD width=248px>Camino de la cruz</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063341' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>Crist√≥bal Fones</a></TD>
+<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>CristÛbal Fones</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='23' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/026-Canta_aleluya.mp3','23','026','Canta aleluya')"></TD>
@@ -497,9 +497,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='24' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/32482947/CantosLoyola/027-Cerca%20de%20ti.mp3','24','027','Cerca de ti Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='24' src="play20.png" onclick="playAudio('https://dl.dropboxusercontent.com/u/32482947/CantosLoyola/027-Cerca%20de%20ti.mp3','24','027','Cerca de ti SeÒor')"></TD>
 <TD width=49,3333333333333px>027</TD>
-<TD width=248px>Cerca de ti Se√±or</TD>
+<TD width=248px>Cerca de ti SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063343' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -513,9 +513,9 @@ canvas Not supported
 <TD width=128,666666666667px>Diego Torres</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='26' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/029-Como%20el%20padre%20me%20am%C3%B3.mp3','26','029','Como el Padre me am√≥')"></TD>
+<TD width=42,6666666666667px><img id='26' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/029-Como%20el%20padre%20me%20am%C3%B3.mp3','26','029','Como el Padre me amÛ')"></TD>
 <TD width=49,3333333333333px>029</TD>
-<TD width=248px>Como el Padre me am√≥</TD>
+<TD width=248px>Como el Padre me amÛ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063345' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=15&verini=&verfin=' target='_blank'>Jn 15</a></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -526,36 +526,36 @@ canvas Not supported
 <TD width=248px>Como la lluvia da vida</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063346' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=55&verini=10&verfin=11' target='_blank'>Is 55,10-11</a></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='28' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/031-Como%20le%20cantare.mp3','28','031','C√≥mo le cantar√©')"></TD>
+<TD width=42,6666666666667px><img id='28' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/031-Como%20le%20cantare.mp3','28','031','CÛmo le cantarÈ')"></TD>
 <TD width=49,3333333333333px>031</TD>
-<TD width=248px>C√≥mo le cantar√©</TD>
+<TD width=248px>CÛmo le cantarÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063347' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='29' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/032-Como%20Mar%C3%ADa-Ixcis.mp3','29','032','Como Mar√≠a (Basta con mirar y callar)')"></TD>
+<TD width=42,6666666666667px><img id='29' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/032-Como%20Mar%C3%ADa-Ixcis.mp3','29','032','Como MarÌa (Basta con mirar y callar)')"></TD>
 <TD width=49,3333333333333px>032</TD>
-<TD width=248px>Como Mar√≠a (Basta con mirar y callar)</TD>
+<TD width=248px>Como MarÌa (Basta con mirar y callar)</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063348' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=45&capini=5&verini=1&verfin=' target='_blank'>Ecc 5,1</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=2&verini=51&verfin=' target='_blank'>Lc 2,51</a></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='30' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/033-Confio%20en%20ti-Brotes.mp3','30','033','Conf√≠o en t√≠')"></TD>
+<TD width=42,6666666666667px><img id='30' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/033-Confio%20en%20ti-Brotes.mp3','30','033','ConfÌo en tÌ')"></TD>
 <TD width=49,3333333333333px>033</TD>
-<TD width=248px>Conf√≠o en t√≠</TD>
+<TD width=248px>ConfÌo en tÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063349' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/034-Conocerte%20mi%20Se%C3%B1or-Tsnc.mp3','31','034','Conocerte mi Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='31' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/034-Conocerte%20mi%20Se%C3%B1or-Tsnc.mp3','31','034','Conocerte mi SeÒor')"></TD>
 <TD width=49,3333333333333px>034</TD>
-<TD width=248px>Conocerte mi Se√±or</TD>
+<TD width=248px>Conocerte mi SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063350' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -569,12 +569,12 @@ canvas Not supported
 <TD width=128,666666666667px>Alberto y Emilia</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='33' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/036-Cosas%20peque%C3%B1as-Ixcis.mp3','33','036','Cosas peque√±as')"></TD>
+<TD width=42,6666666666667px><img id='33' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/036-Cosas%20peque%C3%B1as-Ixcis.mp3','33','036','Cosas pequeÒas')"></TD>
 <TD width=49,3333333333333px>036</TD>
-<TD width=248px>Cosas peque√±as</TD>
+<TD width=248px>Cosas pequeÒas</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063352' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='34' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/037-Creatura%20habitada-AinKarem.mp3','34','037','Creatura habitada')"></TD>
@@ -593,17 +593,17 @@ canvas Not supported
 <TD width=128,666666666667px>Marco Frisina</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='36' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/039-Cristo%20Jes%C3%BAs-Taize.mp3','36','039','Cristo Jes√∫s')"></TD>
+<TD width=42,6666666666667px><img id='36' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/039-Cristo%20Jes%C3%BAs-Taize.mp3','36','039','Cristo Jes˙s')"></TD>
 <TD width=49,3333333333333px>039</TD>
-<TD width=248px>Cristo Jes√∫s</TD>
+<TD width=248px>Cristo Jes˙s</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063355' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=139&verini=&verfin=' target='_blank'>Sal 139</a></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>040</TD>
-<TD width=248px>Cuando con el coraz√≥n</TD>
+<TD width=248px>Cuando con el corazÛn</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063356' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -630,7 +630,7 @@ canvas Not supported
 <TD width=248px>De noche iremos</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063359' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='40' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/044-Dejarme%20hacer-Ixcis.mp3','40','044','Dejarme hacer')"></TD>
@@ -638,23 +638,23 @@ canvas Not supported
 <TD width=248px>Dejarme hacer</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063360' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='41' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/045-Desc%C3%A1lzate-AinKarem.mp3','41','045','Desc√°lzate')"></TD>
+<TD width=42,6666666666667px><img id='41' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/045-Desc%C3%A1lzate-AinKarem.mp3','41','045','Desc·lzate')"></TD>
 <TD width=49,3333333333333px>045</TD>
-<TD width=248px>Desc√°lzate</TD>
+<TD width=248px>Desc·lzate</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063361' target='_blank'>Letra/notas</a></TD>
-<TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=5' target='_blank'>√âx 3, 1-5</a></TD>
+<TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=2&capini=3&verini= 1&verfin=5' target='_blank'>…x 3, 1-5</a></TD>
 <TD width=128,666666666667px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/046-Desde%20mi%20balc%C3%B3n-Ixcis.mp3','42','046','Desde mi balc√≥n')"></TD>
+<TD width=42,6666666666667px><img id='42' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/046-Desde%20mi%20balc%C3%B3n-Ixcis.mp3','42','046','Desde mi balcÛn')"></TD>
 <TD width=49,3333333333333px>046</TD>
-<TD width=248px>Desde mi balc√≥n</TD>
+<TD width=248px>Desde mi balcÛn</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063362' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='43' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/047-Deseo%20paz-Kairoi.mp3','43','047','Deseo paz')"></TD>
@@ -672,18 +672,18 @@ canvas Not supported
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
-<TR> 
-<TD width=42,6666666666667px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/049-Dios%20es%20amor%2C%20atr%C3%A9vete-Taize.mp3','44','049','Dios es amor, atr√©vete')"></TD>
+<TR>
+<TD width=42,6666666666667px><img id='44' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/049-Dios%20es%20amor%2C%20atr%C3%A9vete-Taize.mp3','44','049','Dios es amor, atrÈvete')"></TD>
 <TD width=49,3333333333333px>049</TD>
-<TD width=248px>Dios es amor, atr√©vete</TD>
+<TD width=248px>Dios es amor, atrÈvete</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063365' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='45' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/050-Dios%20est%C3%A1%20aqu%C3%AD.mp3','45','050','Dios est√° aqu√≠')"></TD>
+<TD width=42,6666666666667px><img id='45' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/050-Dios%20est%C3%A1%20aqu%C3%AD.mp3','45','050','Dios est· aquÌ')"></TD>
 <TD width=49,3333333333333px>050</TD>
-<TD width=248px>Dios est√° aqu√≠</TD>
+<TD width=248px>Dios est· aquÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063366' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -705,9 +705,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='47' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/053-El%20%C3%A1rbol%20de%20la%20cruz-Brotes.mp3','47','053','El √°rbol de la cruz')"></TD>
+<TD width=42,6666666666667px><img id='47' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/053-El%20%C3%A1rbol%20de%20la%20cruz-Brotes.mp3','47','053','El ·rbol de la cruz')"></TD>
 <TD width=49,3333333333333px>053</TD>
-<TD width=248px>El √°rbol de la cruz</TD>
+<TD width=248px>El ·rbol de la cruz</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063369' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -729,9 +729,9 @@ canvas Not supported
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='50' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/056-El_Espiritu_del_Senor-Kairoi.mp3','50','056','El esp√≠ritu del Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='50' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/056-El_Espiritu_del_Senor-Kairoi.mp3','50','056','El espÌritu del SeÒor')"></TD>
 <TD width=49,3333333333333px>056</TD>
-<TD width=248px>El esp√≠ritu del Se√±or</TD>
+<TD width=248px>El espÌritu del SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063372' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -750,28 +750,28 @@ canvas Not supported
 <TD width=248px>El reino de la vida</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063374' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>Crist√≥bal Fones</a></TD>
+<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>CristÛbal Fones</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='52' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/059-El%20Se%C3%B1or%20Dios%20nos%20am%C3%B3.mp3','52','059','El Se√±or Dios nos am√≥')"></TD>
+<TD width=42,6666666666667px><img id='52' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/059-El%20Se%C3%B1or%20Dios%20nos%20am%C3%B3.mp3','52','059','El SeÒor Dios nos amÛ')"></TD>
 <TD width=49,3333333333333px>059</TD>
-<TD width=248px>El Se√±or Dios nos am√≥</TD>
+<TD width=248px>El SeÒor Dios nos amÛ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063375' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='53' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/060-El%20Se%C3%B1or%20es%20mi%20pastor-H.West.mp3','53','060','El Se√±or es mi pastor')"></TD>
+<TD width=42,6666666666667px><img id='53' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/060-El%20Se%C3%B1or%20es%20mi%20pastor-H.West.mp3','53','060','El SeÒor es mi pastor')"></TD>
 <TD width=49,3333333333333px>060</TD>
-<TD width=248px>El Se√±or es mi pastor</TD>
+<TD width=248px>El SeÒor es mi pastor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063376' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=23&verini=&verfin=' target='_blank'>Sal 23</a></TD>
 <TD width=128,666666666667px>H.West</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='54' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/061-El%20Se%C3%B1or%20es%20mi%20Pastor-Nico.mp3','54','061','El Se√±or es mi pastor')"></TD>
+<TD width=42,6666666666667px><img id='54' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/061-El%20Se%C3%B1or%20es%20mi%20Pastor-Nico.mp3','54','061','El SeÒor es mi pastor')"></TD>
 <TD width=49,3333333333333px>061</TD>
-<TD width=248px>El Se√±or es mi pastor</TD>
+<TD width=248px>El SeÒor es mi pastor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063377' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=23&verini=&verfin=' target='_blank'>Sal 23</a></TD>
 <TD width=128,666666666667px><a href='http://nicomontero.com' target='_blank'>Nico Montero</a></TD>
@@ -779,15 +779,15 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>062</TD>
-<TD width=248px>En el nombre del Se√±or</TD>
+<TD width=248px>En el nombre del SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063378' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='55' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/063-En%20%C3%89l%20solo%20la%20esperanza-A.Labajos.mp3','55','063','En √©l solo la esperanza')"></TD>
+<TD width=42,6666666666667px><img id='55' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/063-En%20%C3%89l%20solo%20la%20esperanza-A.Labajos.mp3','55','063','En Èl solo la esperanza')"></TD>
 <TD width=49,3333333333333px>063</TD>
-<TD width=248px>En √©l solo la esperanza</TD>
+<TD width=248px>En Èl solo la esperanza</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063379' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>Alejandro Labajos</TD>
@@ -806,7 +806,7 @@ canvas Not supported
 <TD width=248px>En nuestra oscuridad</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063381' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='58' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/066-Entra%20en%20mi%20noche-Ixcis.mp3','58','066','Entra en mi noche')"></TD>
@@ -814,7 +814,7 @@ canvas Not supported
 <TD width=248px>Entra en mi noche</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063382' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='59' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/067-Entre_tus_manos.mp3','59','067','Entre tus manos')"></TD>
@@ -825,9 +825,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/068-Enviame-Brotes.mp3','60','068','Env√≠ame')"></TD>
+<TD width=42,6666666666667px><img id='60' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/068-Enviame-Brotes.mp3','60','068','EnvÌame')"></TD>
 <TD width=49,3333333333333px>068</TD>
-<TD width=248px>Env√≠ame</TD>
+<TD width=248px>EnvÌame</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063384' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=10&verini=1&verfin=7' target='_blank'>Mt 10,1-7</a></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -841,9 +841,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='61' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/070-Espiritu%20de%20Dios-J.C.Zubiaga.mp3','61','070','Esp√≠ritu de Dios')"></TD>
+<TD width=42,6666666666667px><img id='61' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/070-Espiritu%20de%20Dios-J.C.Zubiaga.mp3','61','070','EspÌritu de Dios')"></TD>
 <TD width=49,3333333333333px>070</TD>
-<TD width=248px>Esp√≠ritu de Dios</TD>
+<TD width=248px>EspÌritu de Dios</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063386' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>J.C. Zubiaga</TD>
@@ -889,9 +889,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='67' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/076-Hagase.mp3','67','076','H√°gase, Se√±or (Fuente de paz)')"></TD>
+<TD width=42,6666666666667px><img id='67' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/076-Hagase.mp3','67','076','H·gase, SeÒor (Fuente de paz)')"></TD>
 <TD width=49,3333333333333px>076</TD>
-<TD width=248px>H√°gase, Se√±or (Fuente de paz)</TD>
+<TD width=248px>H·gase, SeÒor (Fuente de paz)</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063392' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>Pelayo Sanchez</TD>
@@ -911,14 +911,14 @@ canvas Not supported
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063394' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
-</TR> 
+</TR>
 <TR>
 <TD width=42,6666666666667px><img id='70' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/079-Haznos%20fieles-M.Lopez.mp3','70','079','Haznos fieles')"></TD>
 <TD width=49,3333333333333px>079</TD>
 <TD width=248px>Haznos fieles</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063395' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite L√≥pez</a></TD>
+<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite LÛpez</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -929,9 +929,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='71' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/081-Himno%20de%20la%20alegr%C3%ADa-M.Rios.mp3','71','081','Himno de la alegr√≠a')"></TD>
+<TD width=42,6666666666667px><img id='71' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/081-Himno%20de%20la%20alegr%C3%ADa-M.Rios.mp3','71','081','Himno de la alegrÌa')"></TD>
 <TD width=49,3333333333333px>081</TD>
-<TD width=248px>Himno de la alegr√≠a</TD>
+<TD width=248px>Himno de la alegrÌa</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063397' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>Miguel Rios</TD>
@@ -947,7 +947,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>083</TD>
-<TD width=248px>Hola Jes√∫s</TD>
+<TD width=248px>Hola Jes˙s</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063399' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -961,9 +961,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='73' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/085-Hoy_el_Senor_resucito.mp3','73','085','Hoy el Se√±or resucit√≥')"></TD>
+<TD width=42,6666666666667px><img id='73' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/085-Hoy_el_Senor_resucito.mp3','73','085','Hoy el SeÒor resucitÛ')"></TD>
 <TD width=49,3333333333333px>085</TD>
-<TD width=248px>Hoy el Se√±or resucit√≥</TD>
+<TD width=248px>Hoy el SeÒor resucitÛ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063401' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -977,9 +977,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='75' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/087-Hoy%20Se%C3%B1or%20te%20dar%C3%A9-Brotes.mp3','75','087','Hoy Se√±or te dar√©')"></TD>
+<TD width=42,6666666666667px><img id='75' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/087-Hoy%20Se%C3%B1or%20te%20dar%C3%A9-Brotes.mp3','75','087','Hoy SeÒor te darÈ')"></TD>
 <TD width=49,3333333333333px>087</TD>
-<TD width=248px>Hoy Se√±or te dar√©</TD>
+<TD width=248px>Hoy SeÒor te darÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063403' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -993,17 +993,17 @@ canvas Not supported
 <TD width=128,666666666667px>Marco Frisina</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='77' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/089-Jesus_es_Senor-Kairoi.mp3','77','089','Jes√∫s es Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='77' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/089-Jesus_es_Senor-Kairoi.mp3','77','089','Jes˙s es SeÒor')"></TD>
 <TD width=49,3333333333333px>089</TD>
-<TD width=248px>Jes√∫s es Se√±or</TD>
+<TD width=248px>Jes˙s es SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063405' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/090-Jes%C3%BAs%20est%C3%A1%20entre%20nosotros-Kairoi.mp3','78','090','Jes√∫s est√° entre nosotros')"></TD>
+<TD width=42,6666666666667px><img id='78' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/090-Jes%C3%BAs%20est%C3%A1%20entre%20nosotros-Kairoi.mp3','78','090','Jes˙s est· entre nosotros')"></TD>
 <TD width=49,3333333333333px>090</TD>
-<TD width=248px>Jes√∫s est√° entre nosotros</TD>
+<TD width=248px>Jes˙s est· entre nosotros</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063406' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -1014,7 +1014,7 @@ canvas Not supported
 <TD width=248px>Jubilate coeli</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063407' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='80' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/092-Jubilate%20Deo.mp3','80','092','Jubilate Deo')"></TD>
@@ -1022,12 +1022,12 @@ canvas Not supported
 <TD width=248px>Jubilate Deo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063408' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='81' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/093-Junto%20a%20ti%20Mar%C3%ADa-Kairoi.mp3','81','093','Junto a ti Mar√≠a')"></TD>
+<TD width=42,6666666666667px><img id='81' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/093-Junto%20a%20ti%20Mar%C3%ADa-Kairoi.mp3','81','093','Junto a ti MarÌa')"></TD>
 <TD width=49,3333333333333px>093</TD>
-<TD width=248px>Junto a ti Mar√≠a</TD>
+<TD width=248px>Junto a ti MarÌa</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063409' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -1035,18 +1035,18 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>094</TD>
-<TD width=248px>Junto a ti, Se√±or</TD>
+<TD width=248px>Junto a ti, SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063410' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='82' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/095-La%20misericordia%20del%20Se%C3%B1or-Taize.mp3','82','095','La misericordia del Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='82' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/095-La%20misericordia%20del%20Se%C3%B1or-Taize.mp3','82','095','La misericordia del SeÒor')"></TD>
 <TD width=49,3333333333333px>095</TD>
-<TD width=248px>La misericordia del Se√±or</TD>
+<TD width=248px>La misericordia del SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063411' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='83' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/096-La%20paz%20sea%20contigo.mp3','83','096','La paz sea contigo')"></TD>
@@ -1057,9 +1057,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='84' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/097-Lampara%20es%20tu%20Palabra-AinKarem.mp3','84','097','L√°mpara es tu palabra')"></TD>
+<TD width=42,6666666666667px><img id='84' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/097-Lampara%20es%20tu%20Palabra-AinKarem.mp3','84','097','L·mpara es tu palabra')"></TD>
 <TD width=49,3333333333333px>097</TD>
-<TD width=248px>L√°mpara es tu palabra</TD>
+<TD width=248px>L·mpara es tu palabra</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063413' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=119&verini=105&verfin=109' target='_blank'>Sal 119,105-109</a></TD>
 <TD width=128,666666666667px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1070,7 +1070,7 @@ canvas Not supported
 <TD width=248px>Laudate dominum</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063414' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='86' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/099-Laudate_omnes_gentes-Taize.mp3','86','099','Laudate omnes gentes')"></TD>
@@ -1078,7 +1078,7 @@ canvas Not supported
 <TD width=248px>Laudate omnes gentes</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063415' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='87' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/100-Laudato_si-Kairoi.mp3','87','100','Laudato si')"></TD>
@@ -1110,7 +1110,7 @@ canvas Not supported
 <TD width=248px>Los mansos y humildes</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063419' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>Ixc√≠s</a></TD>
+<TD width=128,666666666667px><a href='http://ixcis.org' target='_blank'>IxcÌs</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -1126,7 +1126,7 @@ canvas Not supported
 <TD width=248px>Magnificat</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063421' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -1139,7 +1139,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>107</TD>
-<TD width=248px>Manos vac√≠as</TD>
+<TD width=248px>Manos vacÌas</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063423' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1153,17 +1153,17 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='92' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/109-M%C3%A1s%20all%C3%A1.mp3','92','109','M√°s all√°')"></TD>
+<TD width=42,6666666666667px><img id='92' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/109-M%C3%A1s%20all%C3%A1.mp3','92','109','M·s all·')"></TD>
 <TD width=49,3333333333333px>109</TD>
-<TD width=248px>M√°s all√°</TD>
+<TD width=248px>M·s all·</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063425' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='93' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/110-Me_levantare-Brotes.mp3','93','110','Me levantar√©')"></TD>
+<TD width=42,6666666666667px><img id='93' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/110-Me_levantare-Brotes.mp3','93','110','Me levantarÈ')"></TD>
 <TD width=49,3333333333333px>110</TD>
-<TD width=248px>Me levantar√©</TD>
+<TD width=248px>Me levantarÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063426' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini=18&verfin=' target='_blank'>Lc 15,18</a></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -1171,7 +1171,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>111</TD>
-<TD width=248px>Me volver√© a ti</TD>
+<TD width=248px>Me volverÈ a ti</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063427' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1179,7 +1179,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>112</TD>
-<TD width=248px>Mi alma glorifica al Se√±or</TD>
+<TD width=248px>Mi alma glorifica al SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063428' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1209,9 +1209,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='96' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/116-Nada_nos_separara-Brotes.mp3','96','116','Nada nos separar√°')"></TD>
+<TD width=42,6666666666667px><img id='96' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/116-Nada_nos_separara-Brotes.mp3','96','116','Nada nos separar·')"></TD>
 <TD width=49,3333333333333px>116</TD>
-<TD width=248px>Nada nos separar√°</TD>
+<TD width=248px>Nada nos separar·</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063432' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=53&capini=8&verini=35&verfin=39' target='_blank'>Rom 8,35-39</a></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
@@ -1222,15 +1222,15 @@ canvas Not supported
 <TD width=248px>Nada te turbe</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063433' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='98' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/118-No%20ador%C3%A9is-L.A.D%C3%ADaz.mp3','98','118','No ador√©is a nadie')"></TD>
+<TD width=42,6666666666667px><img id='98' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/118-No%20ador%C3%A9is-L.A.D%C3%ADaz.mp3','98','118','No adorÈis a nadie')"></TD>
 <TD width=49,3333333333333px>118</TD>
-<TD width=248px>No ador√©is a nadie</TD>
+<TD width=248px>No adorÈis a nadie</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063434' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px>L.A.D√≠az</TD>
+<TD width=128,666666666667px>L.A.DÌaz</TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -1241,17 +1241,17 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='99' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3','99','120','No quiero alejarme de T√≠')"></TD>
+<TD width=42,6666666666667px><img id='99' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3','99','120','No quiero alejarme de TÌ')"></TD>
 <TD width=49,3333333333333px>120</TD>
-<TD width=248px>No quiero alejarme de T√≠</TD>
+<TD width=248px>No quiero alejarme de TÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063436' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=18&capini=1&verini=16&verfin=' target='_blank'>Rut 1,16</a></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='100' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/121-No%20s%C3%A9%20c%C3%B3mo%20alabarte%20Gloria-Kairoi.mp3','100','121','No s√© c√≥mo alabarte Gloria')"></TD>
+<TD width=42,6666666666667px><img id='100' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/121-No%20s%C3%A9%20c%C3%B3mo%20alabarte%20Gloria-Kairoi.mp3','100','121','No sÈ cÛmo alabarte Gloria')"></TD>
 <TD width=49,3333333333333px>121</TD>
-<TD width=248px>No s√© c√≥mo alabarte Gloria</TD>
+<TD width=248px>No sÈ cÛmo alabarte Gloria</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063437' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -1291,7 +1291,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>126</TD>
-<TD width=248px>Oh Se√±or</TD>
+<TD width=248px>Oh SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063442' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1313,9 +1313,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='105' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/129-Oraci%C3%B3n%20del%20pobre-Brotes.mp3','105','129','Oraci√≥n del pobre')"></TD>
+<TD width=42,6666666666667px><img id='105' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/129-Oraci%C3%B3n%20del%20pobre-Brotes.mp3','105','129','OraciÛn del pobre')"></TD>
 <TD width=49,3333333333333px>129</TD>
-<TD width=248px>Oraci√≥n del pobre</TD>
+<TD width=248px>OraciÛn del pobre</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063445' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
@@ -1353,9 +1353,9 @@ canvas Not supported
 <TD width=128,666666666667px>Mocedades</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='108' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/134-Para%20encontrarte%20saldr%C3%A9.mp3','108','134','Para encontrarte saldr√©')"></TD>
+<TD width=42,6666666666667px><img id='108' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/134-Para%20encontrarte%20saldr%C3%A9.mp3','108','134','Para encontrarte saldrÈ')"></TD>
 <TD width=49,3333333333333px>134</TD>
-<TD width=248px>Para encontrarte saldr√©</TD>
+<TD width=248px>Para encontrarte saldrÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063450' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1401,25 +1401,25 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='111' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/140-Paz_Se%C3%B1or.mp3','111','140','Paz Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='111' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/140-Paz_Se%C3%B1or.mp3','111','140','Paz SeÒor')"></TD>
 <TD width=49,3333333333333px>140</TD>
-<TD width=248px>Paz Se√±or</TD>
+<TD width=248px>Paz SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063456' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='112' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/141-Peque%C3%B1as%20aclaraciones.mp3','112','141','Peque√±as aclaraciones')"></TD>
+<TD width=42,6666666666667px><img id='112' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/141-Peque%C3%B1as%20aclaraciones.mp3','112','141','PequeÒas aclaraciones')"></TD>
 <TD width=49,3333333333333px>141</TD>
-<TD width=248px>Peque√±as aclaraciones</TD>
+<TD width=248px>PequeÒas aclaraciones</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063457' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='113' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/142-Pedimos%20perd%C3%B3n.mp3','113','142','Pedimos perd√≥n')"></TD>
+<TD width=42,6666666666667px><img id='113' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/142-Pedimos%20perd%C3%B3n.mp3','113','142','Pedimos perdÛn')"></TD>
 <TD width=49,3333333333333px>142</TD>
-<TD width=248px>Pedimos perd√≥n</TD>
+<TD width=248px>Pedimos perdÛn</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063458' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1441,9 +1441,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='114' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/145-Preparad_el_camino.mp3','114','145','Preparad el camino al Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='114' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/145-Preparad_el_camino.mp3','114','145','Preparad el camino al SeÒor')"></TD>
 <TD width=49,3333333333333px>145</TD>
-<TD width=248px>Preparad el camino al Se√±or</TD>
+<TD width=248px>Preparad el camino al SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063461' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=3&verini=1&verfin=6' target='_blank'>Lc 3,1-6</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1494,7 +1494,7 @@ canvas Not supported
 <TD width=248px>Velad y orad</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063467' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=26&verini=36&verfin=41' target='_blank'>Mt 26,36-41</a></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
@@ -1515,7 +1515,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>154</TD>
-<TD width=248px>Quiero decir que s√≠</TD>
+<TD width=248px>Quiero decir que sÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063470' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1526,7 +1526,7 @@ canvas Not supported
 <TD width=248px>Quiero hablar</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063471' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>Crist√≥bal Fones</a></TD>
+<TD width=128,666666666667px><a href='http://cfones.jesuitas.cl' target='_blank'>CristÛbal Fones</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='122' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/156-Ruah.mp3','122','156','Ruah')"></TD>
@@ -1574,7 +1574,7 @@ canvas Not supported
 <TD width=248px>Salvator mundi</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063477' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
 <TD width=42,6666666666667px><img id='127' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/162-Salve%20Regina.mp3','127','162','Salve Regina')"></TD>
@@ -1591,27 +1591,27 @@ canvas Not supported
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063479' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
-</TR> 
+</TR>
 <TR>
-<TD width=42,6666666666667px><img id='129' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/164-Santa Mar√≠a del camino.mp3','129','164','Santa Mar√≠a del camino')"></TD>
+<TD width=42,6666666666667px><img id='129' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/164-Santa MarÌa del camino.mp3','129','164','Santa MarÌa del camino')"></TD>
 <TD width=49,3333333333333px>164</TD>
-<TD width=248px>Santa Mar√≠a del camino</TD>
+<TD width=248px>Santa MarÌa del camino</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063480' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>J.A.Espinosa</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='130' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/165-Santo_santo-Kairoi.mp3','130','165','Santo carism√°tico')"></TD>
+<TD width=42,6666666666667px><img id='130' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/165-Santo_santo-Kairoi.mp3','130','165','Santo carism·tico')"></TD>
 <TD width=49,3333333333333px>165</TD>
-<TD width=248px>Santo carism√°tico</TD>
+<TD width=248px>Santo carism·tico</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063481' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='131' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/166-Santo%20el%20Se%C3%B1or%2C%20Gloria.mp3','131','166','Santo el Se√±or, Gloria')"></TD>
+<TD width=42,6666666666667px><img id='131' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/166-Santo%20el%20Se%C3%B1or%2C%20Gloria.mp3','131','166','Santo el SeÒor, Gloria')"></TD>
 <TD width=49,3333333333333px>166</TD>
-<TD width=248px>Santo el Se√±or, Gloria</TD>
+<TD width=248px>Santo el SeÒor, Gloria</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063482' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1619,7 +1619,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>167</TD>
-<TD width=248px>Santo eres Se√±or</TD>
+<TD width=248px>Santo eres SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063483' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1627,7 +1627,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>168</TD>
-<TD width=248px>Santo es el Se√±or</TD>
+<TD width=248px>Santo es el SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063484' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1635,15 +1635,15 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>169</TD>
-<TD width=248px>Santo es el Se√±or mi Dios</TD>
+<TD width=248px>Santo es el SeÒor mi Dios</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063485' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='132' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/170-Santo%20salvadore%C3%B1o.mp3','132','170','Santo salvadore√±o')"></TD>
+<TD width=42,6666666666667px><img id='132' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/170-Santo%20salvadore%C3%B1o.mp3','132','170','Santo salvadoreÒo')"></TD>
 <TD width=49,3333333333333px>170</TD>
-<TD width=248px>Santo salvadore√±o</TD>
+<TD width=248px>Santo salvadoreÒo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063486' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1673,9 +1673,9 @@ canvas Not supported
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='136' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/174-S%C3%A9%20mi%20luz-AinKarem.mp3','136','174','S√© mi luz')"></TD>
+<TD width=42,6666666666667px><img id='136' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/174-S%C3%A9%20mi%20luz-AinKarem.mp3','136','174','SÈ mi luz')"></TD>
 <TD width=49,3333333333333px>174</TD>
-<TD width=248px>S√© mi luz</TD>
+<TD width=248px>SÈ mi luz</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063490' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
@@ -1683,15 +1683,15 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>175</TD>
-<TD width=248px>S√© que voy contigo</TD>
+<TD width=248px>SÈ que voy contigo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063491' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='137' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/176-Se%C3%B1or%20Santo.mp3','137','176','Se√±or Santo')"></TD>
+<TD width=42,6666666666667px><img id='137' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/176-Se%C3%B1or%20Santo.mp3','137','176','SeÒor Santo')"></TD>
 <TD width=49,3333333333333px>176</TD>
-<TD width=248px>Se√±or Santo</TD>
+<TD width=248px>SeÒor Santo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063492' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1699,7 +1699,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>177</TD>
-<TD width=248px>Se√±or somos tus hermanos</TD>
+<TD width=248px>SeÒor somos tus hermanos</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063493' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1777,17 +1777,17 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='145' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/187-S%C3%B3lo_le_pido_a_Dios.mp3','145','187','S√≥lo le pido a Dios')"></TD>
+<TD width=42,6666666666667px><img id='145' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/187-S%C3%B3lo_le_pido_a_Dios.mp3','145','187','SÛlo le pido a Dios')"></TD>
 <TD width=49,3333333333333px>187</TD>
-<TD width=248px>S√≥lo le pido a Dios</TD>
+<TD width=248px>SÛlo le pido a Dios</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063503' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='146' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/188-Tan%20cerca%20de%20mi.mp3','146','188','Tan cerca de m√≠')"></TD>
+<TD width=42,6666666666667px><img id='146' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/188-Tan%20cerca%20de%20mi.mp3','146','188','Tan cerca de mÌ')"></TD>
 <TD width=49,3333333333333px>188</TD>
-<TD width=248px>Tan cerca de m√≠</TD>
+<TD width=248px>Tan cerca de mÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063504' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1817,9 +1817,9 @@ canvas Not supported
 <TD width=128,666666666667px>M.Valverde</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='150' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/192-Te%20amo%20Se%C3%B1or.mp3','150','192','Te amo Se√±or')"></TD>
+<TD width=42,6666666666667px><img id='150' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/192-Te%20amo%20Se%C3%B1or.mp3','150','192','Te amo SeÒor')"></TD>
 <TD width=49,3333333333333px>192</TD>
-<TD width=248px>Te amo Se√±or</TD>
+<TD width=248px>Te amo SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063508' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=18&verini=1&verfin=3' target='_blank'>Sal 18,1-3</a></TD>
 <TD width=128,666666666667px></TD>
@@ -1827,23 +1827,23 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>193</TD>
-<TD width=248px>Te amo, mi Se√±or</TD>
+<TD width=248px>Te amo, mi SeÒor</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063509' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='151' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/194-Te%20dar%C3%A9.mp3','151','194','Te dar√©')"></TD>
+<TD width=42,6666666666667px><img id='151' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/194-Te%20dar%C3%A9.mp3','151','194','Te darÈ')"></TD>
 <TD width=49,3333333333333px>194</TD>
-<TD width=248px>Te dar√©</TD>
+<TD width=248px>Te darÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063510' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='152' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/195-Te%20seguir%C3%A9-A.Labajos.mp3','152','195','Te seguir√©')"></TD>
+<TD width=42,6666666666667px><img id='152' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/195-Te%20seguir%C3%A9-A.Labajos.mp3','152','195','Te seguirÈ')"></TD>
 <TD width=49,3333333333333px>195</TD>
-<TD width=248px>Te seguir√©</TD>
+<TD width=248px>Te seguirÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063511' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>Alejandro Labajos</TD>
@@ -1889,9 +1889,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='158' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/201-Tomad%20Se%C3%B1or%20y%20recibid-Tsnc.mp3','158','201','Tomad Se√±or y recibid')"></TD>
+<TD width=42,6666666666667px><img id='158' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/201-Tomad%20Se%C3%B1or%20y%20recibid-Tsnc.mp3','158','201','Tomad SeÒor y recibid')"></TD>
 <TD width=49,3333333333333px>201</TD>
-<TD width=248px>Tomad Se√±or y recibid</TD>
+<TD width=248px>Tomad SeÒor y recibid</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063517' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -1899,7 +1899,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>202</TD>
-<TD width=248px>Tomad Se√±or y recibid</TD>
+<TD width=248px>Tomad SeÒor y recibid</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063518' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1942,20 +1942,20 @@ canvas Not supported
 <TD width=248px>Ubi caritas</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063523' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='164' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/208-Un%20millon%20de%20amigos.mp3','164','208','Un mill√≥n de amigos')"></TD>
+<TD width=42,6666666666667px><img id='164' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/208-Un%20millon%20de%20amigos.mp3','164','208','Un millÛn de amigos')"></TD>
 <TD width=49,3333333333333px>208</TD>
-<TD width=248px>Un mill√≥n de amigos</TD>
+<TD width=248px>Un millÛn de amigos</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063524' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='165' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/209-Un%20ni%C3%B1o%20se%20te%20acerc%C3%B3.mp3','165','209','Un ni√±o se te acerc√≥')"></TD>
+<TD width=42,6666666666667px><img id='165' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/209-Un%20ni%C3%B1o%20se%20te%20acerc%C3%B3.mp3','165','209','Un niÒo se te acercÛ')"></TD>
 <TD width=49,3333333333333px>209</TD>
-<TD width=248px>Un ni√±o se te acerc√≥</TD>
+<TD width=248px>Un niÒo se te acercÛ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063525' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -1979,47 +1979,47 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>212</TD>
-<TD width=248px>Ven ahora santo Esp√≠ritu</TD>
+<TD width=248px>Ven ahora santo EspÌritu</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063528' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='168' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/213-Ven%2C_te_llamo_a_ti-Brotes.mp3','168','213','Ven, te llamo a t√≠')"></TD>
+<TD width=42,6666666666667px><img id='168' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/213-Ven%2C_te_llamo_a_ti-Brotes.mp3','168','213','Ven, te llamo a tÌ')"></TD>
 <TD width=49,3333333333333px>213</TD>
-<TD width=248px>Ven, te llamo a t√≠</TD>
+<TD width=248px>Ven, te llamo a tÌ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063529' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='169' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/214-Ven%2C%20oh%2C%20Santo%20Esp%C3%ADritu-Taize.mp3','169','214','Ven oh, Santo Esp√≠ritu')"></TD>
+<TD width=42,6666666666667px><img id='169' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/214-Ven%2C%20oh%2C%20Santo%20Esp%C3%ADritu-Taize.mp3','169','214','Ven oh, Santo EspÌritu')"></TD>
 <TD width=49,3333333333333px>214</TD>
-<TD width=248px>Ven oh, Santo Esp√≠ritu</TD>
+<TD width=248px>Ven oh, Santo EspÌritu</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063530' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=128,666666666667px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='170' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/215-Ven%20Se%C3%B1or%20Jesus-H.Glenda.mp3','170','215','Ven Se√±or Jes√∫s')"></TD>
+<TD width=42,6666666666667px><img id='170' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/215-Ven%20Se%C3%B1or%20Jesus-H.Glenda.mp3','170','215','Ven SeÒor Jes˙s')"></TD>
 <TD width=49,3333333333333px>215</TD>
-<TD width=248px>Ven Se√±or Jes√∫s</TD>
+<TD width=248px>Ven SeÒor Jes˙s</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063531' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px>Hermana Glenda</TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='171' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/216-Ven%20Espiritu%20de%20Dios.mp3','171','216','Ven Esp√≠ritu de Dios')"></TD>
+<TD width=42,6666666666667px><img id='171' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/216-Ven%20Espiritu%20de%20Dios.mp3','171','216','Ven EspÌritu de Dios')"></TD>
 <TD width=49,3333333333333px>216</TD>
-<TD width=248px>Ven Esp√≠ritu de Dios</TD>
+<TD width=248px>Ven EspÌritu de Dios</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063532' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='172' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/217-Ven%20levantate.mp3','172','217','Ven, lev√°ntate')"></TD>
+<TD width=42,6666666666667px><img id='172' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/217-Ven%20levantate.mp3','172','217','Ven, lev·ntate')"></TD>
 <TD width=49,3333333333333px>217</TD>
-<TD width=248px>Ven, lev√°ntate</TD>
+<TD width=248px>Ven, lev·ntate</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063533' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -2057,33 +2057,33 @@ canvas Not supported
 <TD width=128,666666666667px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='177' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/222-Vivir%C3%A9%20alab%C3%A1ndote-M.L%C3%B3pez.mp3','177','222','Vivir√© alab√°ndote')"></TD>
+<TD width=42,6666666666667px><img id='177' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/222-Vivir%C3%A9%20alab%C3%A1ndote-M.L%C3%B3pez.mp3','177','222','VivirÈ alab·ndote')"></TD>
 <TD width=49,3333333333333px>222</TD>
-<TD width=248px>Vivir√© alab√°ndote</TD>
+<TD width=248px>VivirÈ alab·ndote</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063538' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
-<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite L√≥pez</a></TD>
+<TD width=128,666666666667px><a href='http://maitelopez.com' target='_blank'>Maite LÛpez</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='178' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/223-Yo_cantare-Kairoi.mp3','178','223','Yo cantar√©')"></TD>
+<TD width=42,6666666666667px><img id='178' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/223-Yo_cantare-Kairoi.mp3','178','223','Yo cantarÈ')"></TD>
 <TD width=49,3333333333333px>223</TD>
-<TD width=248px>Yo cantar√©</TD>
+<TD width=248px>Yo cantarÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063539' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
 <TD width=128,666666666667px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='179' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/224-Yo%20celebrare.mp3','179','224','Yo celebrar√©')"></TD>
+<TD width=42,6666666666667px><img id='179' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/224-Yo%20celebrare.mp3','179','224','Yo celebrarÈ')"></TD>
 <TD width=49,3333333333333px>224</TD>
-<TD width=248px>Yo celebrar√©</TD>
+<TD width=248px>Yo celebrarÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063540' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='180' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/225-Yo%20ser%C3%A9-Tsnc.mp3','180','225','Yo ser√©')"></TD>
+<TD width=42,6666666666667px><img id='180' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/225-Yo%20ser%C3%A9-Tsnc.mp3','180','225','Yo serÈ')"></TD>
 <TD width=49,3333333333333px>225</TD>
-<TD width=248px>Yo ser√©</TD>
+<TD width=248px>Yo serÈ</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063541' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
@@ -2107,7 +2107,7 @@ canvas Not supported
 <TR>
 <TD width=42,6666666666667px><a href='' target='_blank'> </a></TD>
 <TD width=49,3333333333333px>227</TD>
-<TD width=248px>A Bel√©n</TD>
+<TD width=248px>A BelÈn</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063544' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -2137,9 +2137,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='185' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/231-Dime%20Ni%C3%B1o.mp3','185','231','Dime ni√±o')"></TD>
+<TD width=42,6666666666667px><img id='185' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/231-Dime%20Ni%C3%B1o.mp3','185','231','Dime niÒo')"></TD>
 <TD width=49,3333333333333px>231</TD>
-<TD width=248px>Dime ni√±o</TD>
+<TD width=248px>Dime niÒo</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063548' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -2161,9 +2161,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='187' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/234-En%20Bel%C3%A9n%20naci%C3%B3%20Jes%C3%BAs.mp3','187','234','En Bel√©n naci√≥ Jes√∫s')"></TD>
+<TD width=42,6666666666667px><img id='187' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/234-En%20Bel%C3%A9n%20naci%C3%B3%20Jes%C3%BAs.mp3','187','234','En BelÈn naciÛ Jes˙s')"></TD>
 <TD width=49,3333333333333px>234</TD>
-<TD width=248px>En Bel√©n naci√≥ Jes√∫s</TD>
+<TD width=248px>En BelÈn naciÛ Jes˙s</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063551' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
@@ -2177,9 +2177,9 @@ canvas Not supported
 <TD width=128,666666666667px></TD>
 </TR>
 <TR>
-<TD width=42,6666666666667px><img id='189' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/236-La%20Virgen%20sue%C3%B1a%20caminos.mp3','189','236','La virgen sue√±a caminos')"></TD>
+<TD width=42,6666666666667px><img id='189' src="play20.png" onclick="playAudio('https://dl.dropbox.com/u/32482947/CantosLoyola/236-La%20Virgen%20sue%C3%B1a%20caminos.mp3','189','236','La virgen sueÒa caminos')"></TD>
 <TD width=49,3333333333333px>236</TD>
-<TD width=248px>La virgen sue√±a caminos</TD>
+<TD width=248px>La virgen sueÒa caminos</TD>
 <TD width=84px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063553' target='_blank'>Letra/notas</a></TD>
 <TD width=144,666666666667px></TD>
 <TD width=128,666666666667px></TD>
