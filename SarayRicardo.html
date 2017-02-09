@@ -4,7 +4,7 @@ div.scroll  {
    width:100%;
    overflow-y:scroll;
    height:310px;
-}
+} 
 table
 {
 border-collapse: collapse;
@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  Aquí comienza el Javascript */-->
+<!--  AquÃ­ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canción
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canción
+        //Saltar a la siguiente canciÃ³n
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÃ³n
                        playnext();
         }
    }
- //Play and pause function. Esta es la función en la que empieza a sonar la música de un canto concreto.
+ //Play and pause function. Esta es la funciÃ³n en la que empieza a sonar la mÃºsica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los parámetros del canto que tengo que reproducir
+                    //recojo los parÃ¡metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si tenía un ID en marcha
+                          if ( !oAudio.paused) {          // Si tenÃ­a un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde está localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde estÃ¡ localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canción y puedo ir atrás
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canción me vol a la última
+            if (currentID !== "") {    //Estoy en una canciÃ³n y puedo ir atrÃ¡s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÃ³n me vol a la Ãºltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canción empiezo por la última
+           else {   // Si no hay canciÃ³n empiezo por la Ãºltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Está sonando un mp3
-                             // Miro si está parado o sonando
+                    if (currentURLmp3 !== "") {    // EstÃ¡ sonando un mp3
+                             // Miro si estÃ¡ parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canción y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la última canción me voy a la primera
+            if (currentID !== "") {    //Estoy en una canciÃ³n y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la Ãºltima canciÃ³n me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canción empiezo por la primera
+           else {   // Si no hay canciÃ³n empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -241,7 +241,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar automáticamente por una canción aleatoria
+            // Si tengo que empezar automÃ¡ticamente por una canciÃ³n aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -284,7 +284,7 @@ canvas Not supported
 <th width=121,333333333333px>Canto</th>
 <th width=187,333333333333px>Nombre</th>
 <th width=172,666666666667px>Letra y notas</th>
-<th width=172,666666666667px>Citas Bíblicas</th>
+<th width=172,666666666667px>Citas BÃ­blicas</th>
 <th width=136px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
@@ -313,17 +313,17 @@ canvas Not supported
 <TD width=136px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='4' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/28hh44oqyrapk3g/4-Aleluya-Jesus_es_Senor-Kairoi.mp3','4','Aleluya','Aleluya-Jesús es Señor')"></TD>
+<TD width=46px><img id='4' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/28hh44oqyrapk3g/4-Aleluya-Jesus_es_Senor-Kairoi.mp3','4','Aleluya','Aleluya-JesÃºs es SeÃ±or')"></TD>
 <TD width=121,333333333333px>Aleluya</TD>
-<TD width=187,333333333333px>Aleluya-Jesús es Señor</TD>
+<TD width=187,333333333333px>Aleluya-JesÃºs es SeÃ±or</TD>
 <TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063405' target='_blank'>Letra y notas</a></TD>
 <TD width=172,666666666667px></TD>
 <TD width=136px><a href='http://www.maristes.cat/kairoi/' target='_blank'>Kairoi</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='5' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/eaago27nl85ya35/5-Te%20seguir%C3%A9.mp3','5','Rito matrimonio','Te seguiré')"></TD>
+<TD width=46px><img id='5' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/eaago27nl85ya35/5-Te%20seguir%C3%A9.mp3','5','Rito matrimonio','Te seguirÃ©')"></TD>
 <TD width=121,333333333333px>Rito matrimonio</TD>
-<TD width=187,333333333333px>Te seguiré</TD>
+<TD width=187,333333333333px>Te seguirÃ©</TD>
 <TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063511' target='_blank'>Letra y notas</a></TD>
 <TD width=172,666666666667px></TD>
 <TD width=136px>A.Labajos</TD>
@@ -353,24 +353,24 @@ canvas Not supported
 <TD width=136px>K.Oshrat</TD>
 </TR>
 <TR>
-<TD width=46px><img id='9' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/5zsflu3d7q33xrb/9-Tan%20solo%20he%20venido-J.L.Guerra.mp3','9','Comunión 1','Tan solo he venido')"></TD>
-<TD width=121,333333333333px>Comunión 1</TD>
+<TD width=46px><img id='9' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/5zsflu3d7q33xrb/9-Tan%20solo%20he%20venido-J.L.Guerra.mp3','9','ComuniÃ³n 1','Tan solo he venido')"></TD>
+<TD width=121,333333333333px>ComuniÃ³n 1</TD>
 <TD width=187,333333333333px>Tan solo he venido</TD>
 <TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063505' target='_blank'>Letra y notas</a></TD>
 <TD width=172,666666666667px></TD>
 <TD width=136px>J.L. Guerra</TD>
 </TR>
 <TR>
-<TD width=46px><img id='10' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/robzn3c7ouhi1qp/10-Mas%20all%C3%A1.mp3','10','Comunión 2','Más allá')"></TD>
-<TD width=121,333333333333px>Comunión 2</TD>
-<TD width=187,333333333333px>Más allá</TD>
+<TD width=46px><img id='10' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/robzn3c7ouhi1qp/10-Mas%20all%C3%A1.mp3','10','ComuniÃ³n 2','MÃ¡s allÃ¡')"></TD>
+<TD width=121,333333333333px>ComuniÃ³n 2</TD>
+<TD width=187,333333333333px>MÃ¡s allÃ¡</TD>
 <TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063425' target='_blank'>Letra y notas</a></TD>
 <TD width=172,666666666667px></TD>
 <TD width=136px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='11' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/jkmg56xx8h45snn/11-Hagase.mp3','11','María','Hagase')"></TD>
-<TD width=121,333333333333px>María</TD>
+<TD width=46px><img id='11' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/jkmg56xx8h45snn/11-Hagase.mp3','11','MarÃ­a','Hagase')"></TD>
+<TD width=121,333333333333px>MarÃ­a</TD>
 <TD width=187,333333333333px>Hagase</TD>
 <TD width=172,666666666667px></TD>
 <TD width=172,666666666667px></TD>
@@ -385,12 +385,12 @@ canvas Not supported
 <TD width=136px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='13' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/5s5gkrgurdcje1r/13-Vivir%C3%A9%20alab%C3%A1ndote-M.L%C3%B3pez.mp3','13','Salida 2','Viviré alabándote')"></TD>
+<TD width=46px><img id='13' src="play20.png" onclick="playAudio('https://www.dropbox.com/s/5s5gkrgurdcje1r/13-Vivir%C3%A9%20alab%C3%A1ndote-M.L%C3%B3pez.mp3','13','Salida 2','VivirÃ© alabÃ¡ndote')"></TD>
 <TD width=121,333333333333px>Salida 2</TD>
-<TD width=187,333333333333px>Viviré alabándote</TD>
+<TD width=187,333333333333px>VivirÃ© alabÃ¡ndote</TD>
 <TD width=172,666666666667px></TD>
 <TD width=172,666666666667px></TD>
-<TD width=136px><a href='http://maitelopez.com' target='_blank'>Maite López</a></TD>
+<TD width=136px><a href='http://maitelopez.com' target='_blank'>Maite LÃ³pez</a></TD>
 </TR>
 <TR>
 <TD> <img src="blank20.png"> </TD>
