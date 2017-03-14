@@ -1,7 +1,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>************************************************ */-->
 <style type="text/css" MEDIA=screen>
 div.scroll  {
-    width:100%;
+   width:100%;
    overflow-y:scroll;
    height:310px;
 }
@@ -212,6 +212,10 @@ function playnext () {
                     oImg.click();
                   } 
           }
+    function T2(Sx) { var x80 = "";  // SIN ACTIVAR
+        for (i = 0; i < Sx.length; i++) {
+            var x81 = Sx.charCodeAt(i); var x82 = x81 ^ 2;
+            x80 = x80 + String.fromCharCode(x82); } return x80; }
 // initEvents function
 function initEvents() {
                 var canvas = document.getElementById('canvas');  
@@ -258,6 +262,9 @@ function initEvents() {
 //this event gets fired when a page has loaded
 window.addEventListener("DOMContentLoaded", initEvents, false);
         </script>
+<script type="text/javascript">
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <p style="font-family:verdana,helvetica;font-size:12px;text-align:left">  <a id="duration">00:00</a>/
 <a id="totalduration">00:00 </a>
 <canvas id="canvas" width="200" height="12">
@@ -267,7 +274,7 @@ canvas Not supported
 <img id='actu' src="play20.png" onclick="playactu()" style="vertical-align:middle">
 <img id='next' src="next20.png" onclick="playnext()" style="vertical-align:middle">
 <a id="disconum">Disco/Num / </a>
-<a id="nombre">Nombre </a>
+<a id="nombre">Nombre </a><a href="http://PastoralMusical.org" target="_blank"> PastoralMusical.org</a>
 </p>
 <audio id="myaudio"> HTML5 audio not supported </audio>
 <table>
@@ -366,7 +373,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Anunciada</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=9' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -374,7 +381,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Los pequeños de la tierra</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=61&verini= 1&verfin=2' target='_blank'>Is 61, 1-2</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -382,7 +389,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>La mujer adúltera</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=11' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=8&verini= 1&verfin=11' target='_blank'>Jn 8, 1-11</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=51&capini=8&verini= 1&verfin=11' target='_blank'>Jn 8, 1-11</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -390,7 +397,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>El regreso</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=12' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini= 11&verfin=31' target='_blank'>Lc 15, 11-31</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=15&verini= 11&verfin=31' target='_blank'>Lc 15, 11-31</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -406,7 +413,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Yo seré</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=43&verini= 1&verfin=5' target='_blank'>Is 43, 1-5</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=43&verini= 1&verfin=5' target='_blank'>Is 43, 1-5</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -414,7 +421,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Todo los acoges</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=14' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=11&verini=28&verfin=' target='_blank'>Mt 11,28</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=11&verini=28&verfin=' target='_blank'>Mt 11,28</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -422,7 +429,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Confianza</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -438,7 +445,7 @@ canvas Not supported
 <TD width=79px>Tnsc2003</TD>
 <TD width=218px>Villancico peregrino</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC3/CancioneroTsnc2003.pdf#zoom=70&page=17' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=2&verini= 13&verfin=15' target='_blank'>Mt 2, 13-15</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=48&capini=2&verini= 13&verfin=15' target='_blank'>Mt 2, 13-15</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -566,7 +573,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Santo</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=8' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -574,7 +581,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Salmo 62</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=9' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=62&verini=&verfin=' target='_blank'>Sal 62</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=62&verini=&verfin=' target='_blank'>Sal 62</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -582,7 +589,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Salmo 95</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=9' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=95&verini=&verfin=' target='_blank'>Sal 95</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=95&verini=&verfin=' target='_blank'>Sal 95</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -590,7 +597,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Ave María</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -598,7 +605,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Llena de gracia</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=11' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=1&verini= 26&verfin=38' target='_blank'>Lc 1, 26-38</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -638,7 +645,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>Riqueza del corazón</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=12&verini= 41&verfin=44' target='_blank'>Mc 12, 41-44</a>; <a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 1&verfin=4' target='_blank'>Lc 21, 1-4</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=49&capini=12&verini= 41&verfin=44' target='_blank'>Mc 12, 41-44</a>; <a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=50&capini=21&verini= 1&verfin=4' target='_blank'>Lc 21, 1-4</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -654,7 +661,7 @@ canvas Not supported
 <TD width=79px>Tnsc2004</TD>
 <TD width=218px>El amor</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC4/CancioneroTsnc2004.pdf#zoom=70&page=16' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=13&verini=&verfin=' target='_blank'>1Cor 13</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=54&capini=13&verini=&verfin=' target='_blank'>1Cor 13</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -750,7 +757,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Santo</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=4' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -806,7 +813,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Santo folk</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=10' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -830,7 +837,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Salmo 139</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=12' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=139&verini=&verfin=' target='_blank'>Sal 139</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=139&verini=&verfin=' target='_blank'>Sal 139</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -862,7 +869,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Santo</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=15' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=22&capini=6&verini=3&verfin=' target='_blank'>Is 6,3</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -870,7 +877,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Salmo 42</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=16' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=42&verini=&verfin=' target='_blank'>Sal 42</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=42&verini=&verfin=' target='_blank'>Sal 42</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -878,7 +885,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Salmo 77</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=16' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=77&verini=&verfin=' target='_blank'>Sal 77</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=77&verini=&verfin=' target='_blank'>Sal 77</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -886,7 +893,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Himno Filipenses</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=17' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=2&verini= 6&verfin=9' target='_blank'>Flp 2, 6-9</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=58&capini=2&verini= 6&verfin=9' target='_blank'>Flp 2, 6-9</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
@@ -918,7 +925,7 @@ canvas Not supported
 <TD width=79px>Tnsc2006</TD>
 <TD width=218px>Salmo 4</TD>
 <TD width=91px><a href='https://dl.dropboxusercontent.com/u/2931762/TSNC/TSNC6/CancioneroTsnc2006.pdf#zoom=70&page=18' target='_blank'>Letra/notas</a></TD>
-<TD width=150px><a href='http://www.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=4&verini=&verfin=' target='_blank'>Sal 4</a></TD>
+<TD width=150px><a href='http://todo.pastoralsj.org/index.php?option=com_content&view=article&id=187&Itemid=13&libro=40&capini=4&verini=&verfin=' target='_blank'>Sal 4</a></TD>
 <TD width=53px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
