@@ -1,0 +1,29 @@
+
+<script type="text/javascript">
+
+function GetUrlValue(VarSearch){
+    var SearchString = window.location.search.substring(1);
+    var VariableArray = SearchString.split('&');
+    for(var i = 0; i < VariableArray.length; i++){
+        var KeyValuePair = VariableArray[i].split('=');
+        if(KeyValuePair[0] == VarSearch){
+            return KeyValuePair[1];
+        }
+    }
+}
+
+
+
+window.onload = function() {
+// Espero un par de parámatros con la página y el canto
+// http://dl.dropboxusercontent.com/u/2931762/Pastoramusica/PastoMusiAuto.html?pag=Biblia&can=112
+
+  if (GetUrlValue('can') !== 'undefined' ) {
+    sessionStorage.setItem("Ale",GetUrlValue('can'));
+    window.open("https://sites.google.com/site/pastoramusica/Canciones/"+GetUrlValue('pag'),"_top","","false");
+  }
+
+}
+
+
+</script>
