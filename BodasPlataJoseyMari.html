@@ -1,0 +1,459 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>************************************************ */-->
+<style type="text/css" MEDIA=screen>
+div.scroll  {
+   width:100%;
+   overflow-y:scroll;
+   height:310px;
+}
+table
+{
+border-collapse: collapse;
+border-style: solid;
+border-width: 1px;
+border-color: #707070;
+font: 12px Verdana,Helvetica,Sans-serif;
+padding: 0px;
+box-shadow: 1px 1px 3px 1px #6E6D6D;
+}
+th
+{
+color: #FFFFFF;
+background: #DB2C2C;
+background: -moz-linear-gradient(top,#DB2C2C 0%, #571515 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DB2C2C), color-stop(100%,#571515));
+background: -webkit-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: -o-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: -ms-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: linear-gradient(top,#DB2C2C 0%,#571515 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DB2C2C',endColorstr='#571515',GradientType=0s);
+font-weight: bold;
+padding: 2px;
+text-align: center;
+vertical-align: top;
+}
+tr
+{
+color: #000000;
+border-top-style: solid;
+border-width: 1px;
+border-color: #707070;
+font-weight: normal;
+}
+tr:nth-child(odd) td
+{
+background: #EBEBEB;
+}
+td
+{
+background: #FFFFFF;
+padding: 2px 1px;
+text-align: left;
+vertical-align: top;
+}
+</style> 
+<style id="inlinecss" type="text/css">
+            /* put a border around the canvas element */
+            #canvas  
+            {
+                border-style:solid; 
+                border-width:1px; 
+                padding:0px; 
+vertical-align: middle;
+            }
+</style>
+<!-- ************************************************ */-->
+<!--  Aquí comienza el Javascript */-->
+<!-- ************************************************ */-->
+<script type="text/javascript">
+            //Variable global para guardar el currentURLmp3
+            var currentURLmp3 = "";
+            //Variable global para guardar el currentID
+            var currentID = "";
+//display and update progress bar
+function progressBar() { 
+        var oAudio = document.getElementById('myaudio'); 
+        //get current time in seconds
+        var elapsedTime = Math.round(oAudio.currentTime);
+       	//Update the clock
+       var duration = document.getElementById('duration');
+       var totalduration = document.getElementById('totalduration');
+       var s = parseInt(oAudio.currentTime % 60);
+       if (s < 10) {s = "0"+s;}
+       var m = parseInt((oAudio.currentTime / 60) % 60); 
+       if (m < 10) {m = "0"+m;}
+       duration.innerHTML = m + ':' + s ;
+       var s = parseInt(oAudio.duration % 60);
+       if (s < 10) {s = "0"+s;}
+       var m = parseInt((oAudio.duration / 60) % 60); 
+       if (m < 10) {m = "0"+m;}
+        totalduration.innerHTML = m + ':' + s;
+        //update the progress bar
+         if (canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+                    //clear canvas before painting
+                    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+                    ctx.fillStyle = "rgb(240,0,0)";
+                    var fWidth = (elapsedTime / oAudio.duration) * (canvas.clientWidth);
+                    if (fWidth > 0) {
+                        ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
+                    }
+          }
+        //Saltar a la siguiente canción
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canción
+                       playnext();
+        }
+   }
+ //Play and pause function. Esta es la función en la que empieza a sonar la música de un canto concreto.
+ function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
+                try {
+                    //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
+                    var oAudio = document.getElementById('myaudio'); 
+                    //recojo los parámetros del canto que tengo que reproducir
+                    var btn = document.getElementById(NewID);
+                    var audioURL = URLmp3;               
+                    //Skip loading if current file hasn't changed.
+                    if (audioURL !== currentURLmp3) {    // Un nuevo mp3
+                          if ( !oAudio.paused) {          // Si tenía un ID en marcha
+                                 oAudio.pause();              //Paro el mp3 activo
+                                           }
+                           if (currentID !=="") {
+                        document.getElementById(currentID).src="play20.png";                //Cambio el btn del mp3 activo
+                        document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                                          }
+                        oAudio.src = audioURL;
+                        currentURLmp3 = audioURL;   
+                        currentID = NewID;
+                        disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
+                        nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
+                        // hago el scroll hasta el pixel donde está localizado el canto que tengo que reproducir
+                        var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
+                        var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
+                        document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
+                    }
+                    //Tests the paused attribute and set state. 
+                    if (oAudio.paused) {
+                        oAudio.play();
+                         //Cambio el btn del mp3 activo a pause
+                       btn.src="pause20.png"; 
+                        document.getElementById('actu').src="pause20.png";                //Cambio el btn global
+                    }
+                    else {
+                        oAudio.pause();
+                         //Cambio el btn del mp3 activo a play
+                       btn.src="play20.png";      //Cambio el btn del mp3 activo
+                        document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                    }
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                    if (window.console && console.error("Error:" + e));
+                }
+  }
+// playprev function
+function playprev () {
+            if (currentID !== "") {    //Estoy en una canción y puedo ir atrás
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canción me vol a la última
+                             var oImg =     document.getElementById(ultimocurrentID);
+                              oImg.click();
+                    }
+                 else {   // voy a la anterior
+                             var oImg =     document.getElementById(parseInt(currentID)-1);
+                              oImg.click();
+                           } 
+           }
+           else {   // Si no hay canción empiezo por la última
+                    var oImg =     document.getElementById(ultimocurrentID);
+                    oImg.click();
+                  } 
+   }
+// playactu function
+function playactu () {
+                try {
+                    // Recojo el objeto DOM del elemento Audio en HTML5
+                    var oAudio = document.getElementById('myaudio'); 
+                    // Miro si ya hay un audio cargado
+                    if (currentURLmp3 !== "") {    // Está sonando un mp3
+                             // Miro si está parado o sonando
+                            if (oAudio.paused) {
+                                 oAudio.play();
+                                 document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
+                                document.getElementById('actu').src="pause20.png";                //Cambio el btn global
+                             }
+                             else {
+                                 oAudio.pause();
+                                 document.getElementById(currentID).src="play20.png";                //Cambio el btn de ID a play
+                                 document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                             }
+                  }
+                 else {   // voy a la primera
+                             var oImg =     document.getElementById(1);
+                              oImg.click();
+                         }
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                    if (window.console && console.error("Error:" + e));
+                }
+            }
+// playnext function
+function playnext () {
+            if (currentID !== "") {    //Estoy en una canción y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la última canción me voy a la primera
+                             var oImg =     document.getElementById(1);
+                              oImg.click();
+                    }
+                 else {   // voy a la siguiente
+                             var oImg =     document.getElementById(parseInt(currentID)+1);
+                              oImg.click();
+                           } 
+           }
+           else {   // Si no hay canción empiezo por la primera
+                    var oImg =     document.getElementById(1);
+                    oImg.click();
+                  } 
+          }
+    function T2(Sx) { var x80 = "";  // SIN ACTIVAR
+        for (i = 0; i < Sx.length; i++) {
+            var x81 = Sx.charCodeAt(i); var x82 = x81 ^ 2;
+            x80 = x80 + String.fromCharCode(x82); } return x80; }
+// initEvents function
+function initEvents() {
+                var canvas = document.getElementById('canvas');  
+                var oAudio = document.getElementById('myaudio');
+                //set up event to update the progress bar
+                oAudio.addEventListener("timeupdate", progressBar, true); 
+                //set up mouse click to control position of audio
+                canvas.addEventListener("click", function(e) {
+                    //this might seem redundant, but this these are needed later - make global to remove these
+                    var oAudio = document.getElementById('myaudio'); 
+                    var canvas = document.getElementById('canvas');            
+                    if (!e) {
+                        e = window.event;
+                    } //get the latest windows event if it isn't set
+                    try {
+                        //calculate the current time based on position of mouse cursor in canvas box
+                        var anOffsetX = (e.offsetX !== undefined) ? e.offsetX : (e.layerX - e.target.offsetLeft);
+                        oAudio.currentTime = oAudio.duration * (anOffsetX / canvas.clientWidth);
+                       //  oAudio.currentTime = oAudio.duration * (e.offsetX / canvas.clientWidth);
+                    }
+                   catch (err) {
+                    // Fail silently but show in F12 developer tools console
+                        if (window.console && console.error("Error:" + err));
+                    }
+                }, true);
+            // Si tengo que empezar automáticamente por una canción aleatoria
+            if (sessionStorage.getItem("Ale")=="SI") {
+                sessionStorage.setItem("Ale","");
+                var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
+                if (ale < 1) {ale = 1;}
+                if (ale > ultimocurrentID) {ale = ultimocurrentID;}
+                var oImg =     document.getElementById(ale);
+                document.getElementById('sctabla').scrollTop=0;  // Pongo la tabla al principio
+                oImg.click();
+                }
+               else { 
+                 if (sessionStorage.getItem("Ale")!==null) {
+                var oImg =     document.getElementById(sessionStorage.getItem("Ale"));
+                sessionStorage.setItem("Ale","");
+                oImg.click();
+                }
+              }
+            }
+//this event gets fired when a page has loaded
+window.addEventListener("DOMContentLoaded", initEvents, false);
+        </script>
+<script type="text/javascript">
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<p style="font-family:verdana,helvetica;font-size:12px;text-align:left">  <a id="duration">00:00</a>/
+<a id="totalduration">00:00 </a>
+<canvas id="canvas" width="200" height="12">
+canvas Not supported
+</canvas>
+<img id='prev' src="prev20.png" onclick="playprev()" style="vertical-align:middle">
+<img id='actu' src="play20.png" onclick="playactu()" style="vertical-align:middle">
+<img id='next' src="next20.png" onclick="playnext()" style="vertical-align:middle">
+<a id="disconum">Disco/Num / </a>
+<a id="nombre">Nombre </a><a href="http://PastoralMusical.org" target="_blank"> PastoralMusical.org</a>
+</p>
+<audio id="myaudio"> HTML5 audio not supported </audio>
+<table>
+<colgroup width="">
+<tr>
+<th width=46px>Play</th>
+<th width=121,333333333333px>Canto</th>
+<th width=187,333333333333px>Nombre</th>
+<th width=172,666666666667px>Letra y notas</th>
+<th width=172,666666666667px>Citas Bíblicas</th>
+<th width=136px>Autor</th>
+</tr>
+<TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
+<TR>
+<TD width=46px><img id='1' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/01%20Descalzate.mp3:/content','1','Canto de entrada','Descálzate')"></TD>
+<TD width=121,333333333333px>Canto de entrada</TD>
+<TD width=187,333333333333px>Descálzate</TD>
+<TD width=172,666666666667px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/descalzate.pdf' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=2&cap=3&ver=1&verfin=6' target='_blank'>Éx 3,1-6</a></TD>
+<TD width=136px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=46px><img id='2' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/061-El%20Se%C3%B1or%20es%20mi%20Pastor-Nico.mp3:/content','2','Salmo','El Señor es mi pastor')"></TD>
+<TD width=121,333333333333px>Salmo</TD>
+<TD width=187,333333333333px>El Señor es mi pastor</TD>
+<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063377' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=23&ver=&verfin=' target='_blank'>Sal 23</a></TD>
+<TD width=136px><a href='http://nicomontero.com' target='_blank'>Nico Montero</a></TD>
+</TR>
+<TR>
+<TD width=46px><img id='3' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosNuevos2017/Alleluia_verbum_panis.mp3:/content','3','Rito matrimonio','Aleluya Verbum Panis')"></TD>
+<TD width=121,333333333333px>Rito matrimonio</TD>
+<TD width=187,333333333333px>Aleluya Verbum Panis</TD>
+<TD width=172,666666666667px><a href='https://www.dropbox.com/s/oq2vbhv1inel1ro/Aleluya%20Mite%20Balduzzi.pdf' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px></TD>
+<TD width=136px>M.Balduzzi</TD>
+</TR>
+<TR>
+<TD width=46px><img id='4' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosNuevos2017/Santo%20de%20las%20Islas%20Canarias.mp3:/content','4','Santo','Santo Islas Canarias')"></TD>
+<TD width=121,333333333333px>Santo</TD>
+<TD width=187,333333333333px>Santo Islas Canarias</TD>
+<TD width=172,666666666667px><a href='https://www.dropbox.com/s/y7tixpyyvaqw487/Santo%20Islas%20Canarias.pdf' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=6&ver=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=136px></TD>
+</TR>
+<TR>
+<TD width=46px><img id='5' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/006-Aleluya%20da%20la%20paz-K.Oshrat.mp3:/content','5','Paz','Aleluya da la paz')"></TD>
+<TD width=121,333333333333px>Paz</TD>
+<TD width=187,333333333333px>Aleluya da la paz</TD>
+<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063322' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px></TD>
+<TD width=136px>K.Oshrat</TD>
+</TR>
+<TR>
+<TD width=46px><img id='6' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosNuevos2017/Nada_Te_Turbe.mp3:/content','6','Comunión 1','Nada te turbe')"></TD>
+<TD width=121,333333333333px>Comunión 1</TD>
+<TD width=187,333333333333px>Nada te turbe</TD>
+<TD width=172,666666666667px><a href='https://www.dropbox.com/s/s7zvd03zb97lv1e/Teresa_alma_de_fuego_ACORDES.pdf' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px></TD>
+<TD width=136px><a href='http://maitelopez.com' target='_blank'>Maite López</a></TD>
+</TR>
+<TR>
+<TD width=46px><img id='7' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/087-Hoy%20Se%C3%B1or%20te%20dar%C3%A9-Brotes.mp3:/content','7','Comunión 2','Hoy Señor te daré')"></TD>
+<TD width=121,333333333333px>Comunión 2</TD>
+<TD width=187,333333333333px>Hoy Señor te daré</TD>
+<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063403' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px></TD>
+<TD width=136px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
+</TR>
+<TR>
+<TD width=46px><img id='8' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/055-El%20Dios%20de%20la%20vida-Tsnc.mp3:/content','8','Salida 1','El Dios de la vida')"></TD>
+<TD width=121,333333333333px>Salida 1</TD>
+<TD width=187,333333333333px>El Dios de la vida</TD>
+<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063371' target='_blank'>Letra y notas</a></TD>
+<TD width=172,666666666667px></TD>
+<TD width=136px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+</table>
+</div>
+</tr>
+</table>
+</table>
+<script type="text/javascript">
+            //Variable global para guardar el ultimocurrentID
+            var ultimocurrentID = 9-1 ;
+</script>
