@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  Aqu√≠ comienza el Javascript */-->
+<!--  AquÌ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canci√≥n
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canci√≥n
+        //Saltar a la siguiente canciÛn
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÛn
                        playnext();
         }
    }
- //Play and pause function. Esta es la funci√≥n en la que empieza a sonar la m√∫sica de un canto concreto.
+ //Play and pause function. Esta es la funciÛn en la que empieza a sonar la m˙sica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los par√°metros del canto que tengo que reproducir
+                    //recojo los par·metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si ten√≠a un ID en marcha
+                          if ( !oAudio.paused) {          // Si tenÌa un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde est√° localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde est· localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir atr√°s
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canci√≥n me vol a la √∫ltima
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir atr·s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÛn me vol a la ˙ltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la √∫ltima
+           else {   // Si no hay canciÛn empiezo por la ˙ltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Est√° sonando un mp3
-                             // Miro si est√° parado o sonando
+                    if (currentURLmp3 !== "") {    // Est· sonando un mp3
+                             // Miro si est· parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la √∫ltima canci√≥n me voy a la primera
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la ˙ltima canciÛn me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la primera
+           else {   // Si no hay canciÛn empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -241,7 +241,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar autom√°ticamente por una canci√≥n aleatoria
+            // Si tengo que empezar autom·ticamente por una canciÛn aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -280,141 +280,141 @@ canvas Not supported
 <table>
 <colgroup width="">
 <tr>
-<th width=46px>Play</th>
-<th width=121,333333333333px>Canto</th>
-<th width=187,333333333333px>Nombre</th>
-<th width=172,666666666667px>Letra y notas</th>
-<th width=172,666666666667px>Citas B√≠blicas</th>
-<th width=136px>Autor</th>
+<th width=44px>Play</th>
+<th width=116px>Canto</th>
+<th width=179px>Nombre</th>
+<th width=165px>Letra y notas</th>
+<th width=165px>Citas BÌblicas</th>
+<th width=130px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
 <TR>
-<TD width=46px><img id='1' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/195-Te%20seguir%C3%A9-A.Labajos.mp3:/content','1','Canto de entrada','Te seguir√©')"></TD>
-<TD width=121,333333333333px>Canto de entrada</TD>
-<TD width=187,333333333333px>Te seguir√©</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063511' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px>Alejandro Labajos</TD>
+<TD width=44px><img id='1' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/195-Te%20seguir%C3%A9-A.Labajos.mp3:/content','1','Canto de entrada','Te seguirÈ')"></TD>
+<TD width=116px>Canto de entrada</TD>
+<TD width=179px>Te seguirÈ</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063511' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px>Alejandro Labajos</TD>
 </TR>
 <TR>
-<TD width=46px><img id='2' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosNuevos2017/Gloria%20a%20Dios%20en%20lo%20alto%20del%20cielo.mp3:/content','2','Gloria','Gloria a Dios en lo alto de cielo')"></TD>
-<TD width=121,333333333333px>Gloria</TD>
-<TD width=187,333333333333px>Gloria a Dios en lo alto de cielo</TD>
-<TD width=172,666666666667px><a href='https://1drv.ms/b/s!Av9CQcroByQVgpMfgv2_noxlS-cpPw' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='2' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosNuevos2017/Gloria%20a%20Dios%20en%20lo%20alto%20del%20cielo.mp3:/content','2','Gloria','Gloria a Dios en lo alto de cielo')"></TD>
+<TD width=116px>Gloria</TD>
+<TD width=179px>Gloria a Dios en lo alto de cielo</TD>
+<TD width=165px><a href='https://1drv.ms/b/s!Av9CQcroByQVgpMfgv2_noxlS-cpPw' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='3' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/007-Aleluyacantaran-Brotes.mp3:/content','3','Aleluya','Aleluya de la tierra')"></TD>
-<TD width=121,333333333333px>Aleluya</TD>
-<TD width=187,333333333333px>Aleluya de la tierra</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063323' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
+<TD width=44px><img id='3' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/007-Aleluyacantaran-Brotes.mp3:/content','3','Aleluya','Aleluya de la tierra')"></TD>
+<TD width=116px>Aleluya</TD>
+<TD width=179px>Aleluya de la tierra</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063323' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='4' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/038-Creo%20en%20un%20solo%20Dios-M.Frisina.mp3:/content','4','Credo','Credo Balduzzi')"></TD>
-<TD width=121,333333333333px>Credo</TD>
-<TD width=187,333333333333px>Credo Balduzzi</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063354' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px>Marco Frisina</TD>
+<TD width=44px><img id='4' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/038-Creo%20en%20un%20solo%20Dios-M.Frisina.mp3:/content','4','Credo','Credo M.Frisina')"></TD>
+<TD width=116px>Credo</TD>
+<TD width=179px>Credo M.Frisina</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063354' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px>Marco Frisina</TD>
 </TR>
 <TR>
-<TD width=46px><img id='5' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/049-Dios%20es%20amor%2C%20atr%C3%A9vete-Taize.mp3:/content','5','Rito matrimonio','Dios es amor')"></TD>
-<TD width=121,333333333333px>Rito matrimonio</TD>
-<TD width=187,333333333333px>Dios es amor</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063365' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px><a href='http://www.taize.fr/es' target='_blank'>Taiz√®</a></TD>
+<TD width=44px><img id='5' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/049-Dios%20es%20amor%2C%20atr%C3%A9vete-Taize.mp3:/content','5','Rito matrimonio','Dios es amor')"></TD>
+<TD width=116px>Rito matrimonio</TD>
+<TD width=179px>Dios es amor</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063365' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px><a href='http://www.taize.fr/es' target='_blank'>TaizË</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='6' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/150-Que%20te%20puedo%20dar.mp3:/content','6','Ofertorio','Que te puedo dar')"></TD>
-<TD width=121,333333333333px>Ofertorio</TD>
-<TD width=187,333333333333px>Que te puedo dar</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063466' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='6' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/150-Que%20te%20puedo%20dar.mp3:/content','6','Ofertorio','Que te puedo dar')"></TD>
+<TD width=116px>Ofertorio</TD>
+<TD width=179px>Que te puedo dar</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063466' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='7' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/171-Santo%20eres%20Santo.mp3:/content','7','Santo','Santo eres Santo')"></TD>
-<TD width=121,333333333333px>Santo</TD>
-<TD width=187,333333333333px>Santo eres Santo</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063487' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=6&ver=3&verfin=' target='_blank'>Is 6,3</a></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='7' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/171-Santo%20eres%20Santo.mp3:/content','7','Santo','Santo eres Santo')"></TD>
+<TD width=116px>Santo</TD>
+<TD width=179px>Santo eres Santo</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063487' target='_blank'>Letra y notas</a></TD>
+<TD width=165px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=6&ver=3&verfin=' target='_blank'>Is 6,3</a></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='8' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/042-Danos%20tu%20paz.mp3:/content','8','Paz','Danos la paz')"></TD>
-<TD width=121,333333333333px>Paz</TD>
-<TD width=187,333333333333px>Danos la paz</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063358' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='8' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/042-Danos%20tu%20paz.mp3:/content','8','Paz','Danos la paz')"></TD>
+<TD width=116px>Paz</TD>
+<TD width=179px>Danos la paz</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063358' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='9' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/035-Cosas%20de%20locos-Alberto%20y%20Emilia.mp3:/content','9','Comuni√≥n 1','Cosas de locos')"></TD>
-<TD width=121,333333333333px>Comuni√≥n 1</TD>
-<TD width=187,333333333333px>Cosas de locos</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063351' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px>Alberto y Emilia</TD>
+<TD width=44px><img id='9' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/035-Cosas%20de%20locos-Alberto%20y%20Emilia.mp3:/content','9','ComuniÛn 1','Cosas de locos')"></TD>
+<TD width=116px>ComuniÛn 1</TD>
+<TD width=179px>Cosas de locos</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063351' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px>Alberto y Emilia</TD>
 </TR>
 <TR>
-<TD width=46px><img id='10' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/148-Pues%20nadie%20te%20ama.mp3:/content','10','Comuni√≥n 2','Nadie te ama como yo')"></TD>
-<TD width=121,333333333333px>Comuni√≥n 2</TD>
-<TD width=187,333333333333px>Nadie te ama como yo</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063464' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='10' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/148-Pues%20nadie%20te%20ama.mp3:/content','10','ComuniÛn 2','Nadie te ama como yo')"></TD>
+<TD width=116px>ComuniÛn 2</TD>
+<TD width=179px>Nadie te ama como yo</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063464' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='11' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/054-El_calor_de_la_palabra-Brotes.mp3:/content','11','Bendici√≥n','El calor de la palabra')"></TD>
-<TD width=121,333333333333px>Bendici√≥n</TD>
-<TD width=187,333333333333px>El calor de la palabra</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063370' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
+<TD width=44px><img id='11' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/054-El_calor_de_la_palabra-Brotes.mp3:/content','11','BendiciÛn','El calor de la palabra')"></TD>
+<TD width=116px>BendiciÛn</TD>
+<TD width=179px>El calor de la palabra</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063370' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='12' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/116-Nada_nos_separara-Brotes.mp3:/content','12','Firmas 1','Nada nos separar√°')"></TD>
-<TD width=121,333333333333px>Firmas 1</TD>
-<TD width=187,333333333333px>Nada nos separar√°</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063432' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=53&cap=8&ver=35&verfin=39' target='_blank'>Rom 8,35-39</a></TD>
-<TD width=136px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
+<TD width=44px><img id='12' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/116-Nada_nos_separara-Brotes.mp3:/content','12','Firmas 1','Nada nos separar·')"></TD>
+<TD width=116px>Firmas 1</TD>
+<TD width=179px>Nada nos separar·</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063432' target='_blank'>Letra y notas</a></TD>
+<TD width=165px><a href='https://pastoralsj.org/biblia/libro?libro=53&cap=8&ver=35&verfin=39' target='_blank'>Rom 8,35-39</a></TD>
+<TD width=130px><a href='http://brotesdeolivo.es' target='_blank'>Brotes de Olivo</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='13' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/109-Masalla-MJB.mp3:/content','13','Firmas 2','M√°s all√°')"></TD>
-<TD width=121,333333333333px>Firmas 2</TD>
-<TD width=187,333333333333px>M√°s all√°</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063425' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='13' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/109-Masalla-MJB.mp3:/content','13','Firmas 2','M·s all·')"></TD>
+<TD width=116px>Firmas 2</TD>
+<TD width=179px>M·s all·</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063425' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='14' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3:/content','14','Firmas 3','No quiero alejarme de ti')"></TD>
-<TD width=121,333333333333px>Firmas 3</TD>
-<TD width=187,333333333333px>No quiero alejarme de ti</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063436' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px><a href='https://pastoralsj.org/biblia/libro?libro=18&cap=1&ver=16&verfin=' target='_blank'>Rut 1,16</a></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='14' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/120-No%20quiero%20alejarme%20de%20T%C3%AD.mp3:/content','14','Firmas 3','No quiero alejarme de ti')"></TD>
+<TD width=116px>Firmas 3</TD>
+<TD width=179px>No quiero alejarme de ti</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063436' target='_blank'>Letra y notas</a></TD>
+<TD width=165px><a href='https://pastoralsj.org/biblia/libro?libro=18&cap=1&ver=16&verfin=' target='_blank'>Rut 1,16</a></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
-<TD width=46px><img id='15' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/206-Tus%20manos-Tsnc.mp3:/content','15','Firmas 4','Saberme y sentirme en tus manos')"></TD>
-<TD width=121,333333333333px>Firmas 4</TD>
-<TD width=187,333333333333px>Saberme y sentirme en tus manos</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063522' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
+<TD width=44px><img id='15' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/206-Tus%20manos-Tsnc.mp3:/content','15','Firmas 4','Saberme y sentirme en tus manos')"></TD>
+<TD width=116px>Firmas 4</TD>
+<TD width=179px>Saberme y sentirme en tus manos</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063522' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px><a href='http://historial.pastoralsj.org/tsnc' target='_blank'>T.S.N.C.</a></TD>
 </TR>
 <TR>
-<TD width=46px><img id='16' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/024-Caminaremos.mp3:/content','16','Salida','Caminaremos')"></TD>
-<TD width=121,333333333333px>Salida</TD>
-<TD width=187,333333333333px>Caminaremos</TD>
-<TD width=172,666666666667px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063340' target='_blank'>Letra y notas</a></TD>
-<TD width=172,666666666667px></TD>
-<TD width=136px></TD>
+<TD width=44px><img id='16' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/CantosLoyola/024-Caminaremos.mp3:/content','16','Salida','Caminaremos')"></TD>
+<TD width=116px>Salida</TD>
+<TD width=179px>Caminaremos</TD>
+<TD width=165px><a href='https://madejuan.github.io/PastoralMusical/Cancionero_Gloyola_2012Notas.htm#_Toc391063340' target='_blank'>Letra y notas</a></TD>
+<TD width=165px></TD>
+<TD width=130px></TD>
 </TR>
 <TR>
 <TD> <img src="blank20.png"> </TD>
