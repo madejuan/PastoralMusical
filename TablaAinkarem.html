@@ -62,7 +62,7 @@ vertical-align: middle;
             }
 </style>
 <!-- ************************************************ */-->
-<!--  Aqu√≠ comienza el Javascript */-->
+<!--  AquÌ comienza el Javascript */-->
 <!-- ************************************************ */-->
 <script type="text/javascript">
             //Variable global para guardar el currentURLmp3
@@ -98,22 +98,22 @@ function progressBar() {
                         ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
                     }
           }
-        //Saltar a la siguiente canci√≥n
-        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canci√≥n
+        //Saltar a la siguiente canciÛn
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canciÛn
                        playnext();
         }
    }
- //Play and pause function. Esta es la funci√≥n en la que empieza a sonar la m√∫sica de un canto concreto.
+ //Play and pause function. Esta es la funciÛn en la que empieza a sonar la m˙sica de un canto concreto.
  function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
                 try {
                     //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
                     var oAudio = document.getElementById('myaudio'); 
-                    //recojo los par√°metros del canto que tengo que reproducir
+                    //recojo los par·metros del canto que tengo que reproducir
                     var btn = document.getElementById(NewID);
                     var audioURL = URLmp3;               
                     //Skip loading if current file hasn't changed.
                     if (audioURL !== currentURLmp3) {    // Un nuevo mp3
-                          if ( !oAudio.paused) {          // Si ten√≠a un ID en marcha
+                          if ( !oAudio.paused) {          // Si tenÌa un ID en marcha
                                  oAudio.pause();              //Paro el mp3 activo
                                            }
                            if (currentID !=="") {
@@ -125,7 +125,7 @@ function progressBar() {
                         currentID = NewID;
                         disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
                         nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
-                        // hago el scroll hasta el pixel donde est√° localizado el canto que tengo que reproducir
+                        // hago el scroll hasta el pixel donde est· localizado el canto que tengo que reproducir
                         var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
                         var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
                         document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
@@ -151,8 +151,8 @@ function progressBar() {
   }
 // playprev function
 function playprev () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir atr√°s
-                 if (parseInt(currentID) == 1) {           //si estoy en la primera canci√≥n me vol a la √∫ltima
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir atr·s
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canciÛn me vol a la ˙ltima
                              var oImg =     document.getElementById(ultimocurrentID);
                               oImg.click();
                     }
@@ -161,7 +161,7 @@ function playprev () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la √∫ltima
+           else {   // Si no hay canciÛn empiezo por la ˙ltima
                     var oImg =     document.getElementById(ultimocurrentID);
                     oImg.click();
                   } 
@@ -172,8 +172,8 @@ function playactu () {
                     // Recojo el objeto DOM del elemento Audio en HTML5
                     var oAudio = document.getElementById('myaudio'); 
                     // Miro si ya hay un audio cargado
-                    if (currentURLmp3 !== "") {    // Est√° sonando un mp3
-                             // Miro si est√° parado o sonando
+                    if (currentURLmp3 !== "") {    // Est· sonando un mp3
+                             // Miro si est· parado o sonando
                             if (oAudio.paused) {
                                  oAudio.play();
                                  document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
@@ -197,8 +197,8 @@ function playactu () {
             }
 // playnext function
 function playnext () {
-            if (currentID !== "") {    //Estoy en una canci√≥n y puedo ir adelante
-              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la √∫ltima canci√≥n me voy a la primera
+            if (currentID !== "") {    //Estoy en una canciÛn y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la ˙ltima canciÛn me voy a la primera
                              var oImg =     document.getElementById(1);
                               oImg.click();
                     }
@@ -207,7 +207,7 @@ function playnext () {
                               oImg.click();
                            } 
            }
-           else {   // Si no hay canci√≥n empiezo por la primera
+           else {   // Si no hay canciÛn empiezo por la primera
                     var oImg =     document.getElementById(1);
                     oImg.click();
                   } 
@@ -241,7 +241,7 @@ function initEvents() {
                         if (window.console && console.error("Error:" + err));
                     }
                 }, true);
-            // Si tengo que empezar autom√°ticamente por una canci√≥n aleatoria
+            // Si tengo que empezar autom·ticamente por una canciÛn aleatoria
             if (sessionStorage.getItem("Ale")=="SI") {
                 sessionStorage.setItem("Ale","");
                 var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
@@ -280,813 +280,813 @@ canvas Not supported
 <table>
 <colgroup width="">
 <tr>
-<th width=36,6666666666667px>Play</th>
-<th width=163,333333333333px>Disco</th>
-<th width=223,333333333333px>Nombre</th>
-<th width=84px>Letra/notas</th>
-<th width=200px>Citas B√≠blicas</th>
-<th width=84px>Autor</th>
+<th width=35px>Play</th>
+<th width=156px>Disco</th>
+<th width=213px>Nombre</th>
+<th width=80px>Letra/notas</th>
+<th width=191px>Citas BÌblicas</th>
+<th width=80px>Autor</th>
 </tr>
 <TR><td colspan=6><div id='sctabla' class='scroll'><table width=100%>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Desc√°lzate</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/descalzate.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=2&cap=3&ver=1&verfin=6' target='_blank'>√âx 3,1-6</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>La vid verdadera</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/VID.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=15&ver=1&verfin=17' target='_blank'>Jn 15,1-17</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Ven, Ep√≠ritu de Dios</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/ven%20espiritu%20de%20dios.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Realidad</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/REALIDAD.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Boga mar adentro</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/BOGA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=5&ver=1&verfin=11' target='_blank'>Lc 5,1-11</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><img id='1' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/06%20No%20tengas%20miedo.mp3:/content','1','Desc√°lzate','No tengas miedo')"></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>No tengas miedo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/NO.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Magnificat</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/MAGNIFICAT.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Ardo en celo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/rut%20y%20noemi.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=10&cap=19&ver=11&verfin=14' target='_blank'>1Re 19,11-14</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Amor y m√°s amor</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/EL.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Rut y Noem√≠</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/rut%20y%20noemi.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=18&cap=1&ver=1&verfin=17' target='_blank'>Rut 1,1-17</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Ven Esp√≠ritu</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/ven%20espiritu.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><img id='2' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/12%20Mar%C3%ADa%20Magdalena.mp3:/content','2','Desc√°lzate','Mar√≠a Magdalena')"></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Mar√≠a Magdalena</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/maria%20magadalena.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=1&verfin=18' target='_blank'>Jn 20,1-18</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Desc√°lzate</TD>
-<TD width=223,333333333333px>Joaquina emigrante</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/JOAQUINA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Desc·lzate</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/01/descalzate.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=2&cap=3&ver=1&verfin=6' target='_blank'>…x 3,1-6</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>La vid verdadera</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/VID.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=15&ver=1&verfin=17' target='_blank'>Jn 15,1-17</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Ven, EpÌritu de Dios</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/ven%20espiritu%20de%20dios.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Realidad</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/REALIDAD.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Boga mar adentro</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/BOGA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=5&ver=1&verfin=11' target='_blank'>Lc 5,1-11</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><img id='1' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/06%20No%20tengas%20miedo.mp3:/content','1','Desc·lzate','No tengas miedo')"></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>No tengas miedo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/NO.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Magnificat</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/MAGNIFICAT.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=46&verfin=55' target='_blank'>Lc 1,46-55</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Ardo en celo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/rut%20y%20noemi.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=10&cap=19&ver=11&verfin=14' target='_blank'>1Re 19,11-14</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Amor y m·s amor</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/EL.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Rut y NoemÌ</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/rut%20y%20noemi.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=18&cap=1&ver=1&verfin=17' target='_blank'>Rut 1,1-17</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Ven EspÌritu</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/ven%20espiritu.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><img id='2' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Desc%C3%A1lzate%2803-03-2008%2020-13-11%29/12%20Mar%C3%ADa%20Magdalena.mp3:/content','2','Desc·lzate','MarÌa Magdalena')"></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>MarÌa Magdalena</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/maria%20magadalena.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=1&verfin=18' target='_blank'>Jn 20,1-18</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Desc·lzate</TD>
+<TD width=213px>Joaquina emigrante</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/JOAQUINA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='3' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/01%20Ain%20Karem.mp3:/content','3','Al√©grate','Ain Karem')"></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Ain Karem</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/ainkarem.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=26&verfin=45' target='_blank'>Lc 1,26-45</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='3' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/01%20Ain%20Karem.mp3:/content','3','AlÈgrate','Ain Karem')"></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Ain Karem</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/ainkarem.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=26&verfin=45' target='_blank'>Lc 1,26-45</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Te basta mi gracia</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/te%20basta%20mi%20gracia.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=55&cap=12&ver=9&verfin=10' target='_blank'>2Cor 12,9-10</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Te basta mi gracia</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/te%20basta%20mi%20gracia.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=55&cap=12&ver=9&verfin=10' target='_blank'>2Cor 12,9-10</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Pon√©os en pie</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/poneos%20en%20pie.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=21&ver= 25&verfin=28' target='_blank'>Lc 21, 25-28</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=25&ver= 1 &verfin=' target='_blank'>Mt 25, 1 ss</a>; <a href='https://pastoralsj.org/biblia/libro?libro=74&cap=3&ver= 20&verfin=' target='_blank'>Ap 3, 20</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>PonÈos en pie</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/poneos%20en%20pie.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=21&ver= 25&verfin=28' target='_blank'>Lc 21, 25-28</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=25&ver= 1 &verfin=' target='_blank'>Mt 25, 1 ss</a>; <a href='https://pastoralsj.org/biblia/libro?libro=74&cap=3&ver= 20&verfin=' target='_blank'>Ap 3, 20</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='4' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/04%20S%C3%A9%20mi%20luz.mp3:/content','4','Al√©grate','S√© mi luz')"></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>S√© mi luz</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/se%20mi%20uz.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='4' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/04%20S%C3%A9%20mi%20luz.mp3:/content','4','AlÈgrate','SÈ mi luz')"></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>SÈ mi luz</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/se%20mi%20uz.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>¬øC√≥mo podr√© pagarte?</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/como%20podre%20pagarte.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=116&ver=&verfin=' target='_blank'>Sal 116</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>øCÛmo podrÈ pagarte?</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/como%20podre%20pagarte.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=116&ver=&verfin=' target='_blank'>Sal 116</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='5' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/06%20Palabras%20de%20vida.mp3:/content','5','Al√©grate','Palabras de vida')"></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Palabras de vida</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/palabras%20de%20vida.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=42&ver=&verfin=' target='_blank'>Sal 42</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=43&ver=&verfin=' target='_blank'>Sal 43</a>; <a href='https://pastoralsj.org/biblia/libro?libro=50&cap=24&ver= 29&verfin=' target='_blank'>Lc 24, 29</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='5' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/06%20Palabras%20de%20vida.mp3:/content','5','AlÈgrate','Palabras de vida')"></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Palabras de vida</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/palabras%20de%20vida.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=42&ver=&verfin=' target='_blank'>Sal 42</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=43&ver=&verfin=' target='_blank'>Sal 43</a>; <a href='https://pastoralsj.org/biblia/libro?libro=50&cap=24&ver= 29&verfin=' target='_blank'>Lc 24, 29</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Seducida</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/seducida.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=25&cap=2&ver=&verfin=' target='_blank'>Os 2</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Seducida</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/seducida.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=25&cap=2&ver=&verfin=' target='_blank'>Os 2</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Escucha</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/escucha.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=30&cap=6&ver=8&verfin=' target='_blank'>Miq 6,8</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Escucha</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/escucha.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=30&cap=6&ver=8&verfin=' target='_blank'>Miq 6,8</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='6' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/09%20Ruah.mp3:/content','6','Al√©grate','Ruah')"></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Ruah</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/ruah.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='6' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Al%C3%A9grate/09%20Ruah.mp3:/content','6','AlÈgrate','Ruah')"></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Ruah</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/ruah.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>No guardes tu vida</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/no%20guardes%20tu%20vida.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=9&ver= 24&verfin=' target='_blank'>Lc 9, 24</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>No guardes tu vida</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/no%20guardes%20tu%20vida.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=9&ver= 24&verfin=' target='_blank'>Lc 9, 24</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Atr√°eme</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atraeme.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=10&ver= 46&verfin=52' target='_blank'>Mc 10, 46-52</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Atr·eme</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atraeme.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=10&ver= 46&verfin=52' target='_blank'>Mc 10, 46-52</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Dios de la historia, bendice</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/dios%20de%20la%20historia.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Dios de la historia, bendice</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/dios%20de%20la%20historia.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Al√©grate</TD>
-<TD width=223,333333333333px>Levantad las piedras</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/levantad%20las%20piedras.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=4&ver=5&verfin=26' target='_blank'>Jn 4,5-26</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>AlÈgrate</TD>
+<TD width=213px>Levantad las piedras</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/levantad%20las%20piedras.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=4&ver=5&verfin=26' target='_blank'>Jn 4,5-26</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Yo soy</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/yo-soy1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=2&cap=3&ver=&verfin=' target='_blank'>√âx 3</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Yo soy</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/01/yo-soy1.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=2&cap=3&ver=&verfin=' target='_blank'>…x 3</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='7' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/02%20A%20toda%20la%20tierra%20alcanza%20su%20preg%C3%B3n.mp3:/content','7','Seg√∫n tu palabra','A toda la tierra alcanza su preg√≥n')"></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>A toda la tierra alcanza su preg√≥n</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/a-toda-la-tierra-alcanza-su-pregon.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=19&ver=&verfin=' target='_blank'>Sal 19</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='7' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/02%20A%20toda%20la%20tierra%20alcanza%20su%20preg%C3%B3n.mp3:/content','7','Seg˙n tu palabra','A toda la tierra alcanza su pregÛn')"></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>A toda la tierra alcanza su pregÛn</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/a-toda-la-tierra-alcanza-su-pregon.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=19&ver=&verfin=' target='_blank'>Sal 19</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Con amor eterno</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/con-amor-eterno.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=23&cap=30&ver=&verfin=' target='_blank'>Jr 30</a>; <a href='https://pastoralsj.org/biblia/libro?libro=23&cap=31&ver=&verfin=' target='_blank'>Jr 31</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Con amor eterno</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/con-amor-eterno.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=23&cap=30&ver=&verfin=' target='_blank'>Jr 30</a>; <a href='https://pastoralsj.org/biblia/libro?libro=23&cap=31&ver=&verfin=' target='_blank'>Jr 31</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>L√°mpara es tu palabra</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/lampara-es-tu-palabra.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=119&ver=105&verfin=109' target='_blank'>Sal 119,105-109</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>L·mpara es tu palabra</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/lampara-es-tu-palabra.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=119&ver=105&verfin=109' target='_blank'>Sal 119,105-109</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Anunciarte</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/anunciarte.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=15&ver=5&verfin=' target='_blank'>Jn 15,5</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Anunciarte</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/anunciarte.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=15&ver=5&verfin=' target='_blank'>Jn 15,5</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Inv√≠tanos</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/invitanos.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=20&ver=&verfin=' target='_blank'>Mt 20</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>InvÌtanos</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/01/invitanos.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=20&ver=&verfin=' target='_blank'>Mt 20</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='8' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/07%20H%C3%A1gase.mp3:/content','8','Seg√∫n tu palabra','H√°gase')"></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>H√°gase</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/hagase.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=38&verfin=' target='_blank'>Lc 1,38</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='8' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/07%20H%C3%A1gase.mp3:/content','8','Seg˙n tu palabra','H·gase')"></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>H·gase</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/hagase.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=38&verfin=' target='_blank'>Lc 1,38</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Creatura habitada</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/creatura-habitada1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=139&ver=&verfin=' target='_blank'>Sal 139</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Creatura habitada</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/creatura-habitada1.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=139&ver=&verfin=' target='_blank'>Sal 139</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>El hombre de Gerasa</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/el-hombre-de-gerasa.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=1&verfin=19' target='_blank'>Mc 5,1-19</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>El hombre de Gerasa</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/el-hombre-de-gerasa.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=1&verfin=19' target='_blank'>Mc 5,1-19</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='9' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/10%20%C2%A1Llueve%20T%C3%BA%21.mp3:/content','9','Seg√∫n tu palabra','¬°Llueve T√∫!')"></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>¬°Llueve T√∫!</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/llueve-tu.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=&verfin=' target='_blank'>Sal 51</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=84&ver=&verfin=' target='_blank'>Sal 84</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='9' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/10%20%C2%A1Llueve%20T%C3%BA%21.mp3:/content','9','Seg˙n tu palabra','°Llueve T˙!')"></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>°Llueve T˙!</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/llueve-tu.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=&verfin=' target='_blank'>Sal 51</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=84&ver=&verfin=' target='_blank'>Sal 84</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Benedictus</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/benedictus.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=68&verfin=79' target='_blank'>Lc 1,68-79</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Benedictus</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/benedictus.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=68&verfin=79' target='_blank'>Lc 1,68-79</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Oraci√≥n de una mujer</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/oracion-de-una-mujer.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>OraciÛn de una mujer</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/oracion-de-una-mujer.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='10' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/13%20Heme%20aqui.mp3:/content','10','Seg√∫n tu palabra','Heme aqu√≠')"></TD>
-<TD width=163,333333333333px>Seg√∫n tu palabra</TD>
-<TD width=223,333333333333px>Heme aqu√≠</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/heme-aqui1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=6&ver=8&verfin=' target='_blank'>Is 6,8</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=45&ver=2&verfin=' target='_blank'>Is 45,2</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=61&ver=1&verfin=3' target='_blank'>Is 61,1-3</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='10' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Segun%20tu%20palabra/13%20Heme%20aqui.mp3:/content','10','Seg˙n tu palabra','Heme aquÌ')"></TD>
+<TD width=156px>Seg˙n tu palabra</TD>
+<TD width=213px>Heme aquÌ</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/01/heme-aqui1.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=6&ver=8&verfin=' target='_blank'>Is 6,8</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=45&ver=2&verfin=' target='_blank'>Is 45,2</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=61&ver=1&verfin=3' target='_blank'>Is 61,1-3</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='11' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/01%20Dios%20fiel.mp3:/content','11','Con √âl la fiesta empez√≥','Dios fiel')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Dios fiel</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/01/dios-fiel1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=37&verfin=' target='_blank'>Lc 1,37</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='11' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/01%20Dios%20fiel.mp3:/content','11','Con …l la fiesta empezÛ','Dios fiel')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Dios fiel</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/01/dios-fiel1.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=37&verfin=' target='_blank'>Lc 1,37</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='12' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/02%20Hambre%20y%20sed%20de%20ti.mp3:/content','12','Con √âl la fiesta empez√≥','Hambre y sed de Ti')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Hambre y sed de Ti</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/hambre-y-sed.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='12' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/02%20Hambre%20y%20sed%20de%20ti.mp3:/content','12','Con …l la fiesta empezÛ','Hambre y sed de Ti')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Hambre y sed de Ti</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/hambre-y-sed.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Confianza</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/confianza.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=32&ver=&verfin=' target='_blank'>Sal 32</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Confianza</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/confianza.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=32&ver=&verfin=' target='_blank'>Sal 32</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='13' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/04%20Talita%20kum.mp3:/content','13','Con √âl la fiesta empez√≥','Talita kum')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Talita kum</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/talita-kum.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=22&verfin=24' target='_blank'>Mc 5,22-24</a>; <a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=35&verfin=43' target='_blank'>Mc 5,35-43</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='13' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/04%20Talita%20kum.mp3:/content','13','Con …l la fiesta empezÛ','Talita kum')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Talita kum</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/talita-kum.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=22&verfin=24' target='_blank'>Mc 5,22-24</a>; <a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=35&verfin=43' target='_blank'>Mc 5,35-43</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='14' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/05%20Dadles%20de%20comer.mp3:/content','14','Con √âl la fiesta empez√≥','Pan compartido')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Pan compartido</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/03/pan-compartido.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=14&ver=15&verfin=22' target='_blank'>Mc 14,15-22</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='14' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/05%20Dadles%20de%20comer.mp3:/content','14','Con …l la fiesta empezÛ','Pan compartido')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Pan compartido</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/03/pan-compartido.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=14&ver=15&verfin=22' target='_blank'>Mc 14,15-22</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Gloria trinitario</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-6-Gloria.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Gloria trinitario</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-6-Gloria.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='15' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/07%20A%20ti.mp3:/content','15','Con √âl la fiesta empez√≥','A Ti')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>A Ti</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/a-ti.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=5&ver=45&verfin=' target='_blank'>Mt 5,45</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='15' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/07%20A%20ti.mp3:/content','15','Con …l la fiesta empezÛ','A Ti')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>A Ti</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/a-ti.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=5&ver=45&verfin=' target='_blank'>Mt 5,45</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>T√∫ lo sabes</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/tu-lo-sabes.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=21&ver=15&verfin=17' target='_blank'>Jn 21,15-17</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>T˙ lo sabes</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/tu-lo-sabes.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=21&ver=15&verfin=17' target='_blank'>Jn 21,15-17</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='16' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/09%20Can%C3%A1.mp3:/content','16','Con √âl la fiesta empez√≥','Can√°')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Can√°</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-9-Cana.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=2&ver=1&verfin=11' target='_blank'>Jn 2,1-11</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='16' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/09%20Can%C3%A1.mp3:/content','16','Con …l la fiesta empezÛ','Can·')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Can·</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-9-Cana.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=2&ver=1&verfin=11' target='_blank'>Jn 2,1-11</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='17' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/10%20%C2%A1%C3%81nimo%21%2C%20soy%20yo.mp3:/content','17','Con √âl la fiesta empez√≥','¬°√Ånimo!, soy yo')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>¬°√Ånimo!, soy yo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/no-temais.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=14&ver=24&verfin=34' target='_blank'>Mt 14,24-34</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='17' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/10%20%C2%A1%C3%81nimo%21%2C%20soy%20yo.mp3:/content','17','Con …l la fiesta empezÛ','°¡nimo!, soy yo')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>°¡nimo!, soy yo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/no-temais.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=14&ver=24&verfin=34' target='_blank'>Mt 14,24-34</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Santo</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-11-Santo.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Santo</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-11-Santo.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='18' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/12%20La%20mujer%20del%20perfume.mp3:/content','18','Con √âl la fiesta empez√≥','La mujer del perfume')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>La mujer del perfume</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-12-La-mujer-del-perfume.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=7&ver=36&verfin=50' target='_blank'>Lc 7,36-50</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='18' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/12%20La%20mujer%20del%20perfume.mp3:/content','18','Con …l la fiesta empezÛ','La mujer del perfume')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>La mujer del perfume</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-12-La-mujer-del-perfume.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=7&ver=36&verfin=50' target='_blank'>Lc 7,36-50</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Para estar contigo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2010/02/para-estar-contigo.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=3&ver=13&verfin=15' target='_blank'>Mc 3,13-15</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Para estar contigo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2010/02/para-estar-contigo.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=3&ver=13&verfin=15' target='_blank'>Mc 3,13-15</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>Samaritano</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-14-Samaritano.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=10&ver=30&verfin=35' target='_blank'>Lc 10,30-35</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>Samaritano</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-14-Samaritano.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=10&ver=30&verfin=35' target='_blank'>Lc 10,30-35</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='19' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/15%20No%20hay%20fronteras.mp3:/content','19','Con √âl la fiesta empez√≥','No hay fronteras')"></TD>
-<TD width=163,333333333333px>Con √âl la fiesta empez√≥</TD>
-<TD width=223,333333333333px>No hay fronteras</TD>
-<TD width=84px><a href='http://s360356790.mialojamiento.es/4-15-No-hay-fronteras.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='19' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Con%20%C3%A9l%20la%20fiesta%20empez%C3%B3/15%20No%20hay%20fronteras.mp3:/content','19','Con …l la fiesta empezÛ','No hay fronteras')"></TD>
+<TD width=156px>Con …l la fiesta empezÛ</TD>
+<TD width=213px>No hay fronteras</TD>
+<TD width=80px><a href='http://s360356790.mialojamiento.es/4-15-No-hay-fronteras.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='20' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/01%20Yo%20soy%20el%20que%20vive.mp3:/content','20','A todos los pueblos','Yo soy el que vive')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Yo soy el que vive</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp1.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=24&ver= 5&verfin=' target='_blank'>Lc 24, 5</a>; <a href='https://pastoralsj.org/biblia/libro?libro=74&cap=1&ver=18&verfin=' target='_blank'>Ap 1,18</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='20' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/01%20Yo%20soy%20el%20que%20vive.mp3:/content','20','A todos los pueblos','Yo soy el que vive')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Yo soy el que vive</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp1.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=24&ver= 5&verfin=' target='_blank'>Lc 24, 5</a>; <a href='https://pastoralsj.org/biblia/libro?libro=74&cap=1&ver=18&verfin=' target='_blank'>Ap 1,18</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Que se alegren tus entra√±as</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp2.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=60&ver=19&verfin=22' target='_blank'>Is 60,19-22</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Que se alegren tus entraÒas</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp2.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=60&ver=19&verfin=22' target='_blank'>Is 60,19-22</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Palabra</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp3.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Palabra</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp3.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Atraviesas</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp4.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Atraviesas</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp4.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Los "incontables"</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp5.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=14&ver=21&verfin=' target='_blank'>Mt 14,21</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=15&ver=38&verfin=' target='_blank'>Mt 15,38</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Los "incontables"</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp5.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=14&ver=21&verfin=' target='_blank'>Mt 14,21</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=15&ver=38&verfin=' target='_blank'>Mt 15,38</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='21' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/06%20He%20venido%20a%20servir.mp3:/content','21','A todos los pueblos','He venido a servir')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>He venido a servir</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp6.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=10&ver=42&verfin=45' target='_blank'>Mc 10,42-45</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='21' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/06%20He%20venido%20a%20servir.mp3:/content','21','A todos los pueblos','He venido a servir')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>He venido a servir</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp6.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=10&ver=42&verfin=45' target='_blank'>Mc 10,42-45</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='22' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/07%20Palabra%20encarnada.mp3:/content','22','A todos los pueblos','Palabra encarnada')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Palabra encarnada</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp7.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=10&verfin=12' target='_blank'>Lc 1,10-12</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='22' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/07%20Palabra%20encarnada.mp3:/content','22','A todos los pueblos','Palabra encarnada')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Palabra encarnada</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp7.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=1&ver=10&verfin=12' target='_blank'>Lc 1,10-12</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Kolokoso</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp8.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Kolokoso</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp8.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='23' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/09%20La%20mujer%20cananea.mp3:/content','23','A todos los pueblos','La mujer cananea')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>La mujer cananea</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp9.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=15&ver=21&verfin=28' target='_blank'>Mt 15,21-28</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='23' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/09%20La%20mujer%20cananea.mp3:/content','23','A todos los pueblos','La mujer cananea')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>La mujer cananea</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp9.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=15&ver=21&verfin=28' target='_blank'>Mt 15,21-28</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='24' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/10%20El%20siervo.mp3:/content','24','A todos los pueblos','El siervo')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>El siervo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp10.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=42&ver=1&verfin=7' target='_blank'>Is 42,1-7</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=52&ver=13&verfin=15' target='_blank'>Is 52,13-15</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='24' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/10%20El%20siervo.mp3:/content','24','A todos los pueblos','El siervo')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>El siervo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp10.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=42&ver=1&verfin=7' target='_blank'>Is 42,1-7</a>; <a href='https://pastoralsj.org/biblia/libro?libro=22&cap=52&ver=13&verfin=15' target='_blank'>Is 52,13-15</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>La moneda perdida</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp11.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=15&ver=8&verfin=10' target='_blank'>Lc 15,8-10</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>La moneda perdida</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp11.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=15&ver=8&verfin=10' target='_blank'>Lc 15,8-10</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='25' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/12%20Se%C3%B1or%20m%C3%ADo%20y%20Dios%20m%C3%ADo.mp3:/content','25','A todos los pueblos','Se√±or m√≠o y Dios m√≠o')"></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Se√±or m√≠o y Dios m√≠o</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp12.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=27&verfin=29' target='_blank'>Jn 20,27-29</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='25' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/A%20todos%20los%20pueblos/12%20Se%C3%B1or%20m%C3%ADo%20y%20Dios%20m%C3%ADo.mp3:/content','25','A todos los pueblos','SeÒor mÌo y Dios mÌo')"></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>SeÒor mÌo y Dios mÌo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp12.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=27&verfin=29' target='_blank'>Jn 20,27-29</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Dame una palabra</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp13.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Dame una palabra</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp13.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Somos del Se√±or</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp14.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=53&cap=14&ver=8&verfin=' target='_blank'>Rom 14,8</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Somos del SeÒor</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp14.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=53&cap=14&ver=8&verfin=' target='_blank'>Rom 14,8</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>A todos los pueblos</TD>
-<TD width=223,333333333333px>Fuertes, humildes y diligentes</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/docs/letras/atlp15.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>A todos los pueblos</TD>
+<TD width=213px>Fuertes, humildes y diligentes</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/docs/letras/atlp15.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='26' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/01%20Aleluya.mp3:/content','26','Busca mi rostro','Aleluya')"></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Aleluya</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/Aleluya.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='26' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/01%20Aleluya.mp3:/content','26','Busca mi rostro','Aleluya')"></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Aleluya</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/Aleluya.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>T√∫ eres mi bien</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/T%C3%9A-ERES-MI-BIEN.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=16&ver=&verfin=' target='_blank'>Sal 16</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>T˙ eres mi bien</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/T%C3%9A-ERES-MI-BIEN.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=16&ver=&verfin=' target='_blank'>Sal 16</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Desde abajo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/DESDE-ABAJO.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Desde abajo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/DESDE-ABAJO.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Como la cierva</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/COMO-LA-CIERVA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=42&ver=&verfin=' target='_blank'>Sal 42</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Como la cierva</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/COMO-LA-CIERVA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=42&ver=&verfin=' target='_blank'>Sal 42</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='27' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/05%20S%C3%B3lo%20T%C3%BA.mp3:/content','27','Busca mi rostro','S√≥lo T√∫')"></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>S√≥lo T√∫</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/S%C3%93LO-T%C3%9A.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=45&ver=&verfin=' target='_blank'>Is 45</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=16&ver=&verfin=' target='_blank'>Sal 16</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='27' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/05%20S%C3%B3lo%20T%C3%BA.mp3:/content','27','Busca mi rostro','SÛlo T˙')"></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>SÛlo T˙</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/S%C3%93LO-T%C3%9A.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=45&ver=&verfin=' target='_blank'>Is 45</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=16&ver=&verfin=' target='_blank'>Sal 16</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Sed felices</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/SED-FELICES.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=5&ver=1&verfin=12' target='_blank'>Mt 5,1-12</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Sed felices</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/SED-FELICES.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=5&ver=1&verfin=12' target='_blank'>Mt 5,1-12</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Ten piedad</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/TEN-PIEDAD.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=&verfin=' target='_blank'>Sal 51</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Ten piedad</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/TEN-PIEDAD.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=&verfin=' target='_blank'>Sal 51</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Busca mi rostro</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/BUSCA-MI-ROSTRO.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=27&ver= 8&verfin=9' target='_blank'>Sal 27, 8-9</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Busca mi rostro</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/BUSCA-MI-ROSTRO.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=27&ver= 8&verfin=9' target='_blank'>Sal 27, 8-9</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Se√±or de la sabidur√≠a</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/SE%C3%91OR-DE-LA-SABIDUR%C3%8DA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=47&cap=9&ver=1&verfin=3' target='_blank'>Sab 9,1-3</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>SeÒor de la sabidurÌa</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/SE%C3%91OR-DE-LA-SABIDUR%C3%8DA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=47&cap=9&ver=1&verfin=3' target='_blank'>Sab 9,1-3</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Descansa en Ti su mirada</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/DESCANSA-EN-TI-SU-MIRADA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=49&ver=16&verfin=' target='_blank'>IS 49,16</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Descansa en Ti su mirada</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/DESCANSA-EN-TI-SU-MIRADA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=49&ver=16&verfin=' target='_blank'>IS 49,16</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>El amor</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/EL-AMOR.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=54&cap=13&ver=&verfin=' target='_blank'>1Cor 13</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>El amor</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/EL-AMOR.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=54&cap=13&ver=&verfin=' target='_blank'>1Cor 13</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='28' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/12%20Mar%C3%ADa%20de%20Nazaret.mp3:/content','28','Busca mi rostro','Mar√≠a de Nazaret')"></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Mar√≠a de Nazaret</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/MAR%C3%8DA-DE-NAZARET.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='28' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Busca%20mi%20rostro/12%20Mar%C3%ADa%20de%20Nazaret.mp3:/content','28','Busca mi rostro','MarÌa de Nazaret')"></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>MarÌa de Nazaret</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/MAR%C3%8DA-DE-NAZARET.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Miradle</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/MIRADLE.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=58&cap=2&ver=5&verfin=8' target='_blank'>Flp 2,5-8</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=12&verfin=14' target='_blank'>Sal 51,12-14</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Miradle</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/MIRADLE.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=58&cap=2&ver=5&verfin=8' target='_blank'>Flp 2,5-8</a>; <a href='https://pastoralsj.org/biblia/libro?libro=40&cap=51&ver=12&verfin=14' target='_blank'>Sal 51,12-14</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Venid conmigo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/VENID-CONMIGO.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=6&ver=30&verfin=34' target='_blank'>Mc 6,30-34</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Venid conmigo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/VENID-CONMIGO.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=6&ver=30&verfin=34' target='_blank'>Mc 6,30-34</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Busca mi rostro</TD>
-<TD width=223,333333333333px>Somos Vedruna</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2008/05/SOMOS-VEDRUNA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Busca mi rostro</TD>
+<TD width=213px>Somos Vedruna</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2008/05/SOMOS-VEDRUNA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><img id='29' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/01%20De%20Todo%20Coraz%C3%B3n.mp3:/content','29','Fuego en las entra√±as','De todo coraz√≥n')"></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>De todo coraz√≥n</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/1.-DE-TODO-CORAZ%C3%93N-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><img id='29' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/01%20De%20Todo%20Coraz%C3%B3n.mp3:/content','29','Fuego en las entraÒas','De todo corazÛn')"></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>De todo corazÛn</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/1.-DE-TODO-CORAZ%C3%93N-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Canto de Ana</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/2.-CANTO-DE-ANA-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=8&cap=2&ver=1&verfin=10' target='_blank'>1Sm 2,1-10</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Canto de Ana</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/2.-CANTO-DE-ANA-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=8&cap=2&ver=1&verfin=10' target='_blank'>1Sm 2,1-10</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Seguirte</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/3.-SEGUIRTE.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Seguirte</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/3.-SEGUIRTE.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Pueblo suyo</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/4.-PUEBLO-SUYO-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=95&ver=&verfin=' target='_blank'>Sal 95</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Quedas libre</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/6.-QUEDAS-LIBRE-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=13&ver=10&verfin=13' target='_blank'>Lc 13,10-13</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Si le dais posada</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/5.-SI-LE-DAIS-POSADA-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Es mi hermano</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/7.-ES-MI-HERMANO-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=3&ver=34&verfin=35' target='_blank'>Mc 3,34-35</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Jes√∫s</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/8.-JES%C3%9AS-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=58&cap=2&ver=10&verfin=' target='_blank'>Flp 2,10</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>El Reino de Dios</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/9.-EL-REINO-DE-DIOS-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=13&ver=31&verfin=33' target='_blank'>Mt 13,31-33</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=13&ver=44&verfin=46' target='_blank'>MT 13,44-46</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Recibid</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/10.-RECIBID-MI-ESP%C3%8DRITU-WEB.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=22&verfin=' target='_blank'>Jn 20,22</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Conf√≠a</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/11.-CONF%C3%8DA.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Como t√∫</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/12.-COMO-T%C3%9A.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=28&verfin=' target='_blank'>Mc 5,28</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Peque√±o Israel</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/13.-PEQUE%C3%91O-ISRAEL.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=25&cap=11&ver=1&verfin=8' target='_blank'>Os 11,1-8</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Vivid en comuni√≥n</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/14.-VIVID-EN-COMUNI%C3%93N.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Vengan a m√≠</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/15.-VENGAN-A-M%C3%8D.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=7&ver=37&verfin=38' target='_blank'>Jn 7,37-38</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
-</TR>
-<TR>
-<TD width=36,6666666666667px><img id='30' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/16%20Os%20Env%C3%ADo.mp3:/content','30','Fuego en las entra√±as','Os env√≠o')"></TD>
-<TD width=163,333333333333px>Fuego en las entra√±as</TD>
-<TD width=223,333333333333px>Os env√≠o</TD>
-<TD width=84px><a href='http://ainkarem.es/wordpress/wp-content/uploads/2016/05/16.-OS-ENV%C3%8DO.pdf' target='_blank'>Letra/notas</a></TD>
-<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=10&ver=2&verfin=10' target='_blank'>Lc 10,2-10</a></TD>
-<TD width=84px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Pueblo suyo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/4.-PUEBLO-SUYO-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=40&cap=95&ver=&verfin=' target='_blank'>Sal 95</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Quedas libre</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/6.-QUEDAS-LIBRE-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=13&ver=10&verfin=13' target='_blank'>Lc 13,10-13</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Si le dais posada</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/5.-SI-LE-DAIS-POSADA-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Es mi hermano</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/7.-ES-MI-HERMANO-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=3&ver=34&verfin=35' target='_blank'>Mc 3,34-35</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Jes˙s</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/8.-JES%C3%9AS-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=58&cap=2&ver=10&verfin=' target='_blank'>Flp 2,10</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>El Reino de Dios</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/9.-EL-REINO-DE-DIOS-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=48&cap=13&ver=31&verfin=33' target='_blank'>Mt 13,31-33</a>; <a href='https://pastoralsj.org/biblia/libro?libro=48&cap=13&ver=44&verfin=46' target='_blank'>MT 13,44-46</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Recibid</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/10.-RECIBID-MI-ESP%C3%8DRITU-WEB.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=20&ver=22&verfin=' target='_blank'>Jn 20,22</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>ConfÌa</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/11.-CONF%C3%8DA.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Como t˙</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/12.-COMO-T%C3%9A.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=49&cap=5&ver=28&verfin=' target='_blank'>Mc 5,28</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>PequeÒo Israel</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/13.-PEQUE%C3%91O-ISRAEL.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=25&cap=11&ver=1&verfin=8' target='_blank'>Os 11,1-8</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Vivid en comuniÛn</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/14.-VIVID-EN-COMUNI%C3%93N.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><a href='' target='_blank'> </a></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Vengan a mÌ</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/15.-VENGAN-A-M%C3%8D.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=51&cap=7&ver=37&verfin=38' target='_blank'>Jn 7,37-38</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
+</TR>
+<TR>
+<TD width=35px><img id='30' src="play20.png" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/AinKarem/Fuego%20En%20Las%20Entra%C3%B1as/16%20Os%20Env%C3%ADo.mp3:/content','30','Fuego en las entraÒas','Os envÌo')"></TD>
+<TD width=156px>Fuego en las entraÒas</TD>
+<TD width=213px>Os envÌo</TD>
+<TD width=80px><a href='http://ainkarem.es//wp-content/uploads/2016/05/16.-OS-ENV%C3%8DO.pdf' target='_blank'>Letra/notas</a></TD>
+<TD width=191px><a href='https://pastoralsj.org/biblia/libro?libro=50&cap=10&ver=2&verfin=10' target='_blank'>Lc 10,2-10</a></TD>
+<TD width=80px><a href='http://ainkarem.es' target='_blank'>AinKarem</a></TD>
 </TR>
 <TR>
 <TD> <img src="blank20.png"> </TD>
