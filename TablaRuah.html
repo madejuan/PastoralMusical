@@ -1,0 +1,1421 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>************************************************ */-->
+<style type="text/css" MEDIA=screen>
+div.scroll  {
+   width:100%;
+   overflow-y:scroll;
+   height:310px;
+}
+table
+{
+border-collapse: collapse;
+border-style: solid;
+border-width: 1px;
+border-color: #707070;
+font: 12px Verdana,Helvetica,Sans-serif;
+padding: 0px;
+box-shadow: 1px 1px 3px 1px #6E6D6D;
+}
+th
+{
+color: #FFFFFF;
+background: #DB2C2C;
+background: -moz-linear-gradient(top,#DB2C2C 0%, #571515 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DB2C2C), color-stop(100%,#571515));
+background: -webkit-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: -o-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: -ms-linear-gradient(top,#DB2C2C 0%,#571515 100%);
+background: linear-gradient(top,#DB2C2C 0%,#571515 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DB2C2C',endColorstr='#571515',GradientType=0s);
+font-weight: bold;
+padding: 2px;
+text-align: center;
+vertical-align: top;
+}
+tr
+{
+color: #000000;
+border-top-style: solid;
+border-width: 1px;
+border-color: #707070;
+font-weight: normal;
+}
+tr:nth-child(odd) td
+{
+background: #EBEBEB;
+}
+td
+{
+background: #FFFFFF;
+padding: 2px 1px;
+text-align: left;
+vertical-align: top;
+}
+</style> 
+<style id="inlinecss" type="text/css">
+            /* put a border around the canvas element */
+            #canvas  
+            {
+                border-style:solid; 
+                border-width:1px; 
+                padding:0px; 
+vertical-align: middle;
+            }
+</style>
+<!-- ************************************************ */-->
+<!--  Aquí comienza el Javascript */-->
+<!-- ************************************************ */-->
+<script type="text/javascript">
+            //Variable global para guardar el currentURLmp3
+            var currentURLmp3 = "";
+            //Variable global para guardar el currentID
+            var currentID = "";
+//display and update progress bar
+function progressBar() { 
+        var oAudio = document.getElementById('myaudio'); 
+        //get current time in seconds
+        var elapsedTime = Math.round(oAudio.currentTime);
+       	//Update the clock
+       var duration = document.getElementById('duration');
+       var totalduration = document.getElementById('totalduration');
+       var s = parseInt(oAudio.currentTime % 60);
+       if (s < 10) {s = "0"+s;}
+       var m = parseInt((oAudio.currentTime / 60) % 60); 
+       if (m < 10) {m = "0"+m;}
+       duration.innerHTML = m + ':' + s ;
+       var s = parseInt(oAudio.duration % 60);
+       if (s < 10) {s = "0"+s;}
+       var m = parseInt((oAudio.duration / 60) % 60); 
+       if (m < 10) {m = "0"+m;}
+        totalduration.innerHTML = m + ':' + s;
+        //update the progress bar
+         if (canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+                    //clear canvas before painting
+                    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+                    ctx.fillStyle = "rgb(240,0,0)";
+                    var fWidth = (elapsedTime / oAudio.duration) * (canvas.clientWidth);
+                    if (fWidth > 0) {
+                        ctx.fillRect(0, 0, fWidth, canvas.clientHeight);
+                    }
+          }
+        //Saltar a la siguiente canción
+        if (oAudio.currentTime == oAudio.duration) {    //He llegado al final de la canción
+                       playnext();
+        }
+   }
+ //Play and pause function. Esta es la función en la que empieza a sonar la música de un canto concreto.
+ function playAudio(URLmp3,NewID,NewDisconum,NewNombre ) {
+                try {
+                    //recojo el objeto en HTML5 donde va a estar el mp3 que tiene que sonar
+                    var oAudio = document.getElementById('myaudio'); 
+                    //recojo los parámetros del canto que tengo que reproducir
+                    var btn = document.getElementById(NewID);
+                    var audioURL = URLmp3;               
+                    //Skip loading if current file hasn't changed.
+                    if (audioURL !== currentURLmp3) {    // Un nuevo mp3
+                          if ( !oAudio.paused) {          // Si tenía un ID en marcha
+                                 oAudio.pause();              //Paro el mp3 activo
+                                           }
+                           if (currentID !=="") {
+                        document.getElementById(currentID).src="play20.png";                //Cambio el btn del mp3 activo
+                        document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                                          }
+                        oAudio.src = audioURL;
+                        currentURLmp3 = audioURL;   
+                        currentID = NewID;
+                        disconum.innerHTML = NewDisconum + "/";       // Pongo el Disconnum en la botonera global
+                        nombre.innerHTML = NewNombre + " (" + currentID + "/" + ultimocurrentID + ")";             // Pongo el nombre en la botonera global
+                        // hago el scroll hasta el pixel donde está localizado el canto que tengo que reproducir
+                        var orig = document.getElementById('sctabla').getBoundingClientRect(); //contenedor
+                        var rect = document.getElementById(currentID).getBoundingClientRect(); //elemento
+                        document.getElementById('sctabla').scrollTop+=rect.top-orig.top-3; // pongo el elemento que toca arriba del todo
+                    }
+                    //Tests the paused attribute and set state. 
+                    if (oAudio.paused) {
+                        oAudio.play();
+                         //Cambio el btn del mp3 activo a pause
+                       btn.src="pause20.png"; 
+                        document.getElementById('actu').src="pause20.png";                //Cambio el btn global
+                    }
+                    else {
+                        oAudio.pause();
+                         //Cambio el btn del mp3 activo a play
+                       btn.src="play20.png";      //Cambio el btn del mp3 activo
+                        document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                    }
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                    if (window.console && console.error("Error:" + e));
+                }
+  }
+// playprev function
+function playprev () {
+            if (currentID !== "") {    //Estoy en una canción y puedo ir atrás
+                 if (parseInt(currentID) == 1) {           //si estoy en la primera canción me vol a la última
+                             var oImg =     document.getElementById(ultimocurrentID);
+                              oImg.click();
+                    }
+                 else {   // voy a la anterior
+                             var oImg =     document.getElementById(parseInt(currentID)-1);
+                              oImg.click();
+                           } 
+           }
+           else {   // Si no hay canción empiezo por la última
+                    var oImg =     document.getElementById(ultimocurrentID);
+                    oImg.click();
+                  } 
+   }
+// playactu function
+function playactu () {
+                try {
+                    // Recojo el objeto DOM del elemento Audio en HTML5
+                    var oAudio = document.getElementById('myaudio'); 
+                    // Miro si ya hay un audio cargado
+                    if (currentURLmp3 !== "") {    // Está sonando un mp3
+                             // Miro si está parado o sonando
+                            if (oAudio.paused) {
+                                 oAudio.play();
+                                 document.getElementById(currentID).src="pause20.png";                //Cambio el btn de ID a pause
+                                document.getElementById('actu').src="pause20.png";                //Cambio el btn global
+                             }
+                             else {
+                                 oAudio.pause();
+                                 document.getElementById(currentID).src="play20.png";                //Cambio el btn de ID a play
+                                 document.getElementById('actu').src="play20.png";                //Cambio el btn global
+                             }
+                  }
+                 else {   // voy a la primera
+                             var oImg =     document.getElementById(1);
+                              oImg.click();
+                         }
+                }
+                catch (e) {
+                    // Fail silently but show in F12 developer tools console
+                    if (window.console && console.error("Error:" + e));
+                }
+            }
+// playnext function
+function playnext () {
+            if (currentID !== "") {    //Estoy en una canción y puedo ir adelante
+              if (parseInt(currentID) == ultimocurrentID) {    //si estoy en la última canción me voy a la primera
+                             var oImg =     document.getElementById(1);
+                              oImg.click();
+                    }
+                 else {   // voy a la siguiente
+                             var oImg =     document.getElementById(parseInt(currentID)+1);
+                              oImg.click();
+                           } 
+           }
+           else {   // Si no hay canción empiezo por la primera
+                    var oImg =     document.getElementById(1);
+                    oImg.click();
+                  } 
+          }
+    function T2(Sx) { var x80 = "";  // SIN ACTIVAR
+        for (i = 0; i < Sx.length; i++) {
+            var x81 = Sx.charCodeAt(i); var x82 = x81 ^ 2;
+            x80 = x80 + String.fromCharCode(x82); } return x80; }
+// initEvents function
+function initEvents() {
+                var canvas = document.getElementById('canvas');  
+                var oAudio = document.getElementById('myaudio');
+                //set up event to update the progress bar
+                oAudio.addEventListener("timeupdate", progressBar, true); 
+                //set up mouse click to control position of audio
+                canvas.addEventListener("click", function(e) {
+                    //this might seem redundant, but this these are needed later - make global to remove these
+                    var oAudio = document.getElementById('myaudio'); 
+                    var canvas = document.getElementById('canvas');            
+                    if (!e) {
+                        e = window.event;
+                    } //get the latest windows event if it isn't set
+                    try {
+                        //calculate the current time based on position of mouse cursor in canvas box
+                        var anOffsetX = (e.offsetX !== undefined) ? e.offsetX : (e.layerX - e.target.offsetLeft);
+                        oAudio.currentTime = oAudio.duration * (anOffsetX / canvas.clientWidth);
+                       //  oAudio.currentTime = oAudio.duration * (e.offsetX / canvas.clientWidth);
+                    }
+                   catch (err) {
+                    // Fail silently but show in F12 developer tools console
+                        if (window.console && console.error("Error:" + err));
+                    }
+                }, true);
+            // Si tengo que empezar automáticamente por una canción aleatoria
+            if (sessionStorage.getItem("Ale")=="SI") {
+                sessionStorage.setItem("Ale","");
+                var ale =  Math.floor(Math.random()*(ultimocurrentID)+1);
+                if (ale < 1) {ale = 1;}
+                if (ale > ultimocurrentID) {ale = ultimocurrentID;}
+                var oImg =     document.getElementById(ale);
+                document.getElementById('sctabla').scrollTop=0;  // Pongo la tabla al principio
+                oImg.click();
+                }
+               else { 
+                 if (sessionStorage.getItem("Ale")!==null) {
+                var oImg =     document.getElementById(sessionStorage.getItem("Ale"));
+                sessionStorage.setItem("Ale","");
+                oImg.click();
+                }
+              }
+            }
+//this event gets fired when a page has loaded
+window.addEventListener("DOMContentLoaded", initEvents, false);
+        </script>
+<script type="text/javascript">
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<p style="font-family:verdana,helvetica;font-size:12px;text-align:left">  <a id="duration">00:00</a>/
+<a id="totalduration">00:00 </a>
+<canvas id="canvas" width="200" height="12">
+canvas Not supported
+</canvas>
+<img id='prev' src="prev20.png" onclick="playprev()" style="vertical-align:middle">
+<img id='actu' src="play20.png" onclick="playactu()" style="vertical-align:middle">
+<img id='next' src="next20.png" onclick="playnext()" style="vertical-align:middle">
+<a id="disconum">Disco/Num / </a>
+<a id="nombre">Nombre </a><a href="http://PastoralMusical.org" target="_blank"> PastoralMusical.org</a>
+</p>
+<audio id="myaudio"> HTML5 audio not supported </audio>
+<table>
+<colgroup width="">
+<tr>
+<th width=36,6666666666667px>Play</th>
+<th width=36,6666666666667px>Ytub</th>
+<th width=36,6666666666667px>Spfy</th>
+<th width=164,666666666667px>Disco</th>
+<th width=223,333333333333px>Nombre</th>
+<th width=84px>Letra/notas</th>
+<th width=200px>Citas Bíblicas</th>
+<th width=84px>Autor</th>
+</tr>
+<TR><td colspan=8><div id='sctabla' class='scroll'><table width=100%>
+<TR>
+<TD width=36,6666666666667px><img id='1' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/01SUELTA-EL-TIMON.mp3:/content','1','De frente','Suelta el timón')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Suelta el timón</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='2' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/02HAZME-CONFIAR.mp3:/content','2','De frente','Hazme confiar')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Hazme confiar</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='3' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/03SOY-DE-TI.mp3:/content','3','De frente','Soy de ti')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Soy de ti</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='4' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/04EL-BOLETO.mp3:/content','4','De frente','El boleto')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>El boleto</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='5' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/05MARANATHA.mp3:/content','5','De frente','Maranatha')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Maranatha</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='6' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/06TUYA-Y-NUEVA.mp3:/content','6','De frente','Tuya y nueva')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Tuya y nueva</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='7' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/07NO-OS-PREOCUPEIS.mp3:/content','7','De frente','No os preocupéis')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>No os preocupéis</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='8' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/08SABES-BIEN.mp3:/content','8','De frente','Sabes bien')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Sabes bien</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='9' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/09ALEGRAOS.mp3:/content','9','De frente','Alegraos')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Alegraos</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='10' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/10ENVIANOS-SIN-MIEDO.mp3:/content','10','De frente','Envíanos sin miedo')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Envíanos sin miedo</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='11' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/DeFrente/11AQUI-Y-AHORA.mp3:/content','11','De frente','Aquí y ahora')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>De frente</TD>
+<TD width=223,333333333333px>Aquí y ahora</TD>
+<TD width=84px><a href='https://dedd6a29-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones/cancioneroDEFRENTE.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='12' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/01ADENTRATE.mp3:/content','12','15 olas','Adéntrate')"></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/aWqgzEHIBvs' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Adéntrate</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='13' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/02PEDIDYSEOSDARA.mp3:/content','13','15 olas','Pedid y se os dará')"></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/BG0dJBl5euk' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Pedid y se os dará</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=1' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='14' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/03CADAMANANA.mp3:/content','14','15 olas','Cada mañana')"></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/6A3AS5oavA0' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Cada mañana</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='15' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/04FIJAENTI.mp3:/content','15','15 olas','Fija en ti')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Fija en ti</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='16' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/05TUYNOYO.mp3:/content','16','15 olas','Tú y no yo')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Tú y no yo</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='17' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/06TUMESONDEAS.mp3:/content','17','15 olas','Tú me sondeas')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Tú me sondeas</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=2' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='18' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/07TENCOMPASION.mp3:/content','18','15 olas','Ten compasión')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Ten compasión</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='19' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/08AFUEGO.mp3:/content','19','15 olas','A fuego')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>A fuego</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='20' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/09APRENDIENDO.mp3:/content','20','15 olas','Aprendiendo')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Aprendiendo</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=3' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='21' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/10ALIANZA.mp3:/content','21','15 olas','Alianza')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Alianza</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=4' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='22' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/11GRACIAS.mp3:/content','22','15 olas','Gracias')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Gracias</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=4' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='23' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/12DIOSDELAHISTORIA.mp3:/content','23','15 olas','Dios de la historia')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Dios de la historia</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=5' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='24' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/13PARAESTARCONTIGO.mp3:/content','24','15 olas','Para estar contigo')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Para estar contigo</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=5' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='25' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/14NOLONOTAIS.mp3:/content','25','15 olas','No lo notáis')"></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/ZHqiASVzwpg' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>No lo notáis</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=5' target='_blank'>Letra/notas</a></TD>
+<TD width=200px><a href='https://pastoralsj.org/biblia/libro?libro=22&cap=43&ver=18&verfin=19' target='_blank'>Is 43,18-19</a></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><img id='26' src="play20.png" alt="Play" onclick="playAudio('https://api.onedrive.com/v1.0/shares/s!Av9CQcroByQV3ETGyQj9PAUsinfM/root:/Ruah/15Olas/15MIRAME.mp3:/content','26','15 olas','Mírame')"></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>15 olas</TD>
+<TD width=223,333333333333px>Mírame</TD>
+<TD width=84px><a href='https://56c6562f-a-62cb3a1a-s-sites.googlegroups.com/site/ruahcanciones2/cancionero15OLAS.pdf#page=5' target='_blank'>Letra/notas</a></TD>
+<TD width=200px></TD>
+<TD width=84px><a href='https://ruah-musica.blogspot.com/' target='_blank'>Ruah</a></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/E1dvSpZwsvI' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>Sucedió</TD>
+<TD width=223,333333333333px>¿Quien amó primero?</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px><a href='https://youtu.be/NX8Qj5zB_b4' target='_blank'><img src="yout20.png" alt="Escuchar en Youtube" ></a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px>Sucedió</TD>
+<TD width=223,333333333333px>Por ti, Jerusalén</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD width=36,6666666666667px><a href='' target='_blank'> </a></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=36,6666666666667px></TD>
+<TD width=164,666666666667px></TD>
+<TD width=223,333333333333px>0</TD>
+<TD width=84px></TD>
+<TD width=200px></TD>
+<TD width=84px></TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD> <img src="blank20.png"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+</table>
+</div>
+</tr>
+</table>
+</table>
+<script type="text/javascript">
+            //Variable global para guardar el ultimocurrentID
+            var ultimocurrentID = 27-1 ;
+</script>
