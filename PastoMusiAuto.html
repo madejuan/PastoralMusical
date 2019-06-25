@@ -16,11 +16,11 @@ function GetUrlValue(VarSearch){
 
 window.onload = function() {
 // Espero un par de parámatros con la página y el canto
-// http://dl.dropboxusercontent.com/u/2931762/Pastoramusica/PastoMusiAuto.html?pag=Biblia&can=112
+// https://madejuan.github.io/PastoralMusical/PastoMusiAuto.html?pag=la-biblia-en-cantos&can=112
 
   if (GetUrlValue('can') !== 'undefined' ) {
     sessionStorage.setItem("Ale",GetUrlValue('can'));
-    window.open("https://sites.google.com/site/pastoramusica/Canciones/"+GetUrlValue('pag'),"_top","","false");
+    window.open("https://pastoralmusical.es/"+GetUrlValue('pag'),"_top","","false");
   }
 
 }
